@@ -1,0 +1,473 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Portal - Loyd Ywen Masangcay</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+
+</head>
+
+
+<body class="admin-page">
+
+
+    <!-- =========================
+         ADMIN PORTAL
+    ========================= -->
+
+    <main class="admin-container">
+
+
+        <!-- =========================
+             LEFT / VISUAL PANEL
+        ========================= -->
+
+        <section class="admin-visual-panel">
+
+            <div class="visual-stars"></div>
+
+            <div class="visual-content">
+
+
+                <!-- LOGO -->
+
+                <div class="visual-logo">
+
+                    <img
+                        src="logo.png"
+                        alt="Loyd Ywen Logo">
+
+                </div>
+
+
+                <!-- SMALL TITLE -->
+
+                <p class="visual-small-title">
+                    ADMIN PORTAL
+                </p>
+
+
+                <!-- TITLE -->
+
+                <h1>
+                    Welcome Back
+                </h1>
+
+
+                <!-- DESCRIPTION -->
+
+                <p class="visual-description">
+
+                    Manage your portfolio, gallery,
+                    blog, and website content from one place.
+
+                </p>
+
+
+                <!-- LINE -->
+
+                <div class="visual-line"></div>
+
+
+                <!-- FOOTER -->
+
+                <p class="visual-footer">
+                    Loyd Ywen Masangcay
+                </p>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             RIGHT / LOGIN PANEL
+        ========================= -->
+
+        <section class="admin-login-panel">
+
+
+            <div class="login-content">
+
+
+                <!-- =========================
+                     LOGIN HEADING
+                ========================= -->
+
+                <div class="login-heading">
+
+
+                    <span class="login-badge">
+                        🔐 Secure Access
+                    </span>
+
+
+                    <h2>
+                        Admin Login
+                    </h2>
+
+
+                    <p>
+                        Sign in to continue to your dashboard.
+                    </p>
+
+
+                </div>
+
+
+                <!-- =========================
+                     LOGIN FORM
+                ========================= -->
+
+                <form id="loginForm">
+
+
+                    <!-- =========================
+                         USERNAME
+                    ========================= -->
+
+                    <div class="form-group">
+
+
+                        <label for="adminUsername">
+                            Username
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+
+                            <span class="input-icon">
+                                👤
+                            </span>
+
+
+                            <input
+                                type="text"
+                                id="adminUsername"
+                                placeholder="Enter your username"
+                                value="admin"
+                                autocomplete="username"
+                                required>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- =========================
+                         PASSWORD
+                    ========================= -->
+
+                    <div class="form-group">
+
+
+                        <label for="adminPassword">
+                            Password
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+
+                            <span class="input-icon">
+                                🔒
+                            </span>
+
+
+                            <input
+                                type="password"
+                                id="adminPassword"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required>
+
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="passwordToggle"
+                                aria-label="Show password">
+
+                                👁
+
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- =========================
+                         LOGIN BUTTON
+                    ========================= -->
+
+                    <button
+                        type="submit"
+                        class="admin-submit"
+                        id="loginButton">
+
+
+                        <span id="loginButtonText">
+                            Login to Dashboard
+                        </span>
+
+
+                    </button>
+
+
+                </form>
+
+
+                <!-- =========================
+                     CREATE ADMIN PASSWORD
+                ========================= -->
+
+                <div class="create-admin-password">
+
+
+                    <button
+                        type="button"
+                        class="create-admin-password-button"
+                        id="createAdminPasswordButton">
+
+                        Create Admin Password
+
+                    </button>
+
+
+                </div>
+
+
+                <!-- =========================
+                     CREATE PASSWORD OVERLAY
+                ========================= -->
+
+                <div
+                    class="create-password-overlay"
+                    id="createPasswordOverlay"
+                    hidden>
+
+
+                    <!-- =========================
+                         MODAL
+                    ========================= -->
+
+                    <div
+                        class="create-password-modal"
+                        role="dialog"
+                        aria-modal="true"
+                        aria-labelledby="createPasswordTitle">
+
+
+                        <!-- =========================
+                             CLOSE BUTTON
+                        ========================= -->
+
+                        <button
+                            type="button"
+                            class="create-password-close"
+                            id="closeCreatePassword"
+                            aria-label="Close">
+
+                            ×
+
+                        </button>
+
+
+                        <!-- =========================
+                             HEADING
+                        ========================= -->
+
+                        <div class="create-password-heading">
+
+
+                            <span class="create-password-icon">
+                                🔐
+                            </span>
+
+
+                            <h3 id="createPasswordTitle">
+                                Create Admin Password
+                            </h3>
+
+
+                            <p>
+                                Set the password for the admin account.
+                            </p>
+
+
+                        </div>
+
+
+                        <!-- =========================
+                             CREATE PASSWORD FORM
+                        ========================= -->
+
+                        <form id="createPasswordForm">
+
+
+                            <!-- =========================
+                                 NEW PASSWORD
+                            ========================= -->
+
+                            <div class="form-group">
+
+
+                                <label for="createAdminPassword">
+                                    New Password
+                                </label>
+
+
+                                <div class="input-wrapper">
+
+
+                                    <span class="input-icon">
+                                        🔒
+                                    </span>
+
+
+                                    <input
+                                        type="password"
+                                        id="createAdminPassword"
+                                        placeholder="Enter new password"
+                                        autocomplete="new-password"
+                                        required>
+
+
+                                </div>
+
+
+                            </div>
+
+
+                            <!-- =========================
+                                 CONFIRM PASSWORD
+                            ========================= -->
+
+                            <div class="form-group">
+
+
+                                <label for="confirmAdminPassword">
+                                    Confirm Password
+                                </label>
+
+
+                                <div class="input-wrapper">
+
+
+                                    <span class="input-icon">
+                                        🔒
+                                    </span>
+
+
+                                    <input
+                                        type="password"
+                                        id="confirmAdminPassword"
+                                        placeholder="Confirm your password"
+                                        autocomplete="new-password"
+                                        required>
+
+
+                                </div>
+
+
+                            </div>
+
+
+                            <!-- =========================
+                                 CREATE BUTTON
+                            ========================= -->
+
+                            <button
+                                type="submit"
+                                class="admin-submit"
+                                id="createPasswordButton">
+
+
+                                <span id="createPasswordButtonText">
+                                    Create Password
+                                </span>
+
+
+                            </button>
+
+
+                            <!-- =========================
+                                 CANCEL BUTTON
+                            ========================= -->
+
+                            <button
+                                type="button"
+                                class="cancel-create-password"
+                                id="cancelCreatePassword">
+
+                                Cancel
+
+                            </button>
+
+
+                        </form>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- =========================
+                     MESSAGE
+                ========================= -->
+
+                <p
+                    id="loginMessage"
+                    class="login-message">
+                </p>
+
+
+                <!-- =========================
+                     BACK HOME
+                ========================= -->
+
+                <a
+                    href="index.html"
+                    class="back-home">
+
+                    ← Back to Home
+
+                </a>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         ADMIN JAVASCRIPT
+    ========================= -->
+
+    <script src="admin.js"></script>
+
+
+</body>
+
+</html>
+

@@ -1,0 +1,681 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Messages Management - Loyd Ywen Masangcay</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin-dashboard.css">
+    <link rel="stylesheet" href="admin-messages.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body class="admin-dashboard-page">
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="admin-header">
+
+    <div class="admin-header-container">
+
+
+        <!-- BRAND -->
+
+        <a
+            href="admin-dashboard.html"
+            class="admin-brand">
+
+            <img
+                src="logo.png"
+                alt="Loyd Ywen Logo">
+
+            <div class="admin-brand-text">
+
+                <strong>
+                    Admin Portal
+                </strong>
+
+                <span>
+                    Loyd Ywen Masangcay
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <!-- HEADER ACTIONS -->
+
+        <div class="admin-header-actions">
+
+
+            <!-- DARK MODE -->
+
+            <button
+                type="button"
+                class="dashboard-theme-btn"
+                id="themeToggle"
+                title="Switch Theme">
+
+                <span id="themeIcon">
+                    🌙
+                </span>
+
+            </button>
+
+
+            <!-- VIEW SITE -->
+
+            <a
+                href="index.html"
+                class="view-site-btn">
+
+                View Site
+
+            </a>
+
+
+            <!-- LOGOUT -->
+
+            <button
+                type="button"
+                class="logout-btn"
+                id="logoutButton">
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+     ADMIN LAYOUT
+========================= -->
+
+<div class="admin-layout">
+
+
+    <!-- =========================
+         SIDEBAR
+    ========================= -->
+
+    <aside class="admin-sidebar">
+
+
+        <div class="sidebar-title">
+
+            <span>
+                MANAGEMENT
+            </span>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+
+            <!-- DASHBOARD -->
+
+            <a
+                href="admin-dashboard.html"
+                class="sidebar-link">
+
+                <span class="sidebar-icon">
+                    🏠
+                </span>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <!-- PORTFOLIO -->
+
+            <a
+                href="admin-portfolio.html"
+                class="sidebar-link">
+
+                <span class="sidebar-icon">
+                    💼
+                </span>
+
+                <span>
+                    Portfolio
+                </span>
+
+            </a>
+
+
+            <!-- GALLERY -->
+
+            <a
+                href="admin-gallery.html"
+                class="sidebar-link">
+
+                <span class="sidebar-icon">
+                    🖼️
+                </span>
+
+                <span>
+                    Gallery
+                </span>
+
+            </a>
+
+
+            <!-- BLOG -->
+
+            <a
+                href="admin-blog.html"
+                class="sidebar-link">
+
+                <span class="sidebar-icon">
+                    📝
+                </span>
+
+                <span>
+                    Blog
+                </span>
+
+            </a>
+
+
+            <!-- MESSAGES -->
+
+            <a
+                href="admin-messages.html"
+                class="sidebar-link active">
+
+                <span class="sidebar-icon">
+                    ✉️
+                </span>
+
+                <span>
+                    Messages
+                </span>
+
+            </a>
+
+
+            <!-- SETTINGS -->
+
+            <a
+                href="admin-settings.html"
+                class="sidebar-link">
+
+                <span class="sidebar-icon">
+                    ⚙️
+                </span>
+
+                <span>
+                    Settings
+                </span>
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================= -->
+
+    <main class="admin-content">
+
+        <section class="admin-section">
+
+
+            <!-- =========================
+                 HEADING
+            ========================= -->
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        MESSAGE MANAGEMENT
+                    </span>
+
+                    <h1>
+                        Messages
+                    </h1>
+
+                    <p>
+                        Manage messages submitted through your contact form.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 MESSAGE SUMMARY
+            ========================= -->
+
+            <div class="message-summary">
+
+
+                <!-- TOTAL -->
+
+                <div class="message-summary-card">
+
+                    <div class="message-summary-icon">
+                        ✉️
+                    </div>
+
+                    <div>
+
+                        <span
+                            class="message-summary-number"
+                            id="totalMessages">
+                            0
+                        </span>
+
+                        <span class="message-summary-label">
+                            Total Messages
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- UNREAD -->
+
+                <div class="message-summary-card">
+
+                    <div class="message-summary-icon unread-icon">
+                        ●
+                    </div>
+
+                    <div>
+
+                        <span
+                            class="message-summary-number"
+                            id="unreadMessages">
+                            0
+                        </span>
+
+                        <span class="message-summary-label">
+                            Unread
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- READ -->
+
+                <div class="message-summary-card">
+
+                    <div class="message-summary-icon read-icon">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <span
+                            class="message-summary-number"
+                            id="readMessages">
+                            0
+                        </span>
+
+                        <span class="message-summary-label">
+                            Read
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 MESSAGE TOOLBAR
+            ========================= -->
+
+            <div class="message-toolbar">
+
+
+                <!-- SEARCH -->
+
+                <div class="message-search-box">
+
+                    <span>
+                        🔍
+                    </span>
+
+                    <input
+                        type="text"
+                        id="messageSearch"
+                        placeholder="Search messages...">
+
+                </div>
+
+
+                <!-- FILTER -->
+
+                <select
+                    id="messageFilter"
+                    class="message-filter">
+
+                    <option value="all">
+                        All Messages
+                    </option>
+
+                    <option value="unread">
+                        Unread
+                    </option>
+
+                    <option value="read">
+                        Read
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- =========================
+                 MESSAGE TABLE
+            ========================= -->
+
+            <div class="message-table-card">
+
+                <div class="message-table-wrapper">
+
+                    <table class="message-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    SENDER
+                                </th>
+
+                                <th>
+                                    EMAIL
+                                </th>
+
+                                <th>
+                                    SUBJECT
+                                </th>
+
+                                <th>
+                                    DATE
+                                </th>
+
+                                <th>
+                                    STATUS
+                                </th>
+
+                                <th>
+                                    ACTION
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="messageTableBody">
+
+                        </tbody>
+
+                    </table>
+
+
+                    <!-- EMPTY STATE -->
+
+                    <div
+                        class="message-empty"
+                        id="noMessages">
+
+                        <div class="message-empty-icon">
+                            ✉️
+                        </div>
+
+                        <h3>
+                            No Messages Yet
+                        </h3>
+
+                        <p>
+                            Messages submitted through your contact form will appear here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<!-- =========================
+     MESSAGE VIEW MODAL
+========================= -->
+
+<div
+    class="message-modal-overlay"
+    id="messageModal">
+
+    <div class="message-modal">
+
+
+        <!-- MODAL HEADER -->
+
+        <div class="message-modal-header">
+
+            <div>
+
+                <span class="modal-label">
+                    MESSAGE
+                </span>
+
+                <h2>
+                    Message Details
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="message-modal-close"
+                id="closeMessageModal">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+
+        <!-- SENDER DETAILS -->
+
+        <div class="message-sender-details">
+
+            <div class="message-avatar" id="modalAvatar">
+                ?
+            </div>
+
+            <div>
+
+                <h3 id="modalName">
+                    Sender Name
+                </h3>
+
+                <p id="modalEmail">
+                    email@example.com
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- MESSAGE INFORMATION -->
+
+        <div class="message-info-grid">
+
+
+            <div class="message-info-item">
+
+                <span>
+                    Subject
+                </span>
+
+                <strong id="modalSubject">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="message-info-item">
+
+                <span>
+                    Date
+                </span>
+
+                <strong id="modalDate">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="message-info-item">
+
+                <span>
+                    Status
+                </span>
+
+                <strong id="modalStatus">
+                    —
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- MESSAGE CONTENT -->
+
+        <div class="message-content-box">
+
+            <span>
+                Message
+            </span>
+
+            <p id="modalMessage">
+            </p>
+
+        </div>
+
+
+
+        <!-- MODAL ACTIONS -->
+
+        <div class="message-modal-actions">
+
+            <button
+                type="button"
+                class="message-read-btn"
+                id="markReadButton">
+
+                Mark as Read
+
+            </button>
+
+            <button
+                type="button"
+                class="message-delete-btn"
+                id="deleteMessageButton">
+
+                Delete
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="admin-footer">
+
+    <p>
+        &copy; 2026 Loyd Ywen Masangcay. Admin Panel.
+    </p>
+
+</footer>
+
+
+
+<!-- =========================
+     SUPABASE
+========================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script src="admin-messages.js"></script>
+
+
+</body>
+
+</html>

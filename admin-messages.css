@@ -1,0 +1,1277 @@
+
+/* =========================================================
+   ADMIN MESSAGES
+========================================================= */
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.admin-messages-page {
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.admin-messages-page .admin-section {
+    width: 100%;
+}
+
+.admin-messages-page .section-heading {
+    margin-bottom: 35px;
+}
+
+.admin-messages-page .section-heading h1 {
+    margin: 8px 0 8px;
+    font-family: "Playfair Display", serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.admin-messages-page .section-heading p {
+    margin: 0;
+    color: #6b7280;
+    font-family: "Nunito", sans-serif;
+    font-size: 15px;
+}
+
+.admin-messages-page .section-label {
+    display: inline-block;
+    color: #008080;
+    font-family: "DM Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+
+/* =========================================================
+   MESSAGE SUMMARY
+========================================================= */
+
+.message-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.message-summary-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    min-height: 105px;
+    padding: 22px;
+
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.message-summary-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================================
+   SUMMARY ICON
+========================================================= */
+
+.message-summary-icon {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background: #e6f5f5;
+    border-radius: 14px;
+
+    color: #008080;
+    font-size: 22px;
+}
+
+.unread-icon {
+    font-size: 24px;
+}
+
+.read-icon {
+    font-size: 22px;
+}
+
+
+/* =========================================================
+   SUMMARY TEXT
+========================================================= */
+
+.message-summary-number {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #1f2937;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.message-summary-label {
+    display: block;
+
+    color: #6b7280;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   TOOLBAR
+========================================================= */
+
+.message-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.message-search-box {
+    width: 100%;
+    max-width: 420px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 0 15px;
+
+    background: #ffffff;
+
+    border: 1px solid #dfe4e8;
+    border-radius: 10px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.message-search-box span {
+    font-size: 15px;
+    opacity: 0.65;
+}
+
+.message-search-box input {
+    width: 100%;
+    height: 46px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #1f2937;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+}
+
+.message-search-box input::placeholder {
+    color: #9ca3af;
+}
+
+.message-search-box:focus-within {
+    border-color: #008080;
+
+    box-shadow:
+        0 0 0 3px rgba(0, 128, 128, 0.08);
+}
+
+
+/* =========================================================
+   FILTER
+========================================================= */
+
+.message-filter {
+    min-width: 170px;
+    height: 46px;
+
+    padding: 0 14px;
+
+    background: #ffffff;
+
+    border: 1px solid #dfe4e8;
+    border-radius: 10px;
+
+    outline: none;
+
+    color: #374151;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.message-filter:focus {
+    border-color: #008080;
+
+    box-shadow:
+        0 0 0 3px rgba(0, 128, 128, 0.08);
+}
+
+
+/* =========================================================
+   TABLE CARD
+========================================================= */
+
+.message-table-card {
+    width: 100%;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.05);
+}
+
+.message-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.message-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    font-family: "Nunito", sans-serif;
+}
+
+.message-table thead {
+    background: #f7f9f9;
+}
+
+.message-table th {
+    padding: 16px 18px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    color: #6b7280;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+
+    text-align: left;
+    white-space: nowrap;
+}
+
+.message-table td {
+    padding: 17px 18px;
+
+    border-bottom: 1px solid #edf0f1;
+
+    color: #374151;
+
+    font-size: 14px;
+
+    vertical-align: middle;
+}
+
+.message-table tbody tr {
+    transition: background 0.2s ease;
+}
+
+.message-table tbody tr:hover {
+    background: #fafcfc;
+}
+
+.message-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   SENDER
+========================================================= */
+
+.message-sender {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    min-width: 170px;
+}
+
+.message-sender-avatar {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #e6f5f5;
+
+    color: #008080;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.message-sender-info {
+    min-width: 0;
+}
+
+.message-sender-name {
+    display: block;
+
+    overflow: hidden;
+
+    color: #1f2937;
+
+    font-weight: 700;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.message-sender-preview {
+    display: block;
+
+    margin-top: 2px;
+
+    overflow: hidden;
+
+    color: #9ca3af;
+
+    font-size: 12px;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   EMAIL
+========================================================= */
+
+.message-email {
+    max-width: 210px;
+
+    overflow: hidden;
+
+    color: #6b7280;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   SUBJECT
+========================================================= */
+
+.message-subject {
+    max-width: 220px;
+
+    overflow: hidden;
+
+    color: #374151;
+
+    font-weight: 600;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.message-unread .message-subject {
+    color: #1f2937;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.message-date {
+    color: #6b7280;
+
+    white-space: nowrap;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.message-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 6px 11px;
+
+    border-radius: 20px;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+.message-status.unread {
+    background: #fff4cf;
+    color: #8a6500;
+}
+
+.message-status.read {
+    background: #e8f5ef;
+    color: #28734a;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.message-actions {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.message-action-btn {
+    width: 34px;
+    height: 34px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #e1e5e7;
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #59636e;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.message-action-btn:hover {
+    transform: translateY(-1px);
+
+    border-color: #008080;
+
+    background: #e6f5f5;
+
+    color: #008080;
+}
+
+.message-action-btn.delete:hover {
+    border-color: #dc5c5c;
+
+    background: #fff0f0;
+
+    color: #c43f3f;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.message-empty {
+    display: none;
+
+    padding: 70px 25px;
+
+    text-align: center;
+}
+
+.message-empty.show {
+    display: block;
+}
+
+.message-empty-icon {
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 18px;
+
+    border-radius: 18px;
+
+    background: #e6f5f5;
+
+    color: #008080;
+
+    font-size: 28px;
+}
+
+.message-empty h3 {
+    margin: 0 0 7px;
+
+    color: #374151;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.message-empty p {
+    max-width: 420px;
+
+    margin: 0 auto;
+
+    color: #8a929a;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   MODAL OVERLAY
+========================================================= */
+
+.message-modal-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background: rgba(15, 23, 42, 0.55);
+
+    backdrop-filter: blur(4px);
+}
+
+.message-modal-overlay.show {
+    display: flex;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.message-modal {
+    width: 100%;
+    max-width: 650px;
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.2);
+
+    animation: messageModalOpen 0.25s ease;
+}
+
+@keyframes messageModalOpen {
+
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   MODAL HEADER
+========================================================= */
+
+.message-modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 25px 27px 20px;
+
+    border-bottom: 1px solid #edf0f1;
+}
+
+.message-modal-header .modal-label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #008080;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+}
+
+.message-modal-header h2 {
+    margin: 0;
+
+    color: #1f2937;
+
+    font-family: "Playfair Display", serif;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.message-modal-close {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #f2f4f5;
+
+    color: #5f6872;
+
+    font-size: 25px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.message-modal-close:hover {
+    background: #e7eeee;
+    color: #008080;
+}
+
+
+/* =========================================================
+   SENDER DETAILS
+========================================================= */
+
+.message-sender-details {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 23px 27px;
+}
+
+.message-avatar {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #e6f5f5;
+
+    color: #008080;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.message-sender-details h3 {
+    margin: 0 0 3px;
+
+    color: #1f2937;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.message-sender-details p {
+    margin: 0;
+
+    color: #7a838d;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   MESSAGE INFO
+========================================================= */
+
+.message-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+
+    padding: 0 27px 20px;
+}
+
+.message-info-item {
+    padding: 13px 14px;
+
+    background: #f7f9f9;
+
+    border-radius: 10px;
+}
+
+.message-info-item span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #8a929a;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+}
+
+.message-info-item strong {
+    display: block;
+
+    overflow: hidden;
+
+    color: #374151;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   MESSAGE CONTENT
+========================================================= */
+
+.message-content-box {
+    margin: 0 27px;
+
+    padding: 19px;
+
+    background: #fafbfb;
+
+    border: 1px solid #edf0f1;
+    border-radius: 12px;
+}
+
+.message-content-box > span {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #6b7280;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+}
+
+.message-content-box p {
+    margin: 0;
+
+    color: #374151;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    line-height: 1.75;
+
+    white-space: pre-wrap;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   MODAL ACTIONS
+========================================================= */
+
+.message-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    padding: 22px 27px 27px;
+}
+
+.message-read-btn,
+.message-delete-btn {
+    min-height: 40px;
+
+    padding: 0 17px;
+
+    border-radius: 9px;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.message-read-btn {
+    border: 1px solid #008080;
+
+    background: #008080;
+
+    color: #ffffff;
+}
+
+.message-read-btn:hover {
+    background: #006f6f;
+    border-color: #006f6f;
+}
+
+.message-delete-btn {
+    border: 1px solid #e2caca;
+
+    background: #ffffff;
+
+    color: #c43f3f;
+}
+
+.message-delete-btn:hover {
+    background: #fff1f1;
+
+    border-color: #d88a8a;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark-mode .admin-messages-page .section-heading p {
+    color: #b7c0c8;
+}
+
+body.dark-mode .admin-messages-page .section-heading h1 {
+    color: #f1f4f6;
+}
+
+body.dark-mode .admin-messages-page .section-label {
+    color: #52baba;
+}
+
+
+/* SUMMARY */
+
+body.dark-mode .message-summary-card {
+    background: #25343d;
+
+    border-color: #354650;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.16);
+}
+
+body.dark-mode .message-summary-icon {
+    background: #29464b;
+    color: #63caca;
+}
+
+body.dark-mode .message-summary-number {
+    color: #f1f4f6;
+}
+
+body.dark-mode .message-summary-label {
+    color: #aeb9c1;
+}
+
+
+/* TOOLBAR */
+
+body.dark-mode .message-search-box {
+    background: #25343d;
+
+    border-color: #3a4b55;
+}
+
+body.dark-mode .message-search-box input {
+    color: #edf2f4;
+}
+
+body.dark-mode .message-search-box input::placeholder {
+    color: #8998a2;
+}
+
+body.dark-mode .message-filter {
+    background: #25343d;
+
+    border-color: #3a4b55;
+
+    color: #edf2f4;
+}
+
+
+/* TABLE */
+
+body.dark-mode .message-table-card {
+    background: #25343d;
+
+    border-color: #354650;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.16);
+}
+
+body.dark-mode .message-table thead {
+    background: #202e36;
+}
+
+body.dark-mode .message-table th {
+    border-color: #354650;
+    color: #9eabb4;
+}
+
+body.dark-mode .message-table td {
+    border-color: #354650;
+    color: #c8d1d6;
+}
+
+body.dark-mode .message-table tbody tr:hover {
+    background: #2b3c45;
+}
+
+body.dark-mode .message-sender-avatar {
+    background: #29464b;
+    color: #63caca;
+}
+
+body.dark-mode .message-sender-name,
+body.dark-mode .message-subject {
+    color: #edf2f4;
+}
+
+body.dark-mode .message-sender-preview,
+body.dark-mode .message-email,
+body.dark-mode .message-date {
+    color: #99a7af;
+}
+
+body.dark-mode .message-action-btn {
+    background: #293941;
+
+    border-color: #41515a;
+
+    color: #c4cdd2;
+}
+
+body.dark-mode .message-action-btn:hover {
+    background: #29464b;
+
+    border-color: #52baba;
+
+    color: #63caca;
+}
+
+
+/* EMPTY */
+
+body.dark-mode .message-empty h3 {
+    color: #edf2f4;
+}
+
+body.dark-mode .message-empty p {
+    color: #9eabb4;
+}
+
+body.dark-mode .message-empty-icon {
+    background: #29464b;
+    color: #63caca;
+}
+
+
+/* MODAL */
+
+body.dark-mode .message-modal {
+    background: #25343d;
+}
+
+body.dark-mode .message-modal-header {
+    border-color: #354650;
+}
+
+body.dark-mode .message-modal-header h2 {
+    color: #f1f4f6;
+}
+
+body.dark-mode .message-modal-close {
+    background: #30414a;
+    color: #c1cbd0;
+}
+
+body.dark-mode .message-modal-close:hover {
+    background: #38515b;
+    color: #63caca;
+}
+
+body.dark-mode .message-sender-details h3 {
+    color: #f1f4f6;
+}
+
+body.dark-mode .message-sender-details p {
+    color: #9eabb4;
+}
+
+body.dark-mode .message-avatar {
+    background: #29464b;
+    color: #63caca;
+}
+
+body.dark-mode .message-info-item {
+    background: #202e36;
+}
+
+body.dark-mode .message-info-item span {
+    color: #8998a2;
+}
+
+body.dark-mode .message-info-item strong {
+    color: #dce3e7;
+}
+
+body.dark-mode .message-content-box {
+    background: #202e36;
+
+    border-color: #354650;
+}
+
+body.dark-mode .message-content-box > span {
+    color: #9eabb4;
+}
+
+body.dark-mode .message-content-box p {
+    color: #d0d8dc;
+}
+
+body.dark-mode .message-delete-btn {
+    background: transparent;
+
+    border-color: #704646;
+
+    color: #e58c8c;
+}
+
+body.dark-mode .message-delete-btn:hover {
+    background: #442f2f;
+
+    border-color: #8a5555;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .message-table {
+        min-width: 900px;
+    }
+
+    .message-table-wrapper {
+        overflow-x: auto;
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .message-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .message-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .message-search-box {
+        max-width: none;
+    }
+
+    .message-filter {
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .admin-messages-page .section-heading h1 {
+        font-size: 34px;
+    }
+
+    .admin-messages-page .section-heading p {
+        font-size: 14px;
+    }
+
+    .message-summary-card {
+        min-height: 90px;
+        padding: 18px;
+    }
+
+    .message-summary-icon {
+        width: 46px;
+        height: 46px;
+    }
+
+    .message-summary-number {
+        font-size: 24px;
+    }
+
+    .message-modal-overlay {
+        padding: 12px;
+    }
+
+    .message-modal {
+        max-height: 94vh;
+
+        border-radius: 15px;
+    }
+
+    .message-modal-header {
+        padding: 20px;
+    }
+
+    .message-modal-header h2 {
+        font-size: 24px;
+    }
+
+    .message-sender-details {
+        padding: 20px;
+    }
+
+    .message-info-grid {
+        grid-template-columns: 1fr;
+
+        padding: 0 20px 18px;
+    }
+
+    .message-content-box {
+        margin: 0 20px;
+    }
+
+    .message-modal-actions {
+        flex-direction: column;
+
+        padding: 20px;
+    }
+
+    .message-read-btn,
+    .message-delete-btn {
+        width: 100%;
+    }
+
+}

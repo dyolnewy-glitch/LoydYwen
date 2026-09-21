@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+
+>
+
+<title>
+    Blog - Loyd Ywen Masangcay
+</title>
+
+<link
+    rel="stylesheet"
+    href="style.css"
+>
+
+<link
+    rel="stylesheet"
+    href="blog.css"
+>
+
+</head>
+
+<body>
+
+<!-- =====================================
+     HEADER
+===================================== -->
+
+<header>
+
+<div class="container">
+
+<div
+    class="logo theme-toggle"
+    id="themeToggle"
+>
+
+<img
+id="themeLogo"
+src="logo.png"
+alt="Theme Toggle"
+
+>
+
+<span id="themeLabel">
+    Light Mode
+</span>
+
+</div>
+
+<!-- HAMBURGER MENU -->
+
+<div
+    class="menu-toggle"
+    onclick="toggleMenu(this)"
+>
+
+<span></span> <span></span> <span></span>
+
+</div>
+
+<nav>
+
+<ul>
+
+<li>
+<a href="index.html">
+Home
+</a>
+</li>
+
+<li>
+<a href="about.html">
+About Me
+</a>
+</li>
+
+<li>
+<a href="skills.html">
+Skills
+</a>
+</li>
+
+<li>
+<a href="portfolio.html">
+Portfolio
+</a>
+</li>
+
+<li>
+<a href="gallery.html">
+Gallery
+</a>
+</li>
+
+<li>
+<a
+    href="blog.html"
+    class="active"
+>
+Blog
+</a>
+</li>
+
+<li>
+<a href="contact.html">
+Contact
+</a>
+</li>
+
+</ul>
+
+</nav>
+
+</div>
+
+</header>
+
+<!-- =====================================
+     BLOG SECTION
+===================================== -->
+
+<section class="blog">
+
+<!-- =====================================
+     BLOG HEADER
+===================================== -->
+
+<div class="blog-heading">
+
+<div class="blog-title-row">
+
+<div class="blog-title-text">
+
+<h1>
+My Blog
+</h1>
+
+<p>
+Sharing my experiences, projects, achievements, and ideas.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =====================================
+     SEARCH AND FILTER
+===================================== -->
+
+<div class="blog-tools">
+
+<input
+type="text"
+id="search"
+placeholder="Search Blog..."
+autocomplete="off"
+
+>
+
+<select
+id="filterCategory"
+
+>
+
+<option value="All">
+All Category
+</option>
+
+<option value="School Experience">
+School Experience
+</option>
+
+<option value="Project">
+Project
+</option>
+
+<option value="Technology">
+Technology
+</option>
+
+<option value="Design & Creativity">
+Design & Creativity
+</option>
+
+<option value="OJT Experience">
+OJT Experience
+</option>
+
+<option value="Personal">
+Personal
+</option>
+
+<option value="Others">
+Others
+</option>
+
+</select>
+
+</div>
+
+<!-- =====================================
+     FEATURED BLOG
+===================================== -->
+
+<h2 class="section-title">
+Featured Blog
+</h2>
+
+<div
+    id="featuredContainer"
+>
+</div>
+
+<!-- =====================================
+     LATEST BLOG
+===================================== -->
+
+<h2 class="section-title">
+Latest Blogs
+</h2>
+
+<div
+    class="blog-container"
+    id="blogContainer"
+>
+</div>
+
+<div
+    id="noBlog"
+    style="display:none;"
+>
+
+No Blog Found
+
+</div>
+
+</section>
+
+<!-- =====================================
+     BLOG PREVIEW OVERLAY
+===================================== -->
+
+<div
+    class="blog-overlay"
+    id="blogOverlay"
+    style="display:none;"
+>
+</div>
+
+<div
+    class="blog-preview"
+    id="blogPreview"
+    style="display:none;"
+>
+</div>
+
+<!-- =====================================
+     FOOTER
+===================================== -->
+
+<footer>
+
+<div class="container footer-container">
+
+<p>
+&copy; 2026 Loyd Ywen Masangcay. All rights reserved.
+</p>
+
+<div class="social-links">
+
+<a
+href="https://www.facebook.com/LoydieeWen"
+target="_blank"
+
+>
+
+Facebook </a>
+
+<a
+href="https://www.instagram.com/ywen_masangcay"
+target="_blank"
+
+>
+
+Instagram </a>
+
+<a
+href="https://www.tiktok.com/@wehn_26"
+target="_blank"
+
+>
+
+TikTok </a>
+
+</div>
+
+</div>
+
+</footer>
+
+<!-- =====================================
+     HEADER MENU
+===================================== -->
+
+<script>
+
+function toggleMenu(menu) {
+
+const nav =
+document.querySelector("header nav");
+
+nav.classList.toggle("show");
+
+menu.classList.toggle("active");
+
+}
+
+
+document
+.querySelectorAll("nav ul li a")
+.forEach(link => {
+
+link.addEventListener(
+    "click",
+    () => {
+
+        const nav =
+        document.querySelector(
+            "header nav"
+        );
+
+        const menu =
+        document.querySelector(
+            ".menu-toggle"
+        );
+
+        nav.classList.remove(
+            "show"
+        );
+
+        menu.classList.remove(
+            "active"
+        );
+
+    }
+);
+
+});
+
+</script>
+
+<!-- =====================================
+     SUPABASE
+===================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- =====================================
+     BLOG JS
+===================================== -->
+
+<script src="blog.js"></script>
+
+<!-- =====================================
+     DARK MODE
+===================================== -->
+
+<script src="darkmode.js"></script>
+
+</body>
+
+</html>

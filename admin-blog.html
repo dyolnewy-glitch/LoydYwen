@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Admin Blog | Loyd Ywen Masangcay</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin-dashboard.css">
+    <link rel="stylesheet" href="admin-blog.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body class="admin-dashboard-page">
+
+
+<!-- =====================================================
+     ADMIN HEADER
+===================================================== -->
+
+<header class="admin-header">
+
+    <div class="admin-header-container">
+
+        <a
+            href="admin-dashboard.html"
+            class="admin-brand"
+        >
+
+            <img
+                src="logo.png"
+                alt="Loyd Ywen Logo"
+            >
+
+            <div class="admin-brand-text">
+
+                <strong>Admin Portal</strong>
+
+                <span>
+                    Loyd Ywen Masangcay
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <div class="admin-header-actions">
+
+            <button
+                type="button"
+                class="dashboard-theme-btn"
+                id="themeToggle"
+                title="Switch Theme"
+            >
+
+                <span id="themeIcon">
+                    🌙
+                </span>
+
+            </button>
+
+
+            <a
+                href="index.html"
+                class="view-site-btn"
+            >
+                View Site
+            </a>
+
+
+            <button
+                type="button"
+                class="logout-btn"
+                id="logoutButton"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     ADMIN LAYOUT
+===================================================== -->
+
+<div class="admin-layout">
+
+
+    <!-- =================================================
+         SIDEBAR
+    ================================================== -->
+
+    <aside class="admin-sidebar">
+
+        <div class="sidebar-title">
+
+            <span>
+                MANAGEMENT
+            </span>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+
+            <a
+                href="admin-dashboard.html"
+                class="sidebar-link"
+            >
+
+                <span class="sidebar-icon">
+                    🏠
+                </span>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <a
+                href="admin-portfolio.html"
+                class="sidebar-link"
+            >
+
+                <span class="sidebar-icon">
+                    💼
+                </span>
+
+                <span>
+                    Portfolio
+                </span>
+
+            </a>
+
+
+            <a
+                href="admin-gallery.html"
+                class="sidebar-link"
+            >
+
+                <span class="sidebar-icon">
+                    🖼️
+                </span>
+
+                <span>
+                    Gallery
+                </span>
+
+            </a>
+
+
+            <a
+                href="admin-blog.html"
+                class="sidebar-link active"
+            >
+
+                <span class="sidebar-icon">
+                    📝
+                </span>
+
+                <span>
+                    Blog
+                </span>
+
+            </a>
+
+
+            <a
+                href="admin-messages.html"
+                class="sidebar-link"
+            >
+
+                <span class="sidebar-icon">
+                    ✉️
+                </span>
+
+                <span>
+                    Messages
+                </span>
+
+            </a>
+
+
+            <a
+                href="admin-settings.html"
+                class="sidebar-link"
+            >
+
+                <span class="sidebar-icon">
+                    ⚙️
+                </span>
+
+                <span>
+                    Settings
+                </span>
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+
+    <!-- =================================================
+         MAIN CONTENT
+    ================================================== -->
+
+    <main class="admin-content">
+
+        <section class="admin-section">
+
+
+            <!-- =========================================
+                 SECTION HEADING
+            ========================================== -->
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        BLOG MANAGEMENT
+                    </span>
+
+                    <h1>
+                        Blog
+                    </h1>
+
+                    <p>
+                        Create and manage your website blog posts.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="admin-add-btn"
+                    id="addBlogButton"
+                >
+
+                    + Add Blog
+
+                </button>
+
+            </div>
+
+
+
+            <!-- =========================================
+                 CATEGORY FILTER
+            ========================================== -->
+
+            <div class="blog-filter-bar">
+
+                <label for="blogCategoryFilter">
+                    Filter by Category
+                </label>
+
+                <select id="blogCategoryFilter">
+
+                    <option value="All Categories">
+                        All Categories
+                    </option>
+
+                    <option value="School Experience">
+                        School Experience
+                    </option>
+
+                    <option value="Project">
+                        Project
+                    </option>
+
+                    <option value="Technology">
+                        Technology
+                    </option>
+
+                    <option value="Design & Creativity">
+                        Design & Creativity
+                    </option>
+
+                    <option value="OJT Experience">
+                        OJT Experience
+                    </option>
+
+                    <option value="Personal">
+                        Personal
+                    </option>
+
+                    <option value="Others">
+                        Others
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- =========================================
+                 BLOG TABLE
+            ========================================== -->
+
+            <div class="admin-table-wrapper">
+
+                <table class="admin-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Image
+                            </th>
+
+                            <th>
+                                Title
+                            </th>
+
+                            <th>
+                                Category
+                            </th>
+
+                            <th>
+                                Date
+                            </th>
+
+                            <th>
+                                Featured
+                            </th>
+
+                            <th>
+                                Actions
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="blogTableBody">
+                    </tbody>
+
+                </table>
+
+
+                <div
+                    id="noBlogItems"
+                    class="admin-empty"
+                >
+
+                    No blog posts yet.
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<!-- =====================================================
+     BLOG MODAL
+===================================================== -->
+
+<div
+    class="admin-modal"
+    id="blogModal"
+>
+
+    <div class="admin-modal-content">
+
+
+        <div class="admin-modal-header">
+
+            <div>
+
+                <span class="section-label">
+                    BLOG POST
+                </span>
+
+                <h2 id="blogModalTitle">
+                    Add Blog
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="modal-close"
+                id="closeBlogModal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+
+        <!-- =============================================
+             FORM
+        ============================================== -->
+
+        <form
+            id="blogForm"
+            class="admin-form"
+        >
+
+
+            <!-- TITLE -->
+
+            <div class="form-group">
+
+                <label for="blogTitle">
+                    Blog Title
+                </label>
+
+                <input
+                    type="text"
+                    id="blogTitle"
+                    placeholder="Enter blog title"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- IMAGE -->
+
+            <div class="form-group">
+
+                <label for="blogImage">
+                    Image Upload
+                </label>
+
+                <input
+                    type="file"
+                    id="blogImage"
+                    accept="image/*"
+                >
+
+                <small>
+                    Upload an image or use the filename/path below.
+                </small>
+
+            </div>
+
+
+
+            <!-- IMAGE PATH -->
+
+            <div class="form-group">
+
+                <label for="blogImagePath">
+                    Image Filename / Path
+                </label>
+
+                <input
+                    type="text"
+                    id="blogImagePath"
+                    placeholder="example.jpg or assets/image/example.jpg"
+                >
+
+            </div>
+
+
+
+            <!-- PREVIEW -->
+
+            <div
+                class="blog-image-preview-box"
+                id="blogImagePreviewBox"
+            >
+
+                <img
+                    id="blogImagePreview"
+                    alt="Blog preview"
+                >
+
+                <span id="blogImagePlaceholder">
+                    Image Preview
+                </span>
+
+            </div>
+
+
+
+            <!-- CATEGORY -->
+
+            <div class="form-group">
+
+                <label for="blogCategory">
+                    Category
+                </label>
+
+                <select
+                    id="blogCategory"
+                    required
+                >
+
+                    <option value="">
+                        Select Category
+                    </option>
+
+                    <option value="School Experience">
+                        School Experience
+                    </option>
+
+                    <option value="Project">
+                        Project
+                    </option>
+
+                    <option value="Technology">
+                        Technology
+                    </option>
+
+                    <option value="Design & Creativity">
+                        Design & Creativity
+                    </option>
+
+                    <option value="OJT Experience">
+                        OJT Experience
+                    </option>
+
+                    <option value="Personal">
+                        Personal
+                    </option>
+
+                    <option value="Others">
+                        Others
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- DATE -->
+
+            <div class="form-group">
+
+                <label for="blogDate">
+                    Date
+                </label>
+
+                <input
+                    type="date"
+                    id="blogDate"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- FEATURED -->
+
+            <div class="form-group form-checkbox">
+
+                <label>
+
+                    <input
+                        type="checkbox"
+                        id="blogFeatured"
+                    >
+
+                    <span>
+                        Featured Blog
+                    </span>
+
+                </label>
+
+            </div>
+
+
+
+            <!-- CONTENT -->
+
+            <div class="form-group">
+
+                <label for="blogContent">
+                    Blog Content
+                </label>
+
+                <textarea
+                    id="blogContent"
+                    rows="10"
+                    placeholder="Write your blog content here..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+
+            <!-- ACTIONS -->
+
+            <div class="admin-form-actions">
+
+                <button
+                    type="button"
+                    class="modal-cancel-btn"
+                    id="cancelBlogButton"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="modal-save-btn"
+                >
+                    Save Blog
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="admin-footer">
+
+    <p>
+        &copy; 2026 Loyd Ywen Masangcay. Admin Panel.
+    </p>
+
+</footer>
+
+
+
+<!-- =====================================================
+     SUPABASE
+===================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="admin-blog.js"></script>
+
+
+</body>
+
+</html>

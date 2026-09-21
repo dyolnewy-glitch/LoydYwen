@@ -1,0 +1,672 @@
+
+/* =====================================
+   ABOUT SECTION
+===================================== */
+
+.about-section {
+    margin-top: 0;
+    padding: 0 20px 70px;
+    background: #D6DEDC;
+}
+
+
+.about-container {
+    max-width: 1100px;
+    margin: auto;
+    background: #E3E9E7;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+
+/* =====================================
+   TITLE
+===================================== */
+
+.about-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+
+/* =====================================
+   ABOUT ME TITLE
+===================================== */
+
+.about-title h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: #008080;
+    margin: 0;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+
+/* =====================================
+   EDIT BUTTON
+===================================== */
+
+.edit-btn {
+    background: #008080;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    transition: .3s;
+}
+
+
+.edit-btn:hover {
+    background: #006666;
+}
+
+
+/* =====================================
+   IMAGE + TEXT
+===================================== */
+
+.about-main {
+    display: flex;
+    gap: 45px;
+    align-items: flex-start;
+}
+
+
+/* =====================================
+   IMAGE
+===================================== */
+
+.about-image {
+    width: min(28vw, 280px);
+    min-width: 180px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+
+.about-image img {
+    width: 100%;
+    aspect-ratio: 250 / 330;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 18px;
+    border: 5px solid #E3E9E7;
+    box-shadow: 0 8px 20px rgba(0,0,0,.15);
+    display: block;
+}
+
+
+/* =====================================
+   CHANGE PHOTO BUTTON
+===================================== */
+
+.change-photo-btn {
+    display: block;
+    margin: 15px auto 0;
+    width: 100%;
+    padding: 10px 18px;
+
+    background: #008080;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+
+    transition: .3s;
+}
+
+
+.change-photo-btn:hover {
+    background: #006666;
+}
+
+
+/* =====================================
+   ABOUT TEXT
+===================================== */
+
+.about-text {
+    flex: 1;
+    min-width: 0;
+}
+
+
+.about-text p {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+
+/* =====================================
+   HIGHLIGHTED TEXT
+   ABOUT ME + FUN FACTS
+===================================== */
+
+.about-text strong,
+.funfacts strong {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    color: #008080;
+    letter-spacing: 0.3px;
+}
+
+
+/* =====================================
+   FUN FACTS SECTION
+===================================== */
+
+.funfacts {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 2px solid #cbd5d2;
+}
+
+
+/* =====================================
+   FUN FACTS ABOUT ME TITLE
+===================================== */
+
+.funfacts h2 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #008080;
+    margin: 0 0 20px;
+}
+
+
+/* =====================================
+   FUN FACTS TEXT
+===================================== */
+
+.funfacts p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.9;
+    color: #333;
+}
+
+
+/* =====================================
+   EDIT OVERLAY
+===================================== */
+
+.edit-overlay {
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,.55);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+}
+
+
+/* =====================================
+   EDIT MODAL
+===================================== */
+
+.edit-modal {
+    width: 90%;
+    max-width: 750px;
+
+    background: #E3E9E7;
+
+    padding: 35px;
+
+    border-radius: 18px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+}
+
+
+.edit-modal h2 {
+    font-family: 'Raleway', sans-serif;
+    color: #222;
+    margin-bottom: 15px;
+}
+
+
+.edit-modal textarea {
+    width: 100%;
+
+    min-height: 180px;
+
+    padding: 15px;
+
+    border: 1px solid #bfcac7;
+
+    border-radius: 10px;
+
+    resize: vertical;
+
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    margin-bottom: 25px;
+
+    box-sizing: border-box;
+
+    background: #D6DEDC;
+}
+
+
+/* =====================================
+   MODAL BUTTONS
+===================================== */
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+
+.save-btn,
+.cancel-btn {
+    padding: 11px 25px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+}
+
+
+.save-btn {
+    background: #008080;
+}
+
+
+.save-btn:hover {
+    background: #006666;
+}
+
+
+.cancel-btn {
+    background: #dc3545;
+}
+
+
+.cancel-btn:hover {
+    background: #b52a37;
+}
+
+
+/* =====================================
+   DARK MODE
+===================================== */
+
+html.dark-mode .about-section {
+    background: #111827;
+}
+
+
+html.dark-mode .about-container {
+    background: #1E293B;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =====================================
+   DARK MODE - TITLE
+===================================== */
+
+html.dark-mode .about-title h1 {
+    color: #60A5FA;
+}
+
+
+/* =====================================
+   DARK MODE - EDIT BUTTON
+===================================== */
+
+html.dark-mode .edit-btn {
+    background: #60A5FA;
+    color: #172554;
+}
+
+
+html.dark-mode .edit-btn:hover {
+    background: #93C5FD;
+    color: #172554;
+}
+
+
+/* =====================================
+   DARK MODE - PROFILE IMAGE
+===================================== */
+
+html.dark-mode .about-image img {
+    border-color: #334155;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =====================================
+   DARK MODE - CHANGE PHOTO
+===================================== */
+
+html.dark-mode .change-photo-btn {
+    background: #60A5FA;
+    color: #172554;
+}
+
+
+html.dark-mode .change-photo-btn:hover {
+    background: #93C5FD;
+    color: #172554;
+}
+
+
+/* =====================================
+   DARK MODE - ABOUT TEXT
+===================================== */
+
+html.dark-mode .about-text p {
+    color: #D1D5DB;
+}
+
+
+/* =====================================
+   DARK MODE - HIGHLIGHTED TEXT
+===================================== */
+
+html.dark-mode .about-text strong,
+html.dark-mode .funfacts strong {
+    color: #60A5FA;
+}
+
+
+/* =====================================
+   DARK MODE - FUN FACTS
+===================================== */
+
+html.dark-mode .funfacts {
+    border-top-color: #334155;
+}
+
+
+html.dark-mode .funfacts h2 {
+    color: #60A5FA;
+}
+
+
+html.dark-mode .funfacts p {
+    color: #D1D5DB;
+}
+
+
+/* =====================================
+   DARK MODE - EDIT MODAL
+===================================== */
+
+html.dark-mode .edit-modal {
+    background: #1E293B;
+}
+
+
+html.dark-mode .edit-modal h2 {
+    color: #E2E8F0;
+}
+
+
+/* =====================================
+   DARK MODE - TEXTAREA
+===================================== */
+
+html.dark-mode .edit-modal textarea {
+    background: #111827;
+    color: #D1D5DB;
+    border-color: #475569;
+}
+
+
+html.dark-mode .edit-modal textarea::placeholder {
+    color: #94A3B8;
+}
+
+
+/* =====================================
+   DARK MODE - SAVE BUTTON
+===================================== */
+
+html.dark-mode .save-btn {
+    background: #60A5FA;
+    color: #172554;
+}
+
+
+html.dark-mode .save-btn:hover {
+    background: #93C5FD;
+    color: #172554;
+}
+
+
+/* =====================================
+   DARK MODE - CANCEL BUTTON
+===================================== */
+
+html.dark-mode .cancel-btn {
+    background: #dc3545;
+}
+
+
+html.dark-mode .cancel-btn:hover {
+    background: #b52a37;
+}
+
+
+/* =====================================
+   TABLET RESPONSIVE
+===================================== */
+
+@media (max-width: 850px) {
+
+    .about-section {
+        margin-top: 0;
+        padding: 0 20px 60px;
+    }
+
+
+    .about-main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    .about-image {
+        width: min(55vw, 280px);
+        min-width: 0;
+    }
+
+
+    .about-text {
+        width: 100%;
+    }
+
+
+    .about-container {
+        padding: 25px;
+    }
+
+}
+
+
+/* =====================================
+   MOBILE RESPONSIVE
+===================================== */
+
+@media (max-width: 500px) {
+
+    .about-section {
+        margin-top: 0;
+        padding: 0 15px 50px;
+    }
+
+
+    .about-container {
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+
+    /* =================================
+       ABOUT ME MOBILE TITLE
+    ================================= */
+
+    .about-title h1 {
+        font-size: 28px;
+    }
+
+
+    .edit-btn {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+
+    /* =================================
+       RESPONSIVE PROFILE IMAGE
+    ================================= */
+
+    .about-image {
+        width: min(70vw, 240px);
+    }
+
+
+    .about-image img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 250 / 330;
+    }
+
+
+    .change-photo-btn {
+        width: 100%;
+    }
+
+
+    /* =================================
+       ABOUT TEXT
+    ================================= */
+
+    .about-text p {
+        font-size: 16px;
+        line-height: 1.75;
+    }
+
+
+    /* =================================
+       FUN FACTS ABOUT ME MOBILE TITLE
+    ================================= */
+
+    .funfacts h2 {
+        font-size: 28px;
+        font-weight: 800;
+        letter-spacing: 0.3px;
+    }
+
+
+    /* =================================
+       FUN FACTS TEXT MOBILE
+    ================================= */
+
+    .funfacts p {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+
+    /* =================================
+       EDIT MODAL MOBILE
+    ================================= */
+
+    .edit-modal {
+        padding: 20px;
+    }
+
+
+    .modal-buttons {
+        flex-direction: column;
+    }
+
+
+    .save-btn,
+    .cancel-btn {
+        width: 100%;
+    }
+
+}
+
+
+/* =====================================
+   VERY SMALL PHONES
+===================================== */
+
+@media (max-width: 360px) {
+
+    .about-section {
+        margin-top: 0;
+        padding: 0 10px 45px;
+    }
+
+
+    .about-container {
+        padding: 15px;
+    }
+
+
+    .about-title h1 {
+        font-size: 25px;
+    }
+
+
+    .about-image {
+        width: 65vw;
+    }
+
+
+    .funfacts h2 {
+        font-size: 25px;
+    }
+
+}

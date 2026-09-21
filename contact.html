@@ -1,0 +1,557 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact - Loyd Ywen Masangcay</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="contact.css">
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+<div class="container">
+
+
+<div class="logo theme-toggle" id="themeToggle">
+
+<img id="themeLogo" src="logo.png" alt="Theme Toggle">
+
+<span id="themeLabel">Light Mode</span>
+
+</div>
+
+
+
+
+<div class="menu-toggle" onclick="toggleMenu(this)">
+
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+
+
+
+
+
+<nav>
+
+<ul>
+
+
+<li>
+<a href="index.html">
+Home
+</a>
+</li>
+
+
+
+<li>
+<a href="about.html">
+About Me
+</a>
+</li>
+
+
+
+<li>
+<a href="skills.html">
+Skills
+</a>
+</li>
+
+
+
+<li>
+<a href="portfolio.html">
+Portfolio
+</a>
+</li>
+
+
+
+<li>
+<a href="gallery.html">
+Gallery
+</a>
+</li>
+
+
+
+<li>
+<a href="blog.html">
+Blog
+</a>
+</li>
+
+
+
+<li>
+<a href="contact.html" class="active">
+Contact
+</a>
+</li>
+
+
+</ul>
+
+</nav>
+
+
+
+</div>
+
+</header>
+
+
+
+
+
+<!-- CONTACT SECTION -->
+
+
+<section class="contact">
+
+
+
+<h1 class="title">
+
+Get in Touch
+
+</h1>
+
+
+
+
+<p class="subtitle">
+
+I'd love to hear from you! Reach out via email or social media.
+
+</p>
+
+
+
+
+
+<div class="contact-container">
+
+
+
+
+
+
+
+
+<!-- CONTACT INFORMATION -->
+
+
+<div class="contact-info">
+
+
+<h2>
+
+Contact Information
+
+</h2>
+
+
+
+
+<p>
+
+<strong>Email:</strong>
+
+<a href="mailto:dyolnewy@gmail.com">
+
+dyolnewy@gmail.com
+
+</a>
+
+</p>
+
+
+
+
+
+<p>
+
+<strong>Phone:</strong>
+
+<a href="tel:09090290704">
+
+09090290704
+
+</a>
+
+</p>
+
+
+
+
+
+
+<p>
+
+<strong>Location:</strong>
+
+Nancalobasaan, Urdaneta City, Pangasinan
+
+</p>
+
+
+
+
+
+<h3>
+
+Social Links
+
+</h3>
+
+
+
+
+
+<div class="social-links">
+
+
+<a href="https://www.facebook.com/LoydieeWen" target="_blank">
+
+Facebook
+
+</a>
+
+
+
+<a href="https://www.instagram.com/ywen_masangcay" target="_blank">
+
+Instagram
+
+</a>
+
+
+
+<a href="https://www.tiktok.com/@wehn_26" target="_blank">
+
+TikTok
+
+</a>
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- MESSAGE FORM -->
+
+
+<div class="contact-form">
+
+
+<h2>
+
+Send a Message
+
+</h2>
+
+
+
+
+
+
+
+<form id="contactForm">
+
+
+
+
+
+<label>
+
+Name
+
+</label>
+
+
+<input
+
+type="text"
+
+id="name"
+
+name="name"
+
+placeholder="Your Name"
+
+required>
+
+
+
+
+
+
+
+
+
+<label>
+
+Email
+
+</label>
+
+
+<input
+
+type="email"
+
+id="email"
+
+name="email"
+
+placeholder="Your Email"
+
+required>
+
+
+
+
+
+
+
+
+
+<label>
+
+Message
+
+</label>
+
+
+<textarea
+
+id="message"
+
+name="message"
+
+rows="6"
+
+placeholder="Your Message"
+
+required>
+
+</textarea>
+
+
+
+
+
+
+
+
+
+<button type="submit">
+
+Send Message
+
+</button>
+
+
+
+
+
+</form>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- FOOTER -->
+
+
+<footer>
+
+
+<div class="container footer-container">
+
+
+<p>
+
+&copy; 2026 Loyd Ywen Masangcay. All rights reserved.
+
+</p>
+
+
+
+
+<div class="social-links">
+
+
+<a href="https://www.facebook.com/LoydieeWen" target="_blank">
+
+Facebook
+
+</a>
+
+
+
+<a href="https://www.instagram.com/ywen_masangcay" target="_blank">
+
+Instagram
+
+</a>
+
+
+
+
+<a href="https://www.tiktok.com/@wehn_26" target="_blank">
+
+TikTok
+
+</a>
+
+
+
+</div>
+
+
+</div>
+
+
+</footer>
+
+
+
+
+
+
+
+
+
+<!-- EMAILJS -->
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+
+<!-- SUPABASE -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script src="contact.js"></script>
+
+
+<!-- DARK MODE -->
+
+<script src="darkmode.js"></script>
+
+
+
+
+
+<!-- HEADER MENU -->
+
+
+<script>
+
+
+function toggleMenu(menu){
+
+
+const nav = document.querySelector("header nav");
+
+
+nav.classList.toggle("show");
+
+
+menu.classList.toggle("active");
+
+
+}
+
+
+
+
+
+document.querySelectorAll("nav ul li a")
+.forEach(link=>{
+
+
+link.addEventListener("click",()=>{
+
+
+document.querySelector("header nav")
+.classList.remove("show");
+
+
+
+document.querySelector(".menu-toggle")
+.classList.remove("active");
+
+
+});
+
+
+});
+
+
+</script>
+
+
+
+
+
+</body>
+
+</html>

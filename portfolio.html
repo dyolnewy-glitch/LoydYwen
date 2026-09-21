@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Portfolio - Loyd Ywen Masangcay</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="portfolio.css">
+
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<div class="container">
+
+<!-- THEME TOGGLE -->
+
+<div class="logo theme-toggle" id="themeToggle">
+
+<img
+id="themeLogo"
+src="logo.png"
+alt="Theme Toggle">
+
+<span id="themeLabel">
+Light Mode
+</span>
+
+</div>
+
+<!-- HAMBURGER MENU -->
+
+<div
+class="menu-toggle"
+onclick="toggleMenu(this)">
+
+<span></span> <span></span> <span></span>
+
+</div>
+
+<!-- NAVIGATION -->
+
+<nav>
+
+<ul>
+
+<li>
+<a href="index.html">
+Home
+</a>
+</li>
+
+<li>
+<a href="about.html">
+About Me
+</a>
+</li>
+
+<li>
+<a href="skills.html">
+Skills
+</a>
+</li>
+
+<li>
+<a href="portfolio.html" class="active">
+Portfolio
+</a>
+</li>
+
+<li>
+<a href="gallery.html">
+Gallery
+</a>
+</li>
+
+<li>
+<a href="blog.html">
+Blog
+</a>
+</li>
+
+<li>
+<a href="contact.html">
+Contact
+</a>
+</li>
+
+</ul>
+
+</nav>
+
+</div>
+
+</header>
+
+<!-- =========================
+     PORTFOLIO SECTION
+========================= -->
+
+<section class="portfolio">
+
+<div class="portfolio-header">
+
+<div>
+
+<h1>
+My Portfolio
+</h1>
+
+<p>
+Projects, designs, and applications I created during my IT journey.
+</p>
+
+</div>
+
+</div>
+
+<!-- =========================
+     PROJECT DISPLAY
+========================= -->
+
+<div
+class="project-container"
+id="projectContainer">
+
+</div>
+
+<!-- =========================
+     NO PROJECT MESSAGE
+========================= -->
+
+<div id="noProject">
+
+No project added yet.
+
+</div>
+
+</section>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<div class="container footer-container">
+
+<p>
+&copy; 2026 Loyd Ywen Masangcay. All rights reserved.
+</p>
+
+<div class="social-links">
+
+<a
+href="https://www.facebook.com/LoydieeWen"
+target="_blank"
+rel="noopener noreferrer">
+
+Facebook
+
+</a>
+
+<a
+href="https://www.instagram.com/ywen_masangcay"
+target="_blank"
+rel="noopener noreferrer">
+
+Instagram
+
+</a>
+
+<a
+href="https://www.tiktok.com/@wehn_26"
+target="_blank"
+rel="noopener noreferrer">
+
+TikTok
+
+</a>
+
+</div>
+
+</div>
+
+</footer>
+
+<!-- =========================
+     HEADER MENU SCRIPT
+========================= -->
+
+<script>
+
+function toggleMenu(menu) {
+
+const nav = document.querySelector("header nav");
+
+nav.classList.toggle("show");
+
+menu.classList.toggle("active");
+
+}
+
+
+document.querySelectorAll("nav ul li a")
+.forEach(link => {
+
+link.addEventListener("click", () => {
+
+document.querySelector("header nav")
+.classList.remove("show");
+
+document.querySelector(".menu-toggle")
+.classList.remove("active");
+
+});
+
+});
+
+</script>
+
+<!-- =========================
+     PORTFOLIO JAVASCRIPT
+========================= -->
+
+<script src="portfolio.js"></script>
+
+<!-- =========================
+     DARK MODE
+========================= -->
+
+<script src="darkmode.js"></script>
+
+</body>
+
+</html>

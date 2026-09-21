@@ -1,0 +1,887 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f4f4f4;
+    min-height: 100vh;
+}
+
+
+/* =========================
+HEADER
+========================= */
+
+header {
+    background-color: #008080;
+    color: white;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    overflow: visible;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px),
+        radial-gradient(circle, rgba(220,220,220,0.7) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1px);
+    background-size: 80px 80px, 120px 120px, 160px 160px;
+    background-position: 10px 20px, 50px 70px, 90px 10px;
+    opacity: 0.75;
+    animation: starSkyMove 12s ease-in-out infinite;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background:
+        radial-gradient(circle at 20% 40%, rgba(255,255,255,0.8), transparent 2px),
+        radial-gradient(circle at 60% 25%, rgba(255,255,255,0.9), transparent 2px),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.8), transparent 2px),
+        radial-gradient(circle at 35% 80%, rgba(255,255,255,0.7), transparent 2px);
+    opacity: 0.8;
+    animation: starTwinkle 4s ease-in-out infinite alternate;
+}
+
+header .container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+
+/* =========================
+LOGO / THEME TOGGLE
+========================= */
+
+header .logo {
+    position: relative;
+    z-index: 20;
+}
+
+header .logo img {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+.theme-toggle {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.theme-toggle img {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover img {
+    transform: scale(1.05);
+}
+
+#themeLabel {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1;
+    margin-top: 3px;
+    color: white;
+    white-space: nowrap;
+}
+
+
+/* =========================
+NAVIGATION
+========================= */
+
+header nav {
+    position: relative;
+    z-index: 20;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li {
+    margin-left: 25px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+header nav ul li a:hover {
+    background: #006666;
+}
+
+header nav ul li a.active {
+    background: #ffcc00;
+    color: #333;
+}
+
+
+/* =========================
+MOBILE MENU
+========================= */
+
+.menu-toggle {
+    display: none;
+    width: 42px;
+    height: 42px;
+    padding: 6px;
+    margin: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 30;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    margin: 5px auto;
+    background: white;
+    border-radius: 3px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* =========================
+GENERAL SECTIONS
+========================= */
+
+section {
+    padding: 80px 20px;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    text-align: center;
+    min-height: calc(100vh - 80px);
+}
+
+section h2 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    margin-bottom: 30px;
+}
+
+section p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto 20px;
+}
+
+
+/* =========================
+BUTTONS
+========================= */
+
+.btn {
+    text-decoration: none;
+    background: #008080;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #006666;
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+FOOTER
+========================= */
+
+footer {
+    background: #008080;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+    margin-top: auto;
+    flex-shrink: 0;
+}
+
+footer p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+footer .social-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+footer .social-links a:hover {
+    color: #ffcc00;
+}
+
+
+/* ==================================================
+ADMIN GEAR BUTTON
+================================================== */
+
+footer .social-links .admin-button {
+
+    width: 34px;
+    height: 34px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 10px;
+
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: normal;
+
+    line-height: 1;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+
+}
+
+footer .social-links .admin-button:hover {
+
+    background: #ffcc00;
+    color: #333;
+
+    border-color: #ffcc00;
+
+    transform: rotate(45deg) scale(1.08);
+
+}
+
+
+/* =========================
+SCROLLED HEADER
+========================= */
+
+header.scrolled {
+    padding: 10px 0;
+    background: #006666;
+}
+
+
+/* =========================
+ANIMATIONS
+========================= */
+
+@keyframes starSkyMove {
+    0% {
+        transform: translateX(-4px);
+    }
+
+    50% {
+        transform: translateX(4px);
+    }
+
+    100% {
+        transform: translateX(-4px);
+    }
+}
+
+@keyframes starTwinkle {
+    0% {
+        opacity: 0.35;
+        transform: scale(0.92);
+    }
+
+    50% {
+        opacity: 0.85;
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+
+/* ==================================================
+DARK MODE
+================================================== */
+
+html.dark-mode {
+    background: #111827;
+    min-height: 100%;
+}
+
+html.dark-mode body {
+    background: #111827;
+    color: #D1D5DB;
+    min-height: 100vh;
+}
+
+
+/* =========================
+DARK MODE HEADER
+========================= */
+
+html.dark-mode header {
+    background: #172554;
+}
+
+html.dark-mode header.scrolled {
+    background: #1E3A8A;
+}
+
+html.dark-mode header nav ul li a {
+    color: #D1D5DB;
+}
+
+html.dark-mode header nav ul li a:hover {
+    background: #1E40AF;
+    color: #2DD4BF;
+}
+
+html.dark-mode header nav ul li a.active {
+    background: #FACC15;
+    color: #111827;
+}
+
+html.dark-mode .menu-toggle span {
+    background: white;
+}
+
+
+/* =========================
+DARK MODE THEME LABEL
+========================= */
+
+html.dark-mode #themeLabel {
+    color: white;
+}
+
+
+/* =========================
+DARK MODE SECTIONS
+========================= */
+
+html.dark-mode section {
+    background: #111827;
+}
+
+html.dark-mode section h2 {
+    color: #E2E8F0;
+}
+
+html.dark-mode section p {
+    color: #D1D5DB;
+}
+
+
+/* ==================================================
+DARK MODE - HOME / HERO
+================================================== */
+
+html.dark-mode .hero h1 {
+    color: #60A5FA;
+}
+
+html.dark-mode .hero h2 {
+    color: #93C5FD;
+}
+
+html.dark-mode .hero p {
+    color: #D1D5DB;
+}
+
+
+/* =========================
+DARK MODE - OTHER BLUE TEXT
+========================= */
+
+html.dark-mode .blue-text,
+html.dark-mode .highlight,
+html.dark-mode .hero .name {
+    color: #60A5FA;
+}
+
+html.dark-mode .hero .title {
+    color: #93C5FD;
+}
+
+
+/* ==================================================
+DARK MODE - BUTTONS
+================================================== */
+
+html.dark-mode .btn {
+    background: #60A5FA;
+    color: #172554;
+}
+
+html.dark-mode .btn:hover {
+    background: #93C5FD;
+    color: #172554;
+}
+
+
+/* ==================================================
+DARK MODE - LIGHT CARDS
+================================================== */
+
+html.dark-mode .card,
+html.dark-mode .project-card,
+html.dark-mode .blog-card,
+html.dark-mode .skill-card,
+html.dark-mode .gallery-card,
+html.dark-mode .portfolio-card,
+html.dark-mode .post-card {
+    background: #FFFFFF;
+    color: #333333;
+}
+
+
+/* ==================================================
+DARK MODE - CARD TITLES
+================================================== */
+
+html.dark-mode .card h1,
+html.dark-mode .card h2,
+html.dark-mode .card h3,
+html.dark-mode .card h4,
+html.dark-mode .card h5,
+html.dark-mode .card h6,
+
+html.dark-mode .project-card h1,
+html.dark-mode .project-card h2,
+html.dark-mode .project-card h3,
+html.dark-mode .project-card h4,
+html.dark-mode .project-card h5,
+html.dark-mode .project-card h6,
+
+html.dark-mode .blog-card h1,
+html.dark-mode .blog-card h2,
+html.dark-mode .blog-card h3,
+html.dark-mode .blog-card h4,
+html.dark-mode .blog-card h5,
+html.dark-mode .blog-card h6,
+
+html.dark-mode .skill-card h1,
+html.dark-mode .skill-card h2,
+html.dark-mode .skill-card h3,
+html.dark-mode .skill-card h4,
+html.dark-mode .skill-card h5,
+html.dark-mode .skill-card h6,
+
+html.dark-mode .gallery-card h1,
+html.dark-mode .gallery-card h2,
+html.dark-mode .gallery-card h3,
+html.dark-mode .gallery-card h4,
+html.dark-mode .gallery-card h5,
+html.dark-mode .gallery-card h6,
+
+html.dark-mode .portfolio-card h1,
+html.dark-mode .portfolio-card h2,
+html.dark-mode .portfolio-card h3,
+html.dark-mode .portfolio-card h4,
+html.dark-mode .portfolio-card h5,
+html.dark-mode .portfolio-card h6,
+
+html.dark-mode .post-card h1,
+html.dark-mode .post-card h2,
+html.dark-mode .post-card h3,
+html.dark-mode .post-card h4,
+html.dark-mode .post-card h5,
+html.dark-mode .post-card h6 {
+    color: #1E3A8A;
+}
+
+
+/* ==================================================
+DARK MODE - CARD DESCRIPTION
+================================================== */
+
+html.dark-mode .card p,
+html.dark-mode .project-card p,
+html.dark-mode .blog-card p,
+html.dark-mode .skill-card p,
+html.dark-mode .gallery-card p,
+html.dark-mode .portfolio-card p,
+html.dark-mode .post-card p {
+    color: #333333;
+}
+
+
+/* ==================================================
+DARK MODE - CARD OTHER TEXT
+================================================== */
+
+html.dark-mode .card span,
+html.dark-mode .project-card span,
+html.dark-mode .blog-card span,
+html.dark-mode .skill-card span,
+html.dark-mode .gallery-card span,
+html.dark-mode .portfolio-card span,
+html.dark-mode .post-card span {
+    color: #444444;
+}
+
+
+/* ==================================================
+DARK MODE - CARD LINKS
+================================================== */
+
+html.dark-mode .card a,
+html.dark-mode .project-card a,
+html.dark-mode .blog-card a,
+html.dark-mode .skill-card a,
+html.dark-mode .gallery-card a,
+html.dark-mode .portfolio-card a,
+html.dark-mode .post-card a {
+    color: #008080;
+}
+
+
+/* ==================================================
+DARK MODE - CARD STRONG / LABEL
+================================================== */
+
+html.dark-mode .card strong,
+html.dark-mode .project-card strong,
+html.dark-mode .blog-card strong,
+html.dark-mode .skill-card strong,
+html.dark-mode .gallery-card strong,
+html.dark-mode .portfolio-card strong,
+html.dark-mode .post-card strong {
+    color: #333333;
+}
+
+
+/* ==================================================
+DARK MODE - FOOTER
+================================================== */
+
+html.dark-mode footer {
+    background: #172554;
+    color: #D1D5DB;
+    border-top: 1px solid #1E3A8A;
+}
+
+html.dark-mode footer p {
+    color: #D1D5DB;
+}
+
+html.dark-mode footer .social-links a {
+    color: #D1D5DB;
+}
+
+html.dark-mode footer .social-links a:hover {
+    color: #2DD4BF;
+}
+
+
+/* ==================================================
+DARK MODE - ADMIN GEAR BUTTON
+================================================== */
+
+html.dark-mode footer .social-links .admin-button {
+
+    background: rgba(255, 255, 255, 0.08);
+    color: #D1D5DB;
+
+    border-color: rgba(255, 255, 255, 0.25);
+
+}
+
+html.dark-mode footer .social-links .admin-button:hover {
+
+    background: #2DD4BF;
+    color: #172554;
+
+    border-color: #2DD4BF;
+
+}
+
+
+/* ==================================================
+MOBILE
+================================================== */
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 12px 0;
+    }
+
+    header .container {
+        min-height: 50px;
+        padding: 0 15px;
+    }
+
+    header .logo img {
+        height: 40px;
+    }
+
+    #themeLabel {
+        font-size: 9px;
+        margin-top: 2px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    header nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #008080;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        z-index: 2000;
+    }
+
+    header nav.show,
+    header nav.active {
+        display: block;
+    }
+
+    header nav ul {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    header nav ul li {
+        width: 100%;
+        margin: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    header nav ul li:last-child {
+        border-bottom: none;
+    }
+
+    header nav ul li a {
+        display: block;
+        width: 100%;
+        padding: 15px 20px;
+        border-radius: 0;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    header nav ul li a:hover {
+        background: #006666;
+    }
+
+    header nav ul li a.active {
+        background: #ffcc00;
+        color: #333;
+    }
+
+    header::before {
+        opacity: 0.65;
+    }
+
+    header::after {
+        opacity: 0.7;
+    }
+
+    section {
+        padding: 70px 20px;
+        width: 100%;
+        max-width: none;
+        min-height: calc(100vh - 74px);
+    }
+
+    section h2 {
+        font-family: 'Raleway', sans-serif;
+        font-size: 26px;
+    }
+
+    section p {
+        font-family: 'Nunito', sans-serif;
+        font-size: 16px;
+    }
+
+
+    /* DARK MODE MOBILE */
+
+    html.dark-mode header nav {
+        background: #172554;
+    }
+
+    html.dark-mode header nav ul li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    html.dark-mode header nav ul li a:hover {
+        background: #1E40AF;
+        color: #2DD4BF;
+    }
+
+    html.dark-mode header nav ul li a.active {
+        background: #FACC15;
+        color: #111827;
+    }
+}
+
+
+/* ==================================================
+SMALL MOBILE
+================================================== */
+
+@media (max-width: 480px) {
+
+    header .container {
+        padding: 0 12px;
+    }
+
+    header .logo img {
+        height: 38px;
+    }
+
+    #themeLabel {
+        font-size: 8px;
+        margin-top: 2px;
+    }
+
+    .menu-toggle {
+        width: 40px;
+        height: 40px;
+    }
+
+    .menu-toggle span {
+        width: 28px;
+    }
+
+    section {
+        padding: 60px 15px;
+        width: 100%;
+        max-width: none;
+        min-height: calc(100vh - 70px);
+    }
+
+    header::before {
+        opacity: 0.55;
+    }
+
+    header::after {
+        opacity: 0.6;
+    }
+
+
+    /* ADMIN BUTTON MOBILE */
+
+    footer .social-links .admin-button {
+
+        width: 32px;
+        height: 32px;
+
+        font-size: 16px;
+
+        margin: 0 8px;
+
+    }
+
+}

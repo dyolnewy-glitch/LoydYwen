@@ -1,0 +1,1144 @@
+/* =========================================================
+   PUBLIC PORTFOLIO
+========================================================= */
+
+.portfolio {
+    margin-top: -80px;
+    padding: 80px 20px 90px;
+    min-height: 100vh;
+    background: #D6DEDC;
+    transition: background 0.3s ease;
+}
+
+
+/* =========================================================
+   PORTFOLIO HEADER
+========================================================= */
+
+.portfolio-header {
+    max-width: 1100px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.portfolio-header h1 {
+    margin: 0 0 12px;
+    color: #008080;
+    font-family: "Playfair Display", serif;
+    font-size: 46px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.portfolio-header p {
+    margin: 0 auto;
+    max-width: 700px;
+    color: #555;
+    font-family: "Quicksand", sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   PROJECT CONTAINER
+========================================================= */
+
+.project-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   PROJECT CARD
+========================================================= */
+
+.project-card {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+    overflow: hidden;
+
+    background: #E3E9E7;
+    border-radius: 18px;
+
+    border: 1px solid rgba(0, 128, 128, 0.08);
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.08);
+
+    cursor: pointer;
+
+    transform: translateY(0);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 16px 35px rgba(0, 0, 0, 0.14);
+
+    border-color: rgba(0, 128, 128, 0.25);
+}
+
+.project-card:active {
+    transform: translateY(-3px) scale(0.99);
+}
+
+.project-card.active-project-card {
+    transform: scale(0.98);
+}
+
+
+/* =========================================================
+   PROJECT IMAGE
+========================================================= */
+
+.project-image {
+    width: 100%;
+    height: 230px;
+
+    display: block;
+
+    object-fit: contain;
+
+    background: #F7F9F8;
+
+    padding: 14px;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+
+/* =========================================================
+   PROJECT CONTENT
+========================================================= */
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+
+    padding: 22px;
+}
+
+
+/* =========================================================
+   PROJECT META
+========================================================= */
+
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 12px;
+}
+
+
+/* =========================================================
+   CATEGORY
+========================================================= */
+
+.category {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: fit-content;
+
+    padding: 6px 11px;
+
+    border-radius: 30px;
+
+    background: #F4D35E;
+    color: #333;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: fit-content;
+
+    padding: 6px 11px;
+
+    border-radius: 30px;
+
+    background: #008080;
+    color: #fff;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+
+/* =========================================================
+   PROJECT TITLE
+========================================================= */
+
+.project-title {
+    margin: 0 0 10px;
+
+    color: #008080;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   PROJECT DESCRIPTION
+========================================================= */
+
+.project-description {
+    margin: 0 0 15px;
+
+    color: #555;
+
+    font-family: "Quicksand", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   TOOLS
+========================================================= */
+
+.tools-used {
+    margin: auto 0 18px;
+
+    color: #555;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+.tools-used strong {
+    color: #008080;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   VIEW BUTTON
+========================================================= */
+
+.view-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    min-height: 42px;
+
+    padding: 10px 18px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #008080;
+    color: #fff;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.view-btn:hover {
+    background: #006f6f;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 15px rgba(0, 128, 128, 0.22);
+}
+
+.view-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   NO PROJECT
+========================================================= */
+
+#noProject {
+    display: none;
+
+    max-width: 700px;
+
+    margin: 45px auto 0;
+
+    padding: 25px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    border-radius: 15px;
+
+    color: #666;
+
+    font-family: "Quicksand", sans-serif;
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   PROJECT PREVIEW OVERLAY
+========================================================= */
+
+.project-preview-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background: rgba(20, 35, 35, 0.72);
+
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+
+    opacity: 0;
+
+    overflow-y: auto;
+
+    transition:
+        opacity 0.4s ease;
+}
+
+.project-preview-overlay.preview-visible {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   PREVIEW BOX
+========================================================= */
+
+.project-preview-box {
+    position: relative;
+
+    width: min(900px, 100%);
+
+    max-height: 92vh;
+
+    overflow-y: auto;
+
+    background: #F7F9F8;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.28);
+
+    transform:
+        translateY(35px)
+        scale(0.96);
+
+    opacity: 0;
+
+    transition:
+        transform 0.4s ease,
+        opacity 0.4s ease;
+}
+
+.project-preview-box.preview-box-visible {
+    transform:
+        translateY(0)
+        scale(1);
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   CLOSING ANIMATION
+========================================================= */
+
+.project-preview-overlay.preview-closing {
+    opacity: 0;
+}
+
+.project-preview-box.preview-box-closing {
+    transform:
+        translateY(25px)
+        scale(0.97);
+
+    opacity: 0;
+}
+
+
+/* =========================================================
+   PREVIEW CLOSE BUTTON
+========================================================= */
+
+.project-preview-close {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    z-index: 5;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    color: #333;
+
+    font-size: 27px;
+    font-weight: 400;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.15);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.project-preview-close:hover {
+    background: #fff;
+
+    transform:
+        rotate(90deg)
+        scale(1.05);
+}
+
+
+/* =========================================================
+   PREVIEW COVER
+========================================================= */
+
+.project-preview-cover {
+    width: 100%;
+
+    min-height: 320px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background: #E3E9E7;
+
+    border-radius: 22px 22px 0 0;
+}
+
+.project-preview-cover img {
+    display: block;
+
+    width: 100%;
+    max-width: 620px;
+
+    max-height: 400px;
+
+    object-fit: contain;
+
+    border-radius: 12px;
+}
+
+
+/* =========================================================
+   PREVIEW CONTENT
+========================================================= */
+
+.project-preview-content {
+    padding: 35px 40px 40px;
+}
+
+
+/* =========================================================
+   PREVIEW META
+========================================================= */
+
+.project-preview-meta {
+    display: flex;
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 14px;
+}
+
+
+/* =========================================================
+   PREVIEW TITLE
+========================================================= */
+
+.project-preview-title {
+    margin: 0 0 14px;
+
+    color: #008080;
+
+    font-family: "Playfair Display", serif;
+    font-size: 36px;
+    font-weight: 700;
+
+    line-height: 1.25;
+}
+
+
+/* =========================================================
+   PREVIEW DESCRIPTION
+========================================================= */
+
+.project-preview-description {
+    margin: 0 0 25px;
+
+    color: #555;
+
+    font-family: "Quicksand", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   EXTRA SECTIONS
+========================================================= */
+
+.preview-extra-section {
+    margin-top: 28px;
+
+    padding-top: 24px;
+
+    border-top: 1px solid rgba(0, 128, 128, 0.14);
+}
+
+.preview-extra-section h3 {
+    margin: 0 0 13px;
+
+    color: #008080;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.preview-extra-section p {
+    margin: 0;
+
+    color: #555;
+
+    font-family: "Quicksand", sans-serif;
+    font-size: 14px;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   HIGHLIGHTS
+========================================================= */
+
+.preview-highlights {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
+}
+
+.preview-highlight-item {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 13px;
+
+    padding: 17px;
+
+    background: #E8EFED;
+
+    border-radius: 13px;
+
+    border: 1px solid rgba(0, 128, 128, 0.08);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.preview-highlight-item:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.07);
+}
+
+.preview-highlight-icon {
+    flex-shrink: 0;
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fff;
+
+    border-radius: 10px;
+
+    font-size: 19px;
+}
+
+.preview-highlight-content {
+    min-width: 0;
+}
+
+.preview-highlight-content h4 {
+    margin: 0 0 5px;
+
+    color: #008080;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+
+    line-height: 1.35;
+}
+
+.preview-highlight-content p {
+    margin: 0;
+
+    color: #666;
+
+    font-family: "Quicksand", sans-serif;
+    font-size: 12.5px;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.preview-features,
+.preview-role {
+    margin: 0;
+
+    padding-left: 20px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 9px 25px;
+}
+
+.preview-features li,
+.preview-role li {
+    color: #555;
+
+    font-family: "Quicksand", sans-serif;
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+.preview-features li::marker,
+.preview-role li::marker {
+    color: #008080;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.project-preview-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 32px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid rgba(0, 128, 128, 0.14);
+}
+
+.project-preview-actions .view-btn {
+    width: auto;
+
+    min-width: 145px;
+}
+
+.project-preview-actions .edit-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 42px;
+
+    padding: 10px 20px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #E0E5E3;
+
+    color: #444;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.project-preview-actions .edit-btn:hover {
+    background: #D2D9D6;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.project-preview-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.project-preview-box::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.project-preview-box::-webkit-scrollbar-thumb {
+    background: rgba(0, 128, 128, 0.35);
+
+    border-radius: 20px;
+}
+
+.project-preview-box::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 128, 128, 0.55);
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+html.dark-mode .portfolio {
+    background: #26383B;
+}
+
+html.dark-mode .portfolio-header p {
+    color: #D4DDDC;
+}
+
+html.dark-mode .project-card {
+    background: #E3E9E7;
+
+    color: #333;
+}
+
+html.dark-mode .project-card:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+html.dark-mode .project-image {
+    background: #F7F9F8;
+}
+
+html.dark-mode .project-title {
+    color: #008080;
+}
+
+html.dark-mode .project-description,
+html.dark-mode .tools-used {
+    color: #555;
+}
+
+html.dark-mode .tools-used strong {
+    color: #008080;
+}
+
+html.dark-mode #noProject {
+    background: rgba(240, 245, 244, 0.9);
+
+    color: #555;
+}
+
+html.dark-mode .project-preview-overlay {
+    background: rgba(10, 20, 22, 0.82);
+}
+
+html.dark-mode .project-preview-box {
+    background: #F7F9F8;
+
+    color: #333;
+}
+
+html.dark-mode .project-preview-cover {
+    background: #E3E9E7;
+}
+
+html.dark-mode .project-preview-title {
+    color: #008080;
+}
+
+html.dark-mode .project-preview-description {
+    color: #555;
+}
+
+html.dark-mode .preview-extra-section {
+    border-color: rgba(0, 128, 128, 0.15);
+}
+
+html.dark-mode .preview-extra-section p {
+    color: #555;
+}
+
+html.dark-mode .preview-highlight-item {
+    background: #E8EFED;
+}
+
+html.dark-mode .preview-highlight-content p {
+    color: #666;
+}
+
+html.dark-mode .preview-features li,
+html.dark-mode .preview-role li {
+    color: #555;
+}
+
+html.dark-mode .project-preview-actions {
+    border-color: rgba(0, 128, 128, 0.15);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .project-container {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        max-width: 800px;
+    }
+
+    .portfolio-header h1 {
+        font-size: 42px;
+    }
+
+    .project-preview-cover {
+        min-height: 280px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 680px) {
+
+    .portfolio {
+        margin-top: -45px;
+
+        padding:
+            55px 15px 70px;
+    }
+
+
+    .portfolio-header {
+        margin-bottom: 30px;
+    }
+
+
+    .portfolio-header h1 {
+        font-size: 35px;
+    }
+
+
+    .portfolio-header p {
+        font-size: 14px;
+
+        line-height: 1.6;
+    }
+
+
+    .project-container {
+        grid-template-columns: 1fr;
+
+        max-width: 500px;
+
+        gap: 18px;
+    }
+
+
+    .project-image {
+        height: 220px;
+    }
+
+
+    .project-content {
+        padding: 20px;
+    }
+
+
+    .project-title {
+        font-size: 21px;
+    }
+
+
+    .project-description {
+        font-size: 13.5px;
+    }
+
+
+    /* ==============================================
+       PREVIEW
+    ============================================== */
+
+    .project-preview-overlay {
+        align-items: flex-start;
+
+        padding: 15px;
+    }
+
+
+    .project-preview-box {
+        width: 100%;
+
+        max-height: 94vh;
+
+        border-radius: 18px;
+    }
+
+
+    .project-preview-cover {
+        min-height: 220px;
+
+        padding: 20px;
+
+        border-radius:
+            18px 18px 0 0;
+    }
+
+
+    .project-preview-cover img {
+        max-height: 280px;
+    }
+
+
+    .project-preview-content {
+        padding:
+            25px 20px 30px;
+    }
+
+
+    .project-preview-title {
+        font-size: 29px;
+    }
+
+
+    .project-preview-description {
+        font-size: 14px;
+
+        line-height: 1.7;
+    }
+
+
+    .preview-highlights {
+        grid-template-columns: 1fr;
+    }
+
+
+    .preview-features,
+    .preview-role {
+        grid-template-columns: 1fr;
+
+        gap: 8px;
+    }
+
+
+    .project-preview-actions {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .project-preview-actions .view-btn,
+    .project-preview-actions .edit-btn {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .portfolio {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+
+    .portfolio-header h1 {
+        font-size: 31px;
+    }
+
+
+    .project-image {
+        height: 190px;
+
+        padding: 10px;
+    }
+
+
+    .project-content {
+        padding: 18px;
+    }
+
+
+    .project-meta {
+        gap: 6px;
+    }
+
+
+    .category,
+    .status {
+        padding:
+            5px 9px;
+
+        font-size: 10px;
+    }
+
+
+    .project-title {
+        font-size: 20px;
+    }
+
+
+    .project-description {
+        font-size: 13px;
+    }
+
+
+    .project-preview-title {
+        font-size: 25px;
+    }
+
+
+    .project-preview-cover {
+        min-height: 180px;
+    }
+
+
+    .project-preview-content {
+        padding:
+            22px 17px 25px;
+    }
+
+
+    .project-preview-close {
+        width: 38px;
+        height: 38px;
+
+        font-size: 24px;
+    }
+
+}

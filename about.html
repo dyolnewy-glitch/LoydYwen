@@ -1,0 +1,488 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About Me - Loyd Ywen Masangcay</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="about.css">
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+<div class="container">
+
+
+<!-- DARK / LIGHT MODE LOGO -->
+
+<div class="logo theme-toggle" id="themeToggle">
+
+<img
+id="themeLogo"
+src="logo.png"
+alt="Light Mode Logo">
+
+<span id="themeLabel">
+Light Mode
+</span>
+
+</div>
+
+
+<!-- MOBILE MENU BUTTON -->
+
+<div class="menu-toggle" onclick="toggleMenu(this)">
+
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+
+<nav>
+
+<ul>
+
+<li>
+<a href="index.html">
+Home
+</a>
+</li>
+
+
+<li>
+<a href="about.html" class="active">
+About Me
+</a>
+</li>
+
+
+<li>
+<a href="skills.html">
+Skills
+</a>
+</li>
+
+
+<li>
+<a href="portfolio.html">
+Portfolio
+</a>
+</li>
+
+
+<li>
+<a href="gallery.html">
+Gallery
+</a>
+</li>
+
+
+<li>
+<a href="blog.html">
+Blog
+</a>
+</li>
+
+
+<li>
+<a href="contact.html">
+Contact
+</a>
+</li>
+
+</ul>
+
+</nav>
+
+
+</div>
+
+</header>
+
+
+
+
+
+<!-- ABOUT SECTION -->
+
+<section class="about-section">
+
+
+<div class="about-container">
+
+
+<!-- ABOUT TITLE -->
+
+<div class="about-title">
+
+
+<h1>
+About Me
+</h1>
+
+
+<button
+class="edit-btn"
+id="editBtn">
+
+✏ Edit
+
+</button>
+
+
+</div>
+
+
+
+
+
+<!-- ABOUT MAIN -->
+
+<div class="about-main">
+
+
+<!-- PROFILE IMAGE -->
+
+<div class="about-image">
+
+
+<img
+id="profileImage"
+src="profilepic.jpg"
+alt="Loyd Ywen Masangcay">
+
+
+<input
+type="file"
+id="imageInput"
+accept="image/*"
+hidden>
+
+
+<button
+class="change-photo-btn"
+id="changePhotoBtn">
+
+📷 Change Photo
+
+</button>
+
+
+</div>
+
+
+
+
+
+<!-- ABOUT TEXT -->
+
+<div class="about-text">
+
+
+<div id="aboutDisplay">
+
+
+<p>
+
+Hi! I'm <strong>Loyd Ywen Masangcay</strong>. I was born on
+<strong>February 26, 2003</strong>, and I am from
+<strong>Nancalobasaan, Urdaneta City, Pangasinan</strong>.
+I am a passionate and creative individual who enjoys exploring
+digital technology and creating meaningful designs.
+
+</p>
+
+
+<p>
+
+I am a graduate of
+<strong>Bachelor of Science in Information Technology (BSIT)</strong>
+from <strong>Urdaneta City University (UCU)</strong>, where I
+completed my degree on <strong>June 24, 2026</strong>.
+Throughout my academic journey, I developed skills in web design,
+UI/UX design, graphic design, and different digital technologies.
+
+</p>
+
+
+<p>
+
+During my On-the-Job Training (OJT) at the
+<strong>LGU Urdaneta City – City Library Department</strong>,
+I gained experience in data encoding, organizing digital records,
+and assisting with library information management.
+
+</p>
+
+
+<p>
+
+I have a strong interest in
+<strong>Graphic Design, Web Development, and Digital Creativity</strong>.
+I enjoy editing photos and videos, creating visual designs,
+and continuously learning new skills that help me grow as an
+IT professional.
+
+</p>
+
+
+<p>
+
+My goal is to become a skilled professional who combines
+technology and creativity to create useful and visually engaging
+digital solutions.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- FUN FACTS SECTION -->
+
+<div class="funfacts">
+
+
+<h2>
+Fun Facts About Me
+</h2>
+
+
+<div id="funFactsDisplay">
+
+
+<p>
+
+My first name <strong>"Loyd"</strong> was originally supposed to
+be spelled <strong>"Lloyd"</strong> with double L, but it was
+changed to a single L so that it would be different and less
+common. The name <strong>"Ywen"</strong> has a special meaning
+because it was created from my parents' names and their call sign.
+
+</p>
+
+
+<p>
+
+I have a noticeable <strong>dimple</strong> and a small patch of
+white skin on my stomach that I was born with. My hobbies include
+editing pictures and videos, cooking, watching movies, and
+listening to music.
+
+</p>
+
+
+<p>
+
+One of my achievements is graduating with a
+<strong>Bachelor of Science in Information Technology</strong>
+from <strong>Urdaneta City University</strong> on
+<strong>June 24, 2026</strong>.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- EDIT OVERLAY -->
+
+<div
+class="edit-overlay"
+id="editOverlay">
+
+
+<div class="edit-modal">
+
+
+<h2>
+Edit About Me
+</h2>
+
+
+<textarea
+id="aboutInput"></textarea>
+
+
+<h2>
+Edit Fun Facts
+</h2>
+
+
+<textarea
+id="funFactsInput"></textarea>
+
+
+<div class="modal-buttons">
+
+
+<button
+class="save-btn"
+id="saveBtn">
+
+Save
+
+</button>
+
+
+<button
+class="cancel-btn"
+id="cancelBtn">
+
+Cancel
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+
+<div class="container footer-container">
+
+
+<p>
+
+&copy; 2026 Loyd Ywen Masangcay. All rights reserved.
+
+</p>
+
+
+<div class="social-links">
+
+
+<a
+href="https://www.facebook.com/LoydieeWen"
+target="_blank">
+
+Facebook
+
+</a>
+
+
+<a
+href="https://www.instagram.com/ywen_masangcay"
+target="_blank">
+
+Instagram
+
+</a>
+
+
+<a
+href="https://www.tiktok.com/@wehn_26"
+target="_blank">
+
+TikTok
+
+</a>
+
+
+</div>
+
+
+</div>
+
+
+</footer>
+
+
+
+
+
+<!-- MENU SCRIPT -->
+
+<script>
+
+function toggleMenu(menu) {
+
+const nav = document.querySelector("header nav");
+
+nav.classList.toggle("show");
+
+menu.classList.toggle("active");
+
+}
+
+
+document.querySelectorAll("nav ul li a").forEach(link => {
+
+link.addEventListener("click", () => {
+
+document.querySelector("header nav")
+.classList.remove("show");
+
+document.querySelector(".menu-toggle")
+.classList.remove("active");
+
+});
+
+});
+
+</script>
+
+
+
+
+
+<!-- ABOUT JS -->
+
+<script src="about.js"></script>
+
+
+<!-- DARK MODE JS -->
+
+<script src="darkmode.js"></script>
+
+
+</body>
+
+</html>

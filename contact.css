@@ -1,0 +1,441 @@
+
+/* =========================
+   CONTACT PAGE
+========================= */
+
+.contact {
+    margin-top: -45px;
+    padding: 45px 20px 70px;
+    background: #D6DEDC;
+    text-align: center;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.title {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 800;
+    color: #008080;
+    margin: 0 0 10px;
+    line-height: 1.2;
+}
+
+
+/* =========================
+   SUBTITLE
+========================= */
+
+.subtitle {
+    font-family: 'Quicksand', sans-serif;
+    color: #555;
+    margin: 0 auto 45px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 800px;
+}
+
+
+/* =========================
+   CONTACT CONTAINER
+========================= */
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: auto;
+    animation: fadeInUp .8s ease;
+}
+
+
+/* =========================
+   CONTACT INFORMATION
+========================= */
+
+.contact-info {
+    flex: 1;
+    min-width: 280px;
+    background: #E3E9E7;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.1);
+    text-align: left;
+    transition: .3s;
+}
+
+.contact-info:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 15px 30px rgba(0,0,0,0.15);
+}
+
+.contact-info h2,
+.contact-info h3 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    color: #008080;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    font-family: 'Nunito', sans-serif;
+    margin: 15px 0;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.contact-info a {
+    font-family: 'DM Sans', sans-serif;
+    color: #008080;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.contact-info a:hover {
+    color: #ffd54f;
+}
+
+
+/* =========================
+   SOCIAL LINKS
+========================= */
+
+.contact-info .social-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.contact-info .social-links a {
+    background: #008080;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.contact-info .social-links a:hover {
+    background: #00b3b3;
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   CONTACT FORM
+========================= */
+
+.contact-form {
+    flex: 1;
+    min-width: 280px;
+    background: #E3E9E7;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.1);
+    text-align: left;
+    transition: .3s;
+}
+
+.contact-form:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 15px 30px rgba(0,0,0,0.15);
+}
+
+.contact-form h2 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    color: #008080;
+    margin-bottom: 25px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   FORM INPUTS
+========================= */
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid #bfcac7;
+    outline: none;
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    transition: .3s;
+    box-sizing: border-box;
+    background: #D6DEDC;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #008080;
+    box-shadow:
+        0 0 8px rgba(0,128,128,.2);
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.contact-form button {
+    width: 100%;
+    background: #008080;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 30px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.contact-form button:hover {
+    background: #00b3b3;
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #008080;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 3px solid #00b3b3;
+}
+
+.footer-container p {
+    margin: 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.footer-container .social-links {
+    margin-top: 10px;
+}
+
+.footer-container .social-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    transition: .3s;
+}
+
+.footer-container .social-links a:hover {
+    color: #ffd54f;
+}
+
+
+/* =====================================================
+   DARK MODE
+   SAME PALETTE AS ABOUT & PORTFOLIO
+===================================================== */
+
+
+/* =========================
+   CONTACT SECTION
+========================= */
+
+html.dark-mode .contact {
+    background: #111827;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+html.dark-mode .title {
+    color: #60A5FA;
+}
+
+
+/* =========================
+   SUBTITLE
+========================= */
+
+html.dark-mode .subtitle {
+    color: #D1D5DB;
+}
+
+
+/* =========================
+   CONTACT INFORMATION
+========================= */
+
+html.dark-mode .contact-info {
+    background: #1E293B;
+    color: #E2E8F0;
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.35);
+}
+
+html.dark-mode .contact-info:hover {
+    box-shadow:
+        0 15px 30px rgba(0,0,0,.45);
+}
+
+html.dark-mode .contact-info h2,
+html.dark-mode .contact-info h3 {
+    color: #60A5FA;
+}
+
+html.dark-mode .contact-info p {
+    color: #E2E8F0;
+}
+
+html.dark-mode .contact-info a {
+    color: #60A5FA;
+}
+
+html.dark-mode .contact-info a:hover {
+    color: #93C5FD;
+}
+
+
+/* =========================
+   SOCIAL LINKS
+========================= */
+
+html.dark-mode .contact-info .social-links a {
+    background: #60A5FA;
+    color: #172554;
+}
+
+html.dark-mode .contact-info .social-links a:hover {
+    background: #93C5FD;
+    color: #172554;
+}
+
+
+/* =========================
+   CONTACT FORM
+========================= */
+
+html.dark-mode .contact-form {
+    background: #1E293B;
+    color: #E2E8F0;
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.35);
+}
+
+html.dark-mode .contact-form:hover {
+    box-shadow:
+        0 15px 30px rgba(0,0,0,.45);
+}
+
+html.dark-mode .contact-form h2 {
+    color: #60A5FA;
+}
+
+html.dark-mode .contact-form label {
+    color: #E2E8F0;
+}
+
+
+/* =========================
+   FORM INPUTS
+========================= */
+
+html.dark-mode .contact-form input,
+html.dark-mode .contact-form textarea {
+    background: #111827;
+    color: #D1D5DB;
+    border-color: #475569;
+}
+
+html.dark-mode .contact-form input::placeholder,
+html.dark-mode .contact-form textarea::placeholder {
+    color: #94A3B8;
+}
+
+html.dark-mode .contact-form input:focus,
+html.dark-mode .contact-form textarea:focus {
+    border-color: #60A5FA;
+    box-shadow:
+        0 0 8px rgba(96,165,250,.25);
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+html.dark-mode .contact-form button {
+    background: #60A5FA;
+    color: #172554;
+}
+
+html.dark-mode .contact-form button:hover {
+    background: #93C5FD;
+    color: #172554;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px) {
+
+    .contact {
+        margin-top: -30px;
+        padding: 35px 15px 50px;
+    }
+
+    .title {
+        font-size: 32px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        margin: 0 auto 30px;
+        text-align: center;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .contact-info,
+    .contact-form {
+        padding: 25px;
+    }
+
+}

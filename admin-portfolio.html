@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Portfolio | Loyd Ywen Masangcay</title>
+
+    <link rel="stylesheet" href="admin-dashboard.css">
+    <link rel="stylesheet" href="admin-portfolio.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body class="admin-dashboard-page">
+
+
+<!-- =========================================================
+     ADMIN HEADER
+========================================================= -->
+
+<header class="admin-header">
+
+    <div class="admin-header-container">
+
+        <a href="admin-dashboard.html" class="admin-brand">
+
+            <img
+                src="logo.png"
+                alt="Loyd Ywen Logo"
+            >
+
+            <div class="admin-brand-text">
+
+                <strong>Admin Portal</strong>
+
+                <span>Loyd Ywen Masangcay</span>
+
+            </div>
+
+        </a>
+
+
+        <div class="admin-header-actions">
+
+            <button
+                class="dashboard-theme-btn"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle theme"
+            >
+                <span id="themeIcon">🌙</span>
+            </button>
+
+
+            <a
+                href="index.html"
+                class="view-site-btn"
+            >
+                View Site
+            </a>
+
+
+            <button
+                class="logout-btn"
+                id="logoutButton"
+                type="button"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     ADMIN LAYOUT
+========================================================= -->
+
+<div class="admin-layout">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ===================================================== -->
+
+    <aside class="admin-sidebar">
+
+        <div class="sidebar-title">
+
+            <span>MANAGEMENT</span>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a
+                href="admin-dashboard.html"
+                class="sidebar-link"
+            >
+
+                <span class="sidebar-icon">🏠</span>
+
+                <span>Dashboard</span>
+
+            </a>
+
+
+            <a
+                href="admin-portfolio.html"
+                class="sidebar-link active"
+            >
+
+                <span class="sidebar-icon">💼</span>
+
+                <span>Portfolio</span>
+
+            </a>
+
+
+            <a
+                href="admin-gallery.html"
+                class="sidebar-link"
+            >
+
+                <span class="sidebar-icon">🖼️</span>
+
+                <span>Gallery</span>
+
+            </a>
+
+
+            <a
+                href="admin-blog.html"
+                class="sidebar-link"
+            >
+
+                <span class="sidebar-icon">📝</span>
+
+                <span>Blog</span>
+
+            </a>
+
+
+            <a
+                href="admin-messages.html"
+                class="sidebar-link"
+            >
+
+                <span class="sidebar-icon">✉️</span>
+
+                <span>Messages</span>
+
+            </a>
+
+
+            <a
+                href="admin-settings.html"
+                class="sidebar-link"
+            >
+
+                <span class="sidebar-icon">⚙️</span>
+
+                <span>Settings</span>
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ===================================================== -->
+
+    <main class="admin-main">
+
+
+        <!-- =================================================
+             PAGE HEADER
+        ================================================= -->
+
+        <section class="portfolio-admin-header">
+
+            <div>
+
+                <span class="admin-page-label">
+                    PORTFOLIO MANAGEMENT
+                </span>
+
+                <h1>
+                    Portfolio
+                </h1>
+
+                <p>
+                    Manage the projects displayed on your portfolio.
+                </p>
+
+            </div>
+
+
+            <button
+                class="add-project-btn"
+                id="addProjectButton"
+                type="button"
+            >
+
+                <span>＋</span>
+
+                Add Project
+
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PROJECT TABLE
+        ================================================= -->
+
+        <section class="portfolio-table-card">
+
+            <div class="portfolio-table-wrapper">
+
+                <table class="portfolio-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>PROJECT</th>
+
+                            <th>CATEGORY</th>
+
+                            <th>STATUS</th>
+
+                            <th>DATE</th>
+
+                            <th>ACTION</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="projectTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <div
+                class="no-projects"
+                id="noProjects"
+            >
+
+                <div class="no-project-icon">
+                    💼
+                </div>
+
+                <h3>
+                    No Projects Yet
+                </h3>
+
+                <p>
+                    Add your first portfolio project.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<!-- =========================================================
+     PROJECT MODAL
+========================================================= -->
+
+<div
+    class="project-modal-overlay"
+    id="projectModal"
+>
+
+    <div class="project-modal">
+
+
+        <!-- ================================================
+             MODAL HEADER
+        ================================================= -->
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="modal-label">
+                    PORTFOLIO PROJECT
+                </span>
+
+                <h2 id="modalTitle">
+                    Add Project
+                </h2>
+
+            </div>
+
+
+            <button
+                class="modal-close-btn"
+                id="closeProjectModal"
+                type="button"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+
+        <!-- ================================================
+             FORM
+        ================================================= -->
+
+        <form id="projectForm">
+
+
+            <!-- ============================================
+                 BASIC INFORMATION
+            ============================================= -->
+
+            <div class="form-section">
+
+                <div class="form-section-title">
+
+                    <span>01</span>
+
+                    <h3>Basic Information</h3>
+
+                </div>
+
+
+                <div class="form-grid">
+
+
+                    <div class="form-group full">
+
+                        <label for="projectTitle">
+                            Project Title
+                        </label>
+
+                        <input
+                            type="text"
+                            id="projectTitle"
+                            placeholder="Example: Dinezy"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="projectCategory">
+                            Category
+                        </label>
+
+                        <select
+                            id="projectCategory"
+                            required
+                        >
+
+                            <option value="">
+                                Select category
+                            </option>
+
+                            <option value="Graphic Design">
+                                Graphic Design
+                            </option>
+
+                            <option value="UI/UX Design">
+                                UI/UX Design
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="projectStatus">
+                            Status
+                        </label>
+
+                        <select
+                            id="projectStatus"
+                            required
+                        >
+
+                            <option value="">
+                                Select status
+                            </option>
+
+                            <option value="Ongoing">
+                                Ongoing
+                            </option>
+
+                            <option value="Completed">
+                                Completed
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="projectImage">
+                            Project Image
+                        </label>
+
+                        <input
+                            type="text"
+                            id="projectImage"
+                            placeholder="dinezy.jpg"
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="projectLink">
+                            Project Link
+                        </label>
+
+                        <input
+                            type="url"
+                            id="projectLink"
+                            placeholder="https://www.figma.com/..."
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group full">
+
+                        <label for="projectTools">
+                            Tools Used
+                        </label>
+
+                        <input
+                            type="text"
+                            id="projectTools"
+                            placeholder="Figma, Canva, Photoshop..."
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group full">
+
+                        <label for="projectDescription">
+                            Project Description
+                        </label>
+
+                        <textarea
+                            id="projectDescription"
+                            rows="4"
+                            placeholder="Write a short description of your project..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ============================================
+                 PROJECT HIGHLIGHTS
+            ============================================= -->
+
+            <div class="form-section">
+
+                <div class="form-section-heading-row">
+
+                    <div class="form-section-title">
+
+                        <span>02</span>
+
+                        <h3>Project Highlights</h3>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="small-add-btn"
+                        id="addHighlightButton"
+                    >
+                        ＋ Add Highlight
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="dynamic-list"
+                    id="highlightsList"
+                ></div>
+
+            </div>
+
+
+
+            <!-- ============================================
+                 KEY FEATURES
+            ============================================= -->
+
+            <div class="form-section">
+
+                <div class="form-section-heading-row">
+
+                    <div class="form-section-title">
+
+                        <span>03</span>
+
+                        <h3>Key Features</h3>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="small-add-btn"
+                        id="addFeatureButton"
+                    >
+                        ＋ Add Feature
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="dynamic-list"
+                    id="featuresList"
+                ></div>
+
+            </div>
+
+
+
+            <!-- ============================================
+                 DESIGN CONCEPT
+            ============================================= -->
+
+            <div class="form-section">
+
+                <div class="form-section-title">
+
+                    <span>04</span>
+
+                    <h3>Design Concept</h3>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="designConcept">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="designConcept"
+                        rows="5"
+                        placeholder="Explain the design concept..."
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ============================================
+                 MY ROLE
+            ============================================= -->
+
+            <div class="form-section">
+
+                <div class="form-section-heading-row">
+
+                    <div class="form-section-title">
+
+                        <span>05</span>
+
+                        <h3>My Role</h3>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="small-add-btn"
+                        id="addRoleButton"
+                    >
+                        ＋ Add Role
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="dynamic-list"
+                    id="rolesList"
+                ></div>
+
+            </div>
+
+
+
+            <!-- ============================================
+                 AUTOMATIC DATE
+            ============================================= -->
+
+            <div class="form-section">
+
+                <div class="form-section-title">
+
+                    <span>06</span>
+
+                    <h3>Project Date</h3>
+
+                </div>
+
+
+                <div class="automatic-date-box">
+
+                    <div>
+
+                        <strong>
+                            Automatic Date
+                        </strong>
+
+                        <span>
+                            The date is automatically saved when the project is created.
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="automatic-date"
+                        id="automaticDate"
+                    >
+                        —
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ============================================
+                 MODAL ACTIONS
+            ============================================= -->
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    id="cancelProjectButton"
+                >
+                    Cancel
+                </button>
+
+
+                <button
+                    type="button"
+                    class="preview-form-btn"
+                    id="previewProjectButton"
+                >
+                    👁 Open Card
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="save-project-btn"
+                >
+                    Save Project
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     PROJECT PREVIEW
+========================================================= -->
+
+<div
+    class="preview-overlay"
+    id="previewOverlay"
+>
+
+    <div class="preview-card">
+
+
+        <button
+            class="preview-close"
+            id="closePreview"
+            type="button"
+        >
+            ×
+        </button>
+
+
+        <div
+            class="preview-image-wrapper"
+            id="previewImageWrapper"
+        >
+
+            <img
+                id="previewImage"
+                src=""
+                alt="Project Preview"
+            >
+
+        </div>
+
+
+        <div class="preview-content">
+
+
+            <div class="preview-meta">
+
+                <span
+                    class="preview-category"
+                    id="previewCategory"
+                >
+                </span>
+
+
+                <span
+                    class="preview-status"
+                    id="previewStatus"
+                >
+                </span>
+
+            </div>
+
+
+            <h2 id="previewTitle">
+                Project Title
+            </h2>
+
+
+            <p
+                class="preview-description"
+                id="previewDescription"
+            >
+            </p>
+
+
+            <div
+                class="preview-tools"
+                id="previewTools"
+            >
+            </div>
+
+
+
+            <!-- PROJECT HIGHLIGHTS -->
+
+            <div
+                class="preview-section"
+                id="previewHighlightsSection"
+            >
+
+                <h3>
+                    ✨ Project Highlights
+                </h3>
+
+
+                <div
+                    class="preview-highlights"
+                    id="previewHighlights"
+                >
+                </div>
+
+            </div>
+
+
+
+            <!-- KEY FEATURES -->
+
+            <div
+                class="preview-section"
+                id="previewFeaturesSection"
+            >
+
+                <h3>
+                    ⭐ Key Features
+                </h3>
+
+
+                <ul
+                    class="preview-features"
+                    id="previewFeatures"
+                >
+                </ul>
+
+            </div>
+
+
+
+            <!-- DESIGN CONCEPT -->
+
+            <div
+                class="preview-section"
+                id="previewConceptSection"
+            >
+
+                <h3>
+                    🎨 Design Concept
+                </h3>
+
+
+                <p id="previewConcept">
+                </p>
+
+            </div>
+
+
+
+            <!-- MY ROLE -->
+
+            <div
+                class="preview-section"
+                id="previewRoleSection"
+            >
+
+                <h3>
+                    👨‍💻 My Role
+                </h3>
+
+
+                <ul
+                    class="preview-role"
+                    id="previewRoles"
+                >
+                </ul>
+
+            </div>
+
+
+            <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="preview-link"
+                id="previewLink"
+            >
+                View Project →
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="admin-footer">
+
+    <p>
+        © 2026 Loyd Ywen Masangcay. All rights reserved.
+    </p>
+
+</footer>
+
+
+
+<script src="admin-portfolio.js"></script>
+
+</body>
+
+</html>

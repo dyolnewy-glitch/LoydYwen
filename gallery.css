@@ -1,0 +1,836 @@
+
+
+/* =========================
+   GALLERY SECTION
+========================= */
+
+.gallery-section {
+
+    margin-top:-20px;
+
+    padding:25px 20px 45px;
+
+    background:#D6DEDC;
+
+    min-height:70vh;
+
+}
+
+
+.gallery-container {
+
+    width:100%;
+
+    max-width:1100px;
+
+    margin:0 auto;
+
+}
+
+
+/* =========================
+   GALLERY HEADER
+========================= */
+
+.gallery-sidebar {
+
+    width:100%;
+
+    margin-bottom:18px;
+
+    text-align:center;
+
+}
+
+
+.gallery-sidebar h1 {
+
+    width:100%;
+
+    margin:0 0 8px;
+
+    text-align:center;
+
+    font-family:'Playfair Display', serif;
+
+    color:#008080;
+
+    font-size:40px;
+
+    font-weight:800;
+
+    letter-spacing:-0.5px;
+
+    line-height:1.2;
+
+}
+
+
+.gallery-sidebar p {
+
+    width:100%;
+
+    margin:0 auto;
+
+    text-align:center;
+
+    font-family:'Quicksand', sans-serif;
+
+    color:#666;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    letter-spacing:0.2px;
+
+    line-height:1.6;
+
+}
+
+
+/* =========================
+   CATEGORY DROPDOWN
+========================= */
+
+.category-dropdown {
+
+    position:relative;
+
+    width:230px;
+
+    margin-top:15px;
+
+    margin-left:auto;
+
+    margin-right:0;
+
+}
+
+
+.category-dropdown-btn {
+
+    width:100%;
+
+    min-height:44px;
+
+    padding:10px 14px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+    background:#fff;
+
+    color:#333;
+
+    border:2px solid #008080;
+
+    border-radius:8px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    font-family:'DM Sans', sans-serif;
+
+    cursor:pointer;
+
+    box-sizing:border-box;
+
+    transition:0.3s ease;
+
+}
+
+
+.category-dropdown-btn:hover {
+
+    background:#f4ffff;
+
+}
+
+
+.dropdown-arrow {
+
+    flex-shrink:0;
+
+    font-size:18px;
+
+    line-height:1;
+
+    transition:transform 0.2s ease;
+
+}
+
+
+.category-dropdown-btn.open .dropdown-arrow {
+
+    transform:rotate(180deg);
+
+}
+
+
+/* =========================
+   DROPDOWN MENU
+========================= */
+
+.category-dropdown-menu {
+
+    position:absolute;
+
+    top:calc(100% + 4px);
+
+    left:0;
+
+    right:0;
+
+    width:100%;
+
+    display:none;
+
+    background:#fff;
+
+    border:2px solid #008080;
+
+    border-radius:8px;
+
+    overflow:hidden;
+
+    z-index:9999;
+
+    box-sizing:border-box;
+
+    box-shadow:0 6px 15px rgba(0,0,0,0.12);
+
+}
+
+
+.category-dropdown-menu.show {
+
+    display:block;
+
+}
+
+
+.category-option {
+
+    display:block;
+
+    width:100%;
+
+    padding:10px 14px;
+
+    background:#fff;
+
+    color:#333;
+
+    border:none;
+
+    text-align:left;
+
+    font-family:'DM Sans', sans-serif;
+
+    font-size:15px;
+
+    font-weight:500;
+
+    cursor:pointer;
+
+    box-sizing:border-box;
+
+    transition:0.25s ease;
+
+}
+
+
+.category-option:hover {
+
+    background:#e6f5f5;
+
+    color:#008080;
+
+}
+
+
+.category-option.active {
+
+    background:#008080;
+
+    color:#fff;
+
+}
+
+
+/* =========================
+   GALLERY CONTENT
+========================= */
+
+.gallery-content {
+
+    width:100%;
+
+    max-width:1100px;
+
+    margin:0 auto;
+
+    padding:0;
+
+}
+
+
+/* =========================
+   MASONRY GALLERY
+========================= */
+
+.gallery-grid {
+
+    width:100%;
+
+    column-count:3;
+
+    column-gap:6px;
+
+    margin:0 auto;
+
+    padding:0;
+
+}
+
+
+.gallery-item {
+
+    position:relative;
+
+    display:inline-block;
+
+    vertical-align:top;
+
+    width:100%;
+
+    margin:0 0 6px;
+
+    padding:0;
+
+    overflow:hidden;
+
+    background:transparent;
+
+    cursor:pointer;
+
+    break-inside:avoid;
+
+    -webkit-column-break-inside:avoid;
+
+    box-sizing:border-box;
+
+}
+
+
+.gallery-item img {
+
+    display:block;
+
+    width:100%;
+
+    height:auto;
+
+    margin:0;
+
+    padding:0;
+
+    object-fit:contain;
+
+    background:transparent;
+
+    cursor:pointer;
+
+    transition:transform 0.25s ease;
+
+}
+
+
+.gallery-item:hover img {
+
+    transform:scale(1.02);
+
+}
+
+
+/* =========================
+   GALLERY OVERLAY
+========================= */
+
+.gallery-overlay {
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:100%;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background:rgba(0,0,0,0.85);
+
+    z-index:99999;
+
+    box-sizing:border-box;
+
+}
+
+
+.gallery-overlay.show {
+
+    display:flex;
+
+}
+
+
+.gallery-preview {
+
+    display:block;
+
+    width:auto;
+
+    height:auto;
+
+    max-width:70vw;
+
+    max-height:80vh;
+
+    object-fit:contain;
+
+    margin:0;
+
+    padding:0;
+
+    cursor:pointer;
+
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media screen and (max-width:768px) {
+
+    .gallery-section {
+
+        margin-top:-15px;
+
+        padding:30px 15px 40px;
+
+    }
+
+
+    .gallery-sidebar {
+
+        margin-bottom:17px;
+
+        text-align:center;
+
+    }
+
+
+    .gallery-sidebar h1 {
+
+        width:100%;
+
+        font-size:32px;
+
+        text-align:center;
+
+    }
+
+
+    .gallery-sidebar p {
+
+        width:100%;
+
+        font-size:14px;
+
+        text-align:center;
+
+    }
+
+
+    .category-dropdown {
+
+        width:220px;
+
+        margin-top:14px;
+
+        margin-left:auto;
+
+        margin-right:0;
+
+    }
+
+
+    .gallery-content {
+
+        width:100%;
+
+        margin:0 auto;
+
+    }
+
+
+    .gallery-grid {
+
+        column-count:2;
+
+        column-gap:6px;
+
+    }
+
+
+    .gallery-item {
+
+        margin-bottom:6px;
+
+    }
+
+
+    .gallery-preview {
+
+        max-width:78vw;
+
+        max-height:75vh;
+
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media screen and (max-width:480px) {
+
+    .gallery-section {
+
+        margin-top:-10px;
+
+        padding:25px 10px 35px;
+
+    }
+
+
+    .gallery-sidebar {
+
+        margin-bottom:15px;
+
+        text-align:center;
+
+    }
+
+
+    .gallery-sidebar h1 {
+
+        width:100%;
+
+        font-size:28px;
+
+        text-align:center;
+
+    }
+
+
+    .gallery-sidebar p {
+
+        width:100%;
+
+        font-size:13px;
+
+        text-align:center;
+
+        line-height:1.5;
+
+    }
+
+
+    .category-dropdown {
+
+        width:200px;
+
+        margin-top:13px;
+
+        margin-left:auto;
+
+        margin-right:0;
+
+    }
+
+
+    .gallery-content {
+
+        width:100%;
+
+        margin:0 auto;
+
+    }
+
+
+    .gallery-grid {
+
+        column-count:2;
+
+        column-gap:6px;
+
+    }
+
+
+    .gallery-item {
+
+        margin-bottom:6px;
+
+    }
+
+
+    .gallery-item img {
+
+        width:100%;
+
+        height:auto;
+
+    }
+
+
+    .gallery-preview {
+
+        max-width:88vw;
+
+        max-height:72vh;
+
+    }
+
+}
+
+
+/* =========================
+   VERY SMALL PHONES
+========================= */
+
+@media screen and (max-width:360px) {
+
+    .gallery-section {
+
+        margin-top:-5px;
+
+        padding:22px 8px 30px;
+
+    }
+
+
+    .gallery-sidebar h1 {
+
+        font-size:25px;
+
+    }
+
+
+    .gallery-sidebar p {
+
+        font-size:12px;
+
+    }
+
+
+    .category-dropdown {
+
+        width:185px;
+
+        margin-top:12px;
+
+    }
+
+}
+
+
+/* =====================================================
+   DARK MODE
+   SAME COLORS AS ABOUT & PORTFOLIO
+===================================================== */
+
+
+/* =========================
+   GALLERY SECTION
+========================= */
+
+html.dark-mode .gallery-section {
+
+    background:#111827;
+
+}
+
+
+/* =========================
+   GALLERY HEADER
+========================= */
+
+html.dark-mode .gallery-sidebar h1 {
+
+    color:#60A5FA;
+
+}
+
+
+html.dark-mode .gallery-sidebar p {
+
+    color:#D1D5DB;
+
+}
+
+
+/* =========================
+   CATEGORY DROPDOWN
+========================= */
+
+html.dark-mode .category-dropdown-btn {
+
+    background:#1E293B;
+
+    color:#E2E8F0;
+
+    border-color:#475569;
+
+}
+
+
+html.dark-mode .category-dropdown-btn:hover {
+
+    background:#1E293B;
+
+    border-color:#60A5FA;
+
+}
+
+
+html.dark-mode .dropdown-arrow {
+
+    color:#E2E8F0;
+
+}
+
+
+/* =========================
+   DROPDOWN MENU
+========================= */
+
+html.dark-mode .category-dropdown-menu {
+
+    background:#1E293B;
+
+    border-color:#475569;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.35);
+
+}
+
+
+html.dark-mode .category-option {
+
+    background:#1E293B;
+
+    color:#E2E8F0;
+
+}
+
+
+html.dark-mode .category-option:hover {
+
+    background:#111827;
+
+    color:#60A5FA;
+
+}
+
+
+html.dark-mode .category-option.active {
+
+    background:#60A5FA;
+
+    color:#172554;
+
+}
+
+
+/* =========================
+   GALLERY ITEMS
+========================= */
+
+html.dark-mode .gallery-item {
+
+    background:transparent;
+
+}
+
+
+html.dark-mode .gallery-item img {
+
+    background:transparent;
+
+}
+
+
+/* =========================
+   GALLERY OVERLAY
+========================= */
+
+html.dark-mode .gallery-overlay {
+
+    background:rgba(0,0,0,.82);
+
+}
+
+
+html.dark-mode .gallery-preview {
+
+    box-shadow:0 10px 40px rgba(0,0,0,.65);
+
+}
+
+
+/* =========================
+   DARK SCROLLBAR
+========================= */
+
+html.dark-mode .category-dropdown-menu::-webkit-scrollbar {
+
+    width:8px;
+
+}
+
+
+html.dark-mode .category-dropdown-menu::-webkit-scrollbar-track {
+
+    background:#111827;
+
+}
+
+
+html.dark-mode .category-dropdown-menu::-webkit-scrollbar-thumb {
+
+    background:#475569;
+
+    border-radius:10px;
+
+}
+

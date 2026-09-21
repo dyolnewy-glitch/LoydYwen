@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gallery - Loyd Ywen Masangcay</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet" href="gallery.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<div class="container">
+
+
+<!-- =========================
+     DARK / LIGHT MODE
+========================= -->
+
+<div class="logo theme-toggle" id="themeToggle">
+
+<img
+id="themeLogo"
+src="logo.png"
+alt="Theme Toggle">
+
+<span id="themeLabel">
+Light Mode
+</span>
+
+</div>
+
+
+<!-- =========================
+     MOBILE MENU
+========================= -->
+
+<div
+class="menu-toggle"
+onclick="toggleMenu(this)">
+
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+
+<ul>
+
+<li>
+<a href="index.html">
+Home
+</a>
+</li>
+
+<li>
+<a href="about.html">
+About Me
+</a>
+</li>
+
+<li>
+<a href="skills.html">
+Skills
+</a>
+</li>
+
+<li>
+<a href="portfolio.html">
+Portfolio
+</a>
+</li>
+
+<li>
+<a href="gallery.html" class="active">
+Gallery
+</a>
+</li>
+
+<li>
+<a href="blog.html">
+Blog
+</a>
+</li>
+
+<li>
+<a href="contact.html">
+Contact
+</a>
+</li>
+
+</ul>
+
+</nav>
+
+</div>
+
+</header>
+
+
+
+<!-- =========================
+     GALLERY SECTION
+========================= -->
+
+<section class="gallery-section">
+
+<div class="gallery-container">
+
+
+<!-- =========================
+     SIDEBAR
+========================= -->
+
+<div class="gallery-sidebar">
+
+<h1>
+Gallery
+</h1>
+
+<p>
+Explore my creative works and designs.
+</p>
+
+
+<!-- =========================
+     CATEGORY DROPDOWN
+========================= -->
+
+<div class="category-dropdown">
+
+<button
+class="category-dropdown-btn"
+id="categoryDropdownBtn"
+type="button">
+
+<span id="selectedCategory">
+All Categories
+</span>
+
+<span class="dropdown-arrow">
+▾
+</span>
+
+</button>
+
+
+<div
+class="category-dropdown-menu"
+id="categoryDropdownMenu">
+
+
+<button
+class="category-option active"
+data-category="all"
+type="button">
+
+All Categories
+
+</button>
+
+
+<button
+class="category-option"
+data-category="poster"
+type="button">
+
+Poster
+
+</button>
+
+
+<button
+class="category-option"
+data-category="uiux"
+type="button">
+
+UI/UX Design
+
+</button>
+
+
+<button
+class="category-option"
+data-category="graphic"
+type="button">
+
+Graphic Design
+
+</button>
+
+
+<button
+class="category-option"
+data-category="photo"
+type="button">
+
+Photo Editing
+
+</button>
+
+
+<button
+class="category-option"
+data-category="video"
+type="button">
+
+Video Editing
+
+</button>
+
+
+<button
+class="category-option"
+data-category="digital-art"
+type="button">
+
+Digital Art
+
+</button>
+
+
+<button
+class="category-option"
+data-category="drawing"
+type="button">
+
+Drawing
+
+</button>
+
+
+<button
+class="category-option"
+data-category="other"
+type="button">
+
+Other
+
+</button>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================
+     GALLERY CONTENT
+========================= -->
+
+<div class="gallery-content">
+
+<div
+class="gallery-grid"
+id="galleryGrid">
+
+</div>
+
+
+<!-- =========================
+     EMPTY MESSAGE
+========================= -->
+
+<div
+id="galleryEmpty"
+class="gallery-empty"
+style="display:none;">
+
+<p>
+No images available in this category.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     IMAGE PREVIEW
+========================= -->
+
+<div
+class="gallery-overlay"
+id="galleryOverlay">
+
+<img
+class="gallery-preview"
+id="galleryPreview"
+src=""
+alt="Gallery Preview">
+
+</div>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<div class="container footer-container">
+
+<p>
+© 2026 Loyd Ywen Masangcay. All rights reserved.
+</p>
+
+
+<div class="social-links">
+
+<a
+href="https://www.facebook.com/LoydieeWen"
+target="_blank"
+rel="noopener noreferrer">
+
+Facebook
+
+</a>
+
+
+<a
+href="https://www.instagram.com/ywen_masangcay"
+target="_blank"
+rel="noopener noreferrer">
+
+Instagram
+
+</a>
+
+
+<a
+href="https://www.tiktok.com/@wehn_26"
+target="_blank"
+rel="noopener noreferrer">
+
+TikTok
+
+</a>
+
+</div>
+
+</div>
+
+</footer>
+
+
+
+<!-- =========================
+     GALLERY JAVASCRIPT
+========================= -->
+
+<script>
+
+
+/* =========================================================
+   GALLERY STORAGE
+========================================================= */
+
+const GALLERY_STORAGE_KEY = "galleryItems";
+
+
+let galleryData = [];
+
+let currentCategory = "all";
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const galleryGrid =
+document.getElementById("galleryGrid");
+
+
+const galleryEmpty =
+document.getElementById("galleryEmpty");
+
+
+const dropdownButton =
+document.getElementById("categoryDropdownBtn");
+
+
+const dropdownMenu =
+document.getElementById("categoryDropdownMenu");
+
+
+const selectedCategory =
+document.getElementById("selectedCategory");
+
+
+const options =
+document.querySelectorAll(".category-option");
+
+
+const galleryOverlay =
+document.getElementById("galleryOverlay");
+
+
+const galleryPreview =
+document.getElementById("galleryPreview");
+
+
+/* =========================================================
+   LOAD GALLERY DATA
+========================================================= */
+
+function loadGalleryData() {
+
+try {
+
+galleryData =
+JSON.parse(
+localStorage.getItem(
+GALLERY_STORAGE_KEY
+)
+) || [];
+
+}
+
+catch(error) {
+
+console.error(
+"Unable to load gallery data:",
+error
+);
+
+galleryData = [];
+
+}
+
+renderGallery();
+
+}
+
+
+/* =========================================================
+   RENDER PUBLIC GALLERY
+========================================================= */
+
+function renderGallery() {
+
+if (!galleryGrid) {
+
+return;
+
+}
+
+
+galleryGrid.innerHTML = "";
+
+
+let filteredItems = galleryData.filter(
+function(item) {
+
+if (currentCategory === "all") {
+
+return true;
+
+}
+
+return normalizeCategory(
+item.category
+) === currentCategory;
+
+});
+
+
+/* =========================
+   EMPTY GALLERY
+========================= */
+
+if (filteredItems.length === 0) {
+
+if (galleryEmpty) {
+
+galleryEmpty.style.display = "block";
+
+}
+
+return;
+
+}
+
+
+if (galleryEmpty) {
+
+galleryEmpty.style.display = "none";
+
+}
+
+
+/* =========================
+   CREATE IMAGE CARDS
+========================= */
+
+filteredItems.forEach(
+function(item) {
+
+const imageSource =
+item.image ||
+item.fileName ||
+"";
+
+
+if (!imageSource) {
+
+return;
+
+}
+
+
+const galleryItem =
+document.createElement("div");
+
+galleryItem.className =
+"gallery-item";
+
+
+galleryItem.setAttribute(
+"data-category",
+normalizeCategory(
+item.category
+)
+);
+
+
+const image =
+document.createElement("img");
+
+
+image.src =
+imageSource;
+
+
+image.alt =
+"Gallery Image";
+
+
+image.loading =
+"lazy";
+
+
+galleryItem.appendChild(
+image
+);
+
+
+galleryGrid.appendChild(
+galleryItem
+);
+
+});
+
+}
+
+
+/* =========================================================
+   NORMALIZE CATEGORY
+========================================================= */
+
+function normalizeCategory(category) {
+
+if (!category) {
+
+return "other";
+
+}
+
+
+const value =
+String(category)
+.trim()
+.toLowerCase();
+
+
+const categoryMap = {
+
+"all":
+"all",
+
+"poster":
+"poster",
+
+"ui/ux design":
+"uiux",
+
+"ui/ux":
+"uiux",
+
+"uiux":
+"uiux",
+
+"graphic design":
+"graphic",
+
+"graphic":
+"graphic",
+
+"photo editing":
+"photo",
+
+"photo":
+"photo",
+
+"video editing":
+"video",
+
+"video":
+"video",
+
+"digital art":
+"digital-art",
+
+"digital-art":
+"digital-art",
+
+"drawing":
+"drawing",
+
+"other":
+"other"
+
+};
+
+
+return categoryMap[value] || value;
+
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+function toggleMenu(menu) {
+
+const nav =
+document.querySelector("header nav");
+
+
+if (nav) {
+
+nav.classList.toggle("show");
+
+}
+
+
+if (menu) {
+
+menu.classList.toggle("active");
+
+}
+
+}
+
+
+document
+.querySelectorAll("nav ul li a")
+.forEach(function(link) {
+
+link.addEventListener(
+"click",
+function() {
+
+const nav =
+document.querySelector(
+"header nav"
+);
+
+
+const menu =
+document.querySelector(
+".menu-toggle"
+);
+
+
+if (nav) {
+
+nav.classList.remove(
+"show"
+);
+
+}
+
+
+if (menu) {
+
+menu.classList.remove(
+"active"
+);
+
+}
+
+});
+
+});
+
+
+/* =========================================================
+   CATEGORY DROPDOWN
+========================================================= */
+
+if (
+dropdownButton &&
+dropdownMenu
+) {
+
+dropdownButton.addEventListener(
+"click",
+function(event) {
+
+event.stopPropagation();
+
+
+dropdownMenu.classList.toggle(
+"show"
+);
+
+
+dropdownButton.classList.toggle(
+"open"
+);
+
+});
+
+}
+
+
+/* =========================================================
+   CATEGORY FILTER
+========================================================= */
+
+options.forEach(function(option) {
+
+option.addEventListener(
+"click",
+function(event) {
+
+event.stopPropagation();
+
+
+currentCategory =
+this.getAttribute(
+"data-category"
+) || "all";
+
+
+options.forEach(
+function(item) {
+
+item.classList.remove(
+"active"
+);
+
+});
+
+
+this.classList.add(
+"active"
+);
+
+
+if (selectedCategory) {
+
+selectedCategory.textContent =
+this.textContent.trim();
+
+}
+
+
+if (dropdownMenu) {
+
+dropdownMenu.classList.remove(
+"show"
+);
+
+}
+
+
+if (dropdownButton) {
+
+dropdownButton.classList.remove(
+"open"
+);
+
+}
+
+
+renderGallery();
+
+});
+
+});
+
+
+/* =========================================================
+   CLOSE DROPDOWN
+========================================================= */
+
+document.addEventListener(
+"click",
+function(event) {
+
+if (
+dropdownButton &&
+dropdownMenu &&
+!dropdownButton.contains(
+event.target
+) &&
+!dropdownMenu.contains(
+event.target
+)
+) {
+
+dropdownMenu.classList.remove(
+"show"
+);
+
+dropdownButton.classList.remove(
+"open"
+);
+
+}
+
+});
+
+
+/* =========================================================
+   IMAGE PREVIEW
+========================================================= */
+
+if (
+galleryGrid &&
+galleryOverlay &&
+galleryPreview
+) {
+
+galleryGrid.addEventListener(
+"click",
+function(event) {
+
+const image =
+event.target.closest(
+".gallery-item img"
+);
+
+
+if (!image) {
+
+return;
+
+}
+
+
+galleryPreview.src =
+image.src;
+
+
+galleryPreview.alt =
+image.alt;
+
+
+galleryOverlay.classList.add(
+"show"
+);
+
+});
+
+
+
+/* =========================
+   CLOSE PREVIEW
+========================= */
+
+galleryPreview.addEventListener(
+"click",
+function() {
+
+galleryOverlay.classList.remove(
+"show"
+);
+
+
+galleryPreview.src = "";
+
+});
+
+
+galleryOverlay.addEventListener(
+"click",
+function(event) {
+
+if (
+event.target ===
+galleryOverlay
+) {
+
+galleryOverlay.classList.remove(
+"show"
+);
+
+
+galleryPreview.src = "";
+
+}
+
+});
+
+}
+
+
+/* =========================================================
+   ESCAPE KEY
+========================================================= */
+
+document.addEventListener(
+"keydown",
+function(event) {
+
+if (
+event.key === "Escape"
+) {
+
+if (galleryOverlay) {
+
+galleryOverlay.classList.remove(
+"show"
+);
+
+}
+
+
+if (galleryPreview) {
+
+galleryPreview.src = "";
+
+}
+
+}
+
+});
+
+
+/* =========================================================
+   UPDATE WHEN ADMIN ADDS / EDITS / DELETES
+========================================================= */
+
+window.addEventListener(
+"storage",
+function(event) {
+
+if (
+event.key ===
+GALLERY_STORAGE_KEY
+) {
+
+loadGalleryData();
+
+}
+
+});
+
+
+/* =========================================================
+   UPDATE WHEN RETURNING TO PAGE
+========================================================= */
+
+document.addEventListener(
+"visibilitychange",
+function() {
+
+if (
+document.visibilityState ===
+"visible"
+) {
+
+loadGalleryData();
+
+}
+
+});
+
+
+/* =========================================================
+   INITIAL LOAD
+========================================================= */
+
+loadGalleryData();
+
+</script>
+
+
+
+<!-- =========================
+     DARK MODE SCRIPT
+========================= -->
+
+<script src="darkmode.js"></script>
+
+
+</body>
+
+</html>

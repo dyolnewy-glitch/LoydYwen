@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Settings | Loyd Ywen Masangcay</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="admin-dashboard.css">
+
+    <link rel="stylesheet" href="admin-settings.css">
+
+</head>
+
+
+<body class="admin-dashboard-page admin-settings-page">
+
+
+    <header class="admin-header">
+
+        <div class="admin-header-container">
+
+            <a
+                href="admin-dashboard.html"
+                class="admin-brand"
+            >
+
+                <img
+                    src="logo.png"
+                    alt="Loyd Ywen Logo"
+                >
+
+                <div class="admin-brand-text">
+
+                    <strong>Admin Portal</strong>
+
+                    <span>Loyd Ywen Masangcay</span>
+
+                </div>
+
+            </a>
+
+
+            <div class="admin-header-actions">
+
+                <button
+                    type="button"
+                    class="dashboard-theme-btn"
+                    id="themeToggle"
+                    title="Switch Theme"
+                    aria-label="Switch Theme"
+                >
+                    <span id="themeIcon">🌙</span>
+                </button>
+
+
+                <a
+                    href="index.html"
+                    class="view-site-btn"
+                >
+                    View Site
+                </a>
+
+
+                <button
+                    type="button"
+                    class="logout-btn"
+                    id="logoutButton"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <div class="admin-layout">
+
+
+        <aside class="admin-sidebar">
+
+            <div class="sidebar-title">
+                <span>MANAGEMENT</span>
+            </div>
+
+
+            <nav class="sidebar-nav">
+
+                <a
+                    href="admin-dashboard.html"
+                    class="sidebar-link"
+                >
+                    <span class="sidebar-icon">🏠</span>
+                    <span>Dashboard</span>
+                </a>
+
+
+                <a
+                    href="admin-portfolio.html"
+                    class="sidebar-link"
+                >
+                    <span class="sidebar-icon">💼</span>
+                    <span>Portfolio</span>
+                </a>
+
+
+                <a
+                    href="admin-gallery.html"
+                    class="sidebar-link"
+                >
+                    <span class="sidebar-icon">🖼️</span>
+                    <span>Gallery</span>
+                </a>
+
+
+                <a
+                    href="admin-blog.html"
+                    class="sidebar-link"
+                >
+                    <span class="sidebar-icon">📝</span>
+                    <span>Blog</span>
+                </a>
+
+
+                <a
+                    href="admin-messages.html"
+                    class="sidebar-link"
+                >
+                    <span class="sidebar-icon">✉️</span>
+                    <span>Messages</span>
+                </a>
+
+
+                <a
+                    href="admin-settings.html"
+                    class="sidebar-link active"
+                >
+                    <span class="sidebar-icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+
+        <main class="admin-content">
+
+            <section class="settings-page">
+
+
+                <div class="settings-heading">
+
+                    <span class="section-label">
+                        ADMIN SETTINGS
+                    </span>
+
+                    <h1>Settings</h1>
+
+                    <p>
+                        Manage your admin account and website preferences.
+                    </p>
+
+                </div>
+
+
+
+                <div class="settings-card">
+
+                    <div class="settings-card-header">
+
+                        <div class="settings-title-wrap">
+
+                            <span class="settings-icon">👤</span>
+
+                            <div>
+
+                                <h2>Admin Account</h2>
+
+                                <p>
+                                    Manage your administrator account information.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="settings-card-body">
+
+                        <div class="account-info-row">
+
+
+                            <div class="account-info-item">
+
+                                <span>
+                                    Username
+                                </span>
+
+                                <strong id="settingsUsername">
+                                    admin
+                                </strong>
+
+                            </div>
+
+
+                            <div class="account-info-item">
+
+                                <span>
+                                    Last Login
+                                </span>
+
+                                <strong id="lastLoginDisplay">
+                                    No login recorded
+                                </strong>
+
+                            </div>
+
+
+                            <div class="account-info-item">
+
+                                <span>
+                                    Status
+                                </span>
+
+                                <strong class="status-active">
+                                    Active
+                                </strong>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="settings-action-row">
+
+                            <button
+                                type="button"
+                                class="settings-primary-btn"
+                                id="changePasswordButton"
+                            >
+                                Change Password
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="settings-card">
+
+                    <div class="settings-card-header">
+
+                        <div class="settings-title-wrap">
+
+                            <span class="settings-icon">🌐</span>
+
+                            <div>
+
+                                <h2>Website Information</h2>
+
+                                <p>
+                                    Update the basic information displayed on your website.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="settings-card-body">
+
+                        <form id="websiteSettingsForm">
+
+                            <div class="settings-form-grid">
+
+
+                                <div class="settings-form-group">
+
+                                    <label for="websiteName">
+                                        Website Name
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="websiteName"
+                                        placeholder="Loyd Ywen Masangcay"
+                                    >
+
+                                </div>
+
+
+                                <div class="settings-form-group">
+
+                                    <label for="websiteEmail">
+                                        Email
+                                    </label>
+
+                                    <input
+                                        type="email"
+                                        id="websiteEmail"
+                                        placeholder="Enter website email"
+                                    >
+
+                                </div>
+
+
+                                <div class="settings-form-group">
+
+                                    <label for="websiteLocation">
+                                        Location
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="websiteLocation"
+                                        placeholder="Enter website location"
+                                    >
+
+                                </div>
+
+
+                                <div class="settings-form-group settings-full-width">
+
+                                    <label for="websiteDescription">
+                                        Website Description
+                                    </label>
+
+                                    <textarea
+                                        id="websiteDescription"
+                                        rows="4"
+                                        placeholder="Enter a short description of your website"
+                                    ></textarea>
+
+                                </div>
+
+
+                            </div>
+
+
+                            <div
+                                class="settings-message"
+                                id="websiteInfoMessage"
+                            ></div>
+
+
+                            <button
+                                type="submit"
+                                class="settings-primary-btn"
+                            >
+                                Save Website Information
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="settings-card">
+
+                    <div class="settings-card-header">
+
+                        <div class="settings-title-wrap">
+
+                            <span class="settings-icon">📝</span>
+
+                            <div>
+
+                                <h2>Content Preferences</h2>
+
+                                <p>
+                                    Choose how content is displayed and organized.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="settings-card-body">
+
+                        <form id="contentPreferencesForm">
+
+                            <div class="settings-form-grid">
+
+
+                                <div class="settings-form-group">
+
+                                    <label for="blogPerPage">
+                                        Blog Posts Per Page
+                                    </label>
+
+                                    <select id="blogPerPage">
+
+                                        <option value="4">
+                                            4 Posts
+                                        </option>
+
+                                        <option value="6">
+                                            6 Posts
+                                        </option>
+
+                                        <option value="8">
+                                            8 Posts
+                                        </option>
+
+                                        <option value="10">
+                                            10 Posts
+                                        </option>
+
+                                        <option value="12">
+                                            12 Posts
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+                                <div class="settings-form-group">
+
+                                    <label for="galleryPerPage">
+                                        Gallery Images Per Page
+                                    </label>
+
+                                    <select id="galleryPerPage">
+
+                                        <option value="6">
+                                            6 Images
+                                        </option>
+
+                                        <option value="8">
+                                            8 Images
+                                        </option>
+
+                                        <option value="10">
+                                            10 Images
+                                        </option>
+
+                                        <option value="12">
+                                            12 Images
+                                        </option>
+
+                                        <option value="16">
+                                            16 Images
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+                                <div class="settings-form-group">
+
+                                    <label for="defaultBlogCategory">
+                                        Default Blog Category
+                                    </label>
+
+                                    <select id="defaultBlogCategory">
+
+                                        <option value="All">
+                                            All Categories
+                                        </option>
+
+                                        <option value="Personal">
+                                            Personal
+                                        </option>
+
+                                        <option value="School Experience">
+                                            School Experience
+                                        </option>
+
+                                        <option value="OJT Experience">
+                                            OJT Experience
+                                        </option>
+
+                                        <option value="Other">
+                                            Other
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+                                <div class="settings-form-group">
+
+                                    <label for="defaultGalleryCategory">
+                                        Default Gallery Category
+                                    </label>
+
+                                    <select id="defaultGalleryCategory">
+
+                                        <option value="All">
+                                            All Categories
+                                        </option>
+
+                                        <option value="Drawing">
+                                            Drawing
+                                        </option>
+
+                                        <option value="Poster">
+                                            Poster
+                                        </option>
+
+                                        <option value="UI/UX Design">
+                                            UI/UX Design
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+                            </div>
+
+
+                            <div
+                                class="settings-message"
+                                id="contentPreferencesMessage"
+                            ></div>
+
+
+                            <button
+                                type="submit"
+                                class="settings-primary-btn"
+                                id="saveContentPreferences"
+                            >
+                                Save Content Preferences
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="settings-card">
+
+                    <div class="settings-card-header">
+
+                        <div class="settings-title-wrap">
+
+                            <span class="settings-icon">🛠️</span>
+
+                            <div>
+
+                                <h2>Website Maintenance</h2>
+
+                                <p>
+                                    Export or manage locally stored website preferences.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="settings-card-body">
+
+
+                        <div class="maintenance-item">
+
+                            <div>
+
+                                <strong>
+                                    Export Website Data
+                                </strong>
+
+                                <span>
+                                    Download a backup of your locally stored website settings and admin data.
+                                </span>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="settings-secondary-btn"
+                                id="exportDataButton"
+                            >
+                                📥 Export Data
+                            </button>
+
+                        </div>
+
+
+                        <div class="maintenance-item">
+
+                            <div>
+
+                                <strong>
+                                    Clear Local Data
+                                </strong>
+
+                                <span>
+                                    Remove locally stored portfolio, gallery, blog, message, and preference data.
+                                </span>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="settings-secondary-btn"
+                                id="clearLocalDataButton"
+                            >
+                                🗑️ Clear Local Data
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            class="settings-message"
+                            id="maintenanceMessage"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="settings-card">
+
+                    <div class="settings-card-header">
+
+                        <div class="settings-title-wrap">
+
+                            <span class="settings-icon">💻</span>
+
+                            <div>
+
+                                <h2>System Information</h2>
+
+                                <p>
+                                    Information about the current website system.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="settings-card-body">
+
+                        <div class="system-info-grid">
+
+
+                            <div class="system-info-item">
+
+                                <span>
+                                    Website
+                                </span>
+
+                                <strong>
+                                    Loyd Ywen Masangcay
+                                </strong>
+
+                            </div>
+
+
+                            <div class="system-info-item">
+
+                                <span>
+                                    Admin Panel
+                                </span>
+
+                                <strong>
+                                    Version 1.0
+                                </strong>
+
+                            </div>
+
+
+                            <div class="system-info-item">
+
+                                <span>
+                                    Database
+                                </span>
+
+                                <strong>
+                                    Supabase
+                                </strong>
+
+                            </div>
+
+
+                            <div class="system-info-item">
+
+                                <span>
+                                    Storage
+                                </span>
+
+                                <strong>
+                                    Supabase Storage
+                                </strong>
+
+                            </div>
+
+
+                            <div class="system-info-item">
+
+                                <span>
+                                    Website Status
+                                </span>
+
+                                <strong class="status-active">
+                                    Active
+                                </strong>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="settings-card danger-card">
+
+                    <div class="settings-card-header">
+
+                        <div class="settings-title-wrap">
+
+                            <span class="settings-icon">⚠️</span>
+
+                            <div>
+
+                                <h2>Danger Zone</h2>
+
+                                <p>
+                                    Use these actions carefully. Some changes cannot be easily undone.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="settings-card-body">
+
+
+                        <div class="danger-action">
+
+                            <div class="danger-action-text">
+
+                                <strong>
+                                    Reset Preferences
+                                </strong>
+
+                                <span>
+                                    Restore website and content preferences to their default values.
+                                </span>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="settings-danger-outline-btn"
+                                id="resetPreferencesButton"
+                            >
+                                Reset Preferences
+                            </button>
+
+                        </div>
+
+
+                        <div class="danger-action">
+
+                            <div class="danger-action-text">
+
+                                <strong>
+                                    Reset Admin Password
+                                </strong>
+
+                                <span>
+                                    Restore the admin password to the default password.
+                                </span>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="settings-danger-btn"
+                                id="resetPasswordButton"
+                            >
+                                Reset Password
+                            </button>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+
+    <div
+        class="password-modal"
+        id="changePasswordModal"
+        hidden
+    >
+
+        <div class="password-modal-box">
+
+
+            <div class="password-modal-header">
+
+                <div>
+
+                    <span class="password-modal-label">
+                        ADMIN ACCOUNT
+                    </span>
+
+                    <h2>
+                        Change Password
+                    </h2>
+
+                    <p>
+                        Update your admin account password.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="password-modal-close"
+                    id="closePasswordModal"
+                    aria-label="Close"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+
+            <form id="changePasswordForm">
+
+
+                <div class="password-form-group">
+
+                    <label for="currentPassword">
+                        Current Password
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <input
+                            type="password"
+                            id="currentPassword"
+                            placeholder="Enter current password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            aria-label="Show password"
+                        >
+                            👁
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="password-form-group">
+
+                    <label for="newPassword">
+                        New Password
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <input
+                            type="password"
+                            id="newPassword"
+                            placeholder="Enter new password"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            aria-label="Show password"
+                        >
+                            👁
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="password-form-group">
+
+                    <label for="confirmPassword">
+                        Confirm New Password
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Re-enter new password"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            aria-label="Show password"
+                        >
+                            👁
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="password-requirements">
+
+                    <strong>
+                        Password Requirements
+                    </strong>
+
+                    <ul>
+
+                        <li>
+                            At least 6 characters
+                        </li>
+
+                        <li>
+                            Must be different from your current password
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+
+                <div
+                    class="password-message"
+                    id="passwordMessage"
+                    aria-live="polite"
+                ></div>
+
+
+
+                <div class="password-modal-actions">
+
+                    <button
+                        type="button"
+                        class="cancel-password-btn"
+                        id="cancelPasswordButton"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="save-password-btn"
+                    >
+                        Save Password
+                    </button>
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="admin-settings.js"></script>
+
+</body>
+
+</html>

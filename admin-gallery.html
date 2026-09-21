@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gallery Management - Loyd Ywen Masangcay</title>
+
+
+    <!-- =========================
+         CSS
+    ========================= -->
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin-dashboard.css">
+    <link rel="stylesheet" href="admin-gallery.css">
+
+
+    <!-- =========================
+         GOOGLE FONTS
+    ========================= -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body class="admin-dashboard-page">
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="admin-header">
+
+    <div class="admin-header-container">
+
+
+        <!-- BRAND -->
+
+        <a
+            href="admin-dashboard.html"
+            class="admin-brand"
+        >
+
+            <img
+                src="logo.png"
+                alt="Loyd Ywen Logo"
+            >
+
+            <div class="admin-brand-text">
+
+                <strong>
+                    Admin Portal
+                </strong>
+
+                <span>
+                    Loyd Ywen Masangcay
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <!-- HEADER ACTIONS -->
+
+        <div class="admin-header-actions">
+
+
+            <!-- DARK MODE -->
+
+            <button
+                type="button"
+                class="dashboard-theme-btn"
+                id="themeToggle"
+                title="Switch Theme"
+            >
+
+                <span id="themeIcon">
+                    🌙
+                </span>
+
+            </button>
+
+
+            <!-- VIEW SITE -->
+
+            <a
+                href="index.html"
+                class="view-site-btn"
+            >
+
+                View Site
+
+            </a>
+
+
+            <!-- LOGOUT -->
+
+            <button
+                type="button"
+                class="logout-btn"
+                id="logoutButton"
+            >
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     ADMIN LAYOUT
+========================================================= -->
+
+<div class="admin-layout">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ===================================================== -->
+
+    <aside class="admin-sidebar">
+
+
+        <div class="sidebar-title">
+
+            <span>
+                MANAGEMENT
+            </span>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+
+            <!-- DASHBOARD -->
+
+            <a
+                href="admin-dashboard.html"
+                class="sidebar-link"
+            >
+
+                <span class="sidebar-icon">
+                    🏠
+                </span>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <!-- PORTFOLIO -->
+
+            <a
+                href="admin-portfolio.html"
+                class="sidebar-link"
+            >
+
+                <span class="sidebar-icon">
+                    💼
+                </span>
+
+                <span>
+                    Portfolio
+                </span>
+
+            </a>
+
+
+            <!-- GALLERY -->
+
+            <a
+                href="admin-gallery.html"
+                class="sidebar-link active"
+            >
+
+                <span class="sidebar-icon">
+                    🖼️
+                </span>
+
+                <span>
+                    Gallery
+                </span>
+
+            </a>
+
+
+            <!-- BLOG -->
+
+            <a
+                href="admin-blog.html"
+                class="sidebar-link"
+            >
+
+                <span class="sidebar-icon">
+                    📝
+                </span>
+
+                <span>
+                    Blog
+                </span>
+
+            </a>
+
+
+            <!-- MESSAGES -->
+
+            <a
+                href="admin-messages.html"
+                class="sidebar-link"
+            >
+
+                <span class="sidebar-icon">
+                    ✉️
+                </span>
+
+                <span>
+                    Messages
+                </span>
+
+            </a>
+
+
+            <!-- SETTINGS -->
+
+            <a
+                href="admin-settings.html"
+                class="sidebar-link"
+            >
+
+                <span class="sidebar-icon">
+                    ⚙️
+                </span>
+
+                <span>
+                    Settings
+                </span>
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ===================================================== -->
+
+    <main class="admin-content">
+
+        <section class="admin-section">
+
+
+            <!-- =================================================
+                 HEADING
+            ================================================= -->
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        GALLERY MANAGEMENT
+                    </span>
+
+                    <h1>
+                        Gallery
+                    </h1>
+
+                    <p>
+                        Manage the images displayed on your public gallery.
+                    </p>
+
+                </div>
+
+
+                <!-- ADD IMAGE -->
+
+                <button
+                    type="button"
+                    class="gallery-add-btn"
+                    id="addGalleryButton"
+                >
+
+                    <span>
+                        +
+                    </span>
+
+                    Add Image
+
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 GALLERY TABLE
+            ================================================= -->
+
+            <div class="gallery-table-card">
+
+                <div class="gallery-table-wrapper">
+
+                    <table class="gallery-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    PICTURE NAME
+                                </th>
+
+                                <th>
+                                    CATEGORY
+                                </th>
+
+                                <th>
+                                    DATE
+                                </th>
+
+                                <th>
+                                    ACTION
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="galleryTableBody">
+
+                        </tbody>
+
+                    </table>
+
+
+                    <!-- =================================================
+                         EMPTY STATE
+                    ================================================= -->
+
+                    <div
+                        class="gallery-empty"
+                        id="noGalleryItems"
+                    >
+
+                        <div class="gallery-empty-icon">
+                            🖼️
+                        </div>
+
+                        <h3>
+                            No Gallery Images
+                        </h3>
+
+                        <p>
+                            Add your first image to display it in your public gallery.
+                        </p>
+
+                        <button
+                            type="button"
+                            id="emptyAddGalleryButton"
+                        >
+
+                            + Add Image
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<!-- =========================================================
+     GALLERY MODAL
+========================================================= -->
+
+<div
+    class="gallery-modal-overlay"
+    id="galleryModal"
+>
+
+    <div class="gallery-modal">
+
+
+        <!-- =================================================
+             MODAL HEADER
+        ================================================= -->
+
+        <div class="gallery-modal-header">
+
+            <div>
+
+                <span class="modal-label">
+                    GALLERY
+                </span>
+
+                <h2 id="modalTitle">
+                    Add Image
+                </h2>
+
+            </div>
+
+
+            <!-- CLOSE -->
+
+            <button
+                type="button"
+                class="gallery-modal-close"
+                id="closeModalButton"
+            >
+
+                ×
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =================================================
+             FORM
+        ================================================= -->
+
+        <form id="galleryForm">
+
+
+            <!-- =================================================
+                 UPLOAD IMAGE
+            ================================================= -->
+
+            <div class="gallery-form-group">
+
+                <label for="galleryImage">
+                    Upload Picture
+                </label>
+
+                <input
+                    type="file"
+                    id="galleryImage"
+                    accept="image/*"
+                >
+
+                <small>
+                    Upload an image from your computer.
+                </small>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 FILE NAME
+            ================================================= -->
+
+            <div class="gallery-form-group">
+
+                <label for="galleryFileName">
+                    Picture Filename / Path
+                </label>
+
+                <input
+                    type="text"
+                    id="galleryFileName"
+                    placeholder="Example: drawing1.jpg or images/drawing1.jpg"
+                    required
+                >
+
+                <small>
+                    The uploaded filename will be used automatically.
+                </small>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 CATEGORY
+            ================================================= -->
+
+            <div class="gallery-form-group">
+
+                <label for="galleryCategory">
+                    Category
+                </label>
+
+                <select
+                    id="galleryCategory"
+                    required
+                >
+
+                    <option value="">
+                        Select Category
+                    </option>
+
+                    <option value="Poster">
+                        Poster
+                    </option>
+
+                    <option value="UI/UX Design">
+                        UI/UX Design
+                    </option>
+
+                    <option value="Graphic Design">
+                        Graphic Design
+                    </option>
+
+                    <option value="Photo Editing">
+                        Photo Editing
+                    </option>
+
+                    <option value="Video Editing">
+                        Video Editing
+                    </option>
+
+                    <option value="Digital Art">
+                        Digital Art
+                    </option>
+
+                    <option value="Drawing">
+                        Drawing
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 IMAGE PREVIEW
+            ================================================= -->
+
+            <div class="gallery-form-group">
+
+                <label>
+                    Preview
+                </label>
+
+                <div
+                    class="gallery-image-preview"
+                    id="imagePreviewBox"
+                >
+
+                    <span id="imagePreviewPlaceholder">
+                        Image preview will appear here
+                    </span>
+
+                    <img
+                        id="imagePreview"
+                        src=""
+                        alt="Image Preview"
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 DATE
+            ================================================= -->
+
+            <div class="gallery-form-group">
+
+                <label>
+                    Date
+                </label>
+
+                <div
+                    class="gallery-date-display"
+                    id="automaticDate"
+                >
+
+                    --
+
+                </div>
+
+                <small>
+                    Date is added automatically.
+                </small>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 MODAL ACTIONS
+            ================================================= -->
+
+            <div class="gallery-modal-actions">
+
+                <button
+                    type="button"
+                    class="gallery-cancel-btn"
+                    id="cancelGalleryButton"
+                >
+
+                    Cancel
+
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="gallery-save-btn"
+                >
+
+                    Save Image
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="admin-footer">
+
+    <p>
+        &copy; 2026 Loyd Ywen Masangcay. Admin Panel.
+    </p>
+
+</footer>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<!-- SUPABASE -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- ADMIN GALLERY -->
+<script src="admin-gallery.js"></script>
+
+
+</body>
+
+</html>

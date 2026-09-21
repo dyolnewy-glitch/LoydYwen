@@ -1,0 +1,982 @@
+
+
+/* =====================================
+   SKILLS PAGE
+===================================== */
+
+.skills {
+
+    margin-top:-100px;
+
+    padding:120px 20px 70px;
+
+    background:#D6DEDC;
+
+    text-align:center;
+
+}
+
+
+/* =====================================
+   TITLE
+===================================== */
+
+.title {
+
+    font-family:'Playfair Display', serif;
+
+    font-size:42px;
+
+    color:#008080;
+
+    font-weight:800;
+
+    letter-spacing:-0.5px;
+
+    margin-bottom:10px;
+
+}
+
+
+.subtitle {
+
+    font-family:'Quicksand', sans-serif;
+
+    color:#555;
+
+    font-size:17px;
+
+    font-weight:500;
+
+    letter-spacing:0.3px;
+
+    margin-bottom:60px;
+
+}
+
+
+/* =====================================
+   SECTION
+===================================== */
+
+.skill-section {
+
+    max-width:1100px;
+
+    margin:0 auto 80px;
+
+}
+
+
+.skill-section h2 {
+
+    font-family:'Raleway', sans-serif;
+
+    color:#008080;
+
+    font-size:30px;
+
+    font-weight:800;
+
+    letter-spacing:0.5px;
+
+    margin-bottom:35px;
+
+}
+
+
+/* =====================================
+   CREATIVE SKILLS
+===================================== */
+
+.skill-cards {
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:30px;
+
+    flex-wrap:wrap;
+
+}
+
+
+.skill-card {
+
+    background:#E3E9E7;
+
+    width:300px;
+
+    padding:30px 25px;
+
+    border-radius:20px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.10);
+
+    transition:.3s;
+
+}
+
+
+.skill-card:hover {
+
+    transform:translateY(-8px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+
+}
+
+
+.skill-icon {
+
+    font-size:45px;
+
+    margin-bottom:15px;
+
+}
+
+
+.skill-card h3 {
+
+    font-family:'Oswald', sans-serif;
+
+    color:#333;
+
+    font-size:22px;
+
+    font-weight:600;
+
+    letter-spacing:0.3px;
+
+    margin-bottom:8px;
+
+}
+
+
+.skill-card h4 {
+
+    font-family:'DM Sans', sans-serif;
+
+    color:#008080;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    margin-bottom:15px;
+
+}
+
+
+.skill-card p {
+
+    font-family:'Nunito', sans-serif;
+
+    color:#555;
+
+    line-height:1.7;
+
+    font-size:15px;
+
+    font-weight:500;
+
+}
+
+
+/* =====================================
+   WEB DEVELOPMENT
+===================================== */
+
+.progress-container {
+
+    max-width:650px;
+
+    margin:auto;
+
+    text-align:left;
+
+}
+
+
+.progress-item {
+
+    margin-bottom:25px;
+
+}
+
+
+.progress-label {
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:8px;
+
+}
+
+
+.progress-label span {
+
+    font-family:'DM Sans', sans-serif;
+
+    font-weight:600;
+
+    color:#333;
+
+}
+
+
+.bar {
+
+    width:100%;
+
+    height:12px;
+
+    background:#C4CFCC;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+
+.progress {
+
+    height:100%;
+
+    background:#008080;
+
+    border-radius:20px;
+
+    animation:load 2s ease;
+
+}
+
+
+.html {
+
+    width:80%;
+
+}
+
+
+.css {
+
+    width:75%;
+
+}
+
+
+.web {
+
+    width:40%;
+
+}
+
+
+@keyframes load {
+
+    from {
+
+        width:0;
+
+    }
+
+}
+
+
+/* =====================================
+   TOOLS
+===================================== */
+
+.tool-grid {
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+}
+
+
+.tool-card {
+
+    background:#E3E9E7;
+
+    padding:30px 25px;
+
+    border-radius:18px;
+
+    text-decoration:none;
+
+    color:#333;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.10);
+
+    transition:.3s;
+
+}
+
+
+.tool-card:hover {
+
+    background:#008080;
+
+    color:white;
+
+    transform:translateY(-8px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+
+}
+
+
+.tool-icon {
+
+    font-size:42px;
+
+    margin-bottom:15px;
+
+}
+
+
+.tool-card h3 {
+
+    font-family:'Oswald', sans-serif;
+
+    margin-bottom:15px;
+
+    font-size:22px;
+
+    font-weight:600;
+
+    letter-spacing:0.3px;
+
+}
+
+
+.tool-card p {
+
+    font-family:'Nunito', sans-serif;
+
+    line-height:1.6;
+
+    font-size:15px;
+
+    font-weight:500;
+
+}
+
+
+/* =====================================
+   CURRENTLY IMPROVING
+===================================== */
+
+.improve-grid {
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+
+    gap:25px;
+
+}
+
+
+.improve-grid a {
+
+    background:#E3E9E7;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    text-decoration:none;
+
+    color:#333;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.10);
+
+    transition:.3s;
+
+}
+
+
+.improve-grid a:hover {
+
+    background:#008080;
+
+    color:white;
+
+    transform:translateY(-8px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+
+}
+
+
+.improve-grid span {
+
+    font-size:35px;
+
+    display:block;
+
+    margin-bottom:12px;
+
+}
+
+
+.improve-grid h3 {
+
+    font-family:'Oswald', sans-serif;
+
+    margin-bottom:12px;
+
+    font-weight:600;
+
+    letter-spacing:0.3px;
+
+}
+
+
+.improve-grid p {
+
+    font-family:'Nunito', sans-serif;
+
+    line-height:1.6;
+
+    font-size:15px;
+
+    font-weight:500;
+
+}
+
+
+/* =====================================
+   LEARNING JOURNEY
+===================================== */
+
+.learning-section {
+
+    max-width:800px;
+
+    margin:auto;
+
+    background:#E3E9E7;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.10);
+
+}
+
+
+.learning-section h2 {
+
+    font-family:'Raleway', sans-serif;
+
+    color:#008080;
+
+    font-size:30px;
+
+    font-weight:800;
+
+    letter-spacing:0.5px;
+
+    margin-bottom:20px;
+
+}
+
+
+.learning-section p {
+
+    font-family:'Nunito', sans-serif;
+
+    color:#555;
+
+    line-height:1.8;
+
+    font-size:17px;
+
+    font-weight:500;
+
+}
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
+footer {
+
+    background:#008080;
+
+    color:white;
+
+    padding:30px 20px;
+
+    text-align:center;
+
+    border-top:3px solid #00b3b3;
+
+}
+
+
+.footer-container p {
+
+    margin:0;
+
+    font-family:'DM Sans', sans-serif;
+
+    font-weight:500;
+
+}
+
+
+.social-links {
+
+    margin-top:10px;
+
+}
+
+
+.social-links a {
+
+    font-family:'DM Sans', sans-serif;
+
+    color:white;
+
+    text-decoration:none;
+
+    margin:0 10px;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+
+.social-links a:hover {
+
+    color:#ffd54f;
+
+}
+
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media(max-width:768px) {
+
+    .skills {
+
+        margin-top:-80px;
+
+        padding:100px 20px 60px;
+
+    }
+
+
+    .title {
+
+        font-size:32px;
+
+    }
+
+
+    .subtitle {
+
+        font-size:16px;
+
+    }
+
+
+    .skill-card {
+
+        width:90%;
+
+    }
+
+
+    .skill-section h2 {
+
+        font-size:26px;
+
+    }
+
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media(max-width:500px) {
+
+    .skills {
+
+        margin-top:-65px;
+
+        padding:100px 15px 50px;
+
+    }
+
+
+    .title {
+
+        font-size:29px;
+
+    }
+
+
+    .subtitle {
+
+        font-size:15px;
+
+    }
+
+
+    .learning-section {
+
+        padding:25px;
+
+    }
+
+
+    .learning-section h2 {
+
+        font-size:26px;
+
+    }
+
+
+    .learning-section p {
+
+        font-size:16px;
+
+    }
+
+}
+
+
+/* =====================================
+   VERY SMALL PHONES
+===================================== */
+
+@media(max-width:360px) {
+
+    .skills {
+
+        margin-top:-55px;
+
+        padding:90px 10px 45px;
+
+    }
+
+
+    .title {
+
+        font-size:26px;
+
+    }
+
+
+    .subtitle {
+
+        font-size:14px;
+
+    }
+
+
+    .skill-section h2 {
+
+        font-size:24px;
+
+    }
+
+}
+
+
+/* =====================================
+   DARK MODE
+===================================== */
+
+html.dark-mode .skills {
+
+    background:#111827;
+
+    color:#D1D5DB;
+
+}
+
+
+html.dark-mode .title {
+
+    color:#60A5FA;
+
+}
+
+
+html.dark-mode .subtitle {
+
+    color:#D1D5DB;
+
+}
+
+
+html.dark-mode .skill-section h2 {
+
+    color:#93C5FD;
+
+}
+
+
+/* =====================================
+   CREATIVE SKILLS CARDS
+===================================== */
+
+html.dark-mode .skill-card {
+
+    background:#FFFFFF;
+
+    color:#333333;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+
+}
+
+
+html.dark-mode .skill-card h3 {
+
+    color:#333333;
+
+}
+
+
+html.dark-mode .skill-card h4 {
+
+    color:#1E3A8A;
+
+}
+
+
+html.dark-mode .skill-card p {
+
+    color:#555555;
+
+}
+
+
+html.dark-mode .skill-card:hover {
+
+    box-shadow:0 15px 30px rgba(0,0,0,.35);
+
+}
+
+
+/* =====================================
+   WEB DEVELOPMENT
+===================================== */
+
+html.dark-mode .progress-label span {
+
+    color:#D1D5DB;
+
+}
+
+
+html.dark-mode .bar {
+
+    background:#334155;
+
+}
+
+
+html.dark-mode .progress {
+
+    background:#60A5FA;
+
+}
+
+
+/* =====================================
+   TOOLS
+===================================== */
+
+html.dark-mode .tool-card {
+
+    background:#FFFFFF;
+
+    color:#333333;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+
+}
+
+
+html.dark-mode .tool-card:hover {
+
+    background:#60A5FA;
+
+    color:#172554;
+
+    box-shadow:0 15px 30px rgba(0,0,0,.35);
+
+}
+
+
+html.dark-mode .tool-card h3 {
+
+    color:#333333;
+
+}
+
+
+html.dark-mode .tool-card:hover h3 {
+
+    color:#172554;
+
+}
+
+
+html.dark-mode .tool-card p {
+
+    color:#555555;
+
+}
+
+
+html.dark-mode .tool-card:hover p {
+
+    color:#172554;
+
+}
+
+
+/* =====================================
+   CURRENTLY IMPROVING
+===================================== */
+
+html.dark-mode .improve-grid a {
+
+    background:#FFFFFF;
+
+    color:#333333;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+
+}
+
+
+html.dark-mode .improve-grid a:hover {
+
+    background:#60A5FA;
+
+    color:#172554;
+
+    box-shadow:0 15px 30px rgba(0,0,0,.35);
+
+}
+
+
+html.dark-mode .improve-grid h3 {
+
+    color:#333333;
+
+}
+
+
+html.dark-mode .improve-grid a:hover h3 {
+
+    color:#172554;
+
+}
+
+
+html.dark-mode .improve-grid p {
+
+    color:#555555;
+
+}
+
+
+html.dark-mode .improve-grid a:hover p {
+
+    color:#172554;
+
+}
+
+
+/* =====================================
+   LEARNING JOURNEY
+===================================== */
+
+html.dark-mode .learning-section {
+
+    background:#1E293B;
+
+    color:#D1D5DB;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+
+}
+
+
+html.dark-mode .learning-section h2 {
+
+    color:#60A5FA;
+
+}
+
+
+html.dark-mode .learning-section p {
+
+    color:#D1D5DB;
+
+}
+
+
+/* =====================================
+   FOOTER DARK MODE
+===================================== */
+
+html.dark-mode footer {
+
+    background:#172554;
+
+    color:#D1D5DB;
+
+    border-top:1px solid #1E3A8A;
+
+}
+
+
+html.dark-mode footer p {
+
+    color:#D1D5DB;
+
+}
+
+
+html.dark-mode footer .social-links a {
+
+    color:#D1D5DB;
+
+}
+
+
+html.dark-mode footer .social-links a:hover {
+
+    color:#2DD4BF;
+
+}

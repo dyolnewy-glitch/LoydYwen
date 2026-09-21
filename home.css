@@ -1,0 +1,488 @@
+
+/* ========================= 
+   HOME ADDITIONAL SECTIONS 
+========================= */
+
+.home-container{
+    max-width:1100px;
+    margin:auto;
+    padding:0 20px;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    margin-top:25px;
+}
+
+.btn{
+    display:inline-block;
+    background:#008080;
+    color:#FFFFFF !important;
+    padding:12px 25px;
+    border-radius:30px;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#006666;
+    color:#FFFFFF !important;
+    transform:translateY(-2px);
+}
+
+
+/* =========================
+   DOWNLOAD RESUME
+   LIGHT MODE
+========================= */
+
+.btn.secondary{
+    background:transparent;
+    color:#008080 !important;
+    border:2px solid #008080;
+}
+
+.btn.secondary:hover{
+    background:#008080;
+    color:#FFFFFF !important;
+}
+
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-title h2{
+    font-size:35px;
+    color:#008080;
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#666;
+}
+
+
+/* =========================
+   ABOUT PREVIEW
+========================= */
+
+.about-preview{
+    padding:70px 20px;
+    background:#D6DEDC;
+}
+
+.about-preview-content{
+    max-width:800px;
+    margin:auto;
+    text-align:center;
+}
+
+.about-preview-content p{
+    font-size:17px;
+    line-height:1.8;
+    color:#555;
+    margin-bottom:20px;
+}
+
+
+/* =========================
+   I CREATE / I DESIGN
+========================= */
+
+.create-design{
+    padding:70px 20px;
+    background:#D6DEDC;
+}
+
+.create-grid{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.create-card{
+    background:#E3E9E7;
+    padding:30px 25px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.create-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 30px rgba(0,0,0,.12);
+}
+
+.create-icon{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.create-card h3{
+    color:#008080;
+    font-size:22px;
+    margin-bottom:12px;
+}
+
+.create-card p{
+    color:#666;
+    line-height:1.6;
+    font-size:15px;
+}
+
+
+/* =========================
+   FEATURED PROJECTS
+========================= */
+
+.featured-projects{
+    padding:70px 20px;
+    background:#D6DEDC;
+}
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+
+/* =========================
+   FEATURED PROJECT CARD
+========================= */
+
+.project-card{
+    background:#E3E9E7;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+    transition:.3s;
+    text-align:center;
+    padding-bottom:25px;
+}
+
+.project-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+}
+
+
+/* =========================
+   FEATURED PROJECT IMAGE
+   FULL IMAGE / NO CROPPING
+========================= */
+
+.project-card img{
+    width:100%;
+    height:auto;
+    aspect-ratio:4 / 5;
+    object-fit:contain;
+    object-position:center;
+    display:block;
+    background:#D6DEDC;
+}
+
+
+/* =========================
+   PROJECT TITLE
+========================= */
+
+.project-card h3{
+    color:#008080;
+    font-size:25px;
+    margin:20px 0 5px;
+}
+
+.project-card h4{
+    font-size:16px;
+    color:#333;
+    margin:0 0 10px;
+}
+
+.project-card p{
+    padding:0 20px;
+    color:#666;
+    line-height:1.6;
+}
+
+
+/* =========================
+   PROJECT BUTTON
+========================= */
+
+.project-btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:10px 20px;
+    background:#008080;
+    color:#FFFFFF !important;
+    text-decoration:none;
+    border-radius:20px;
+    transition:.3s;
+}
+
+.project-btn:hover{
+    background:#006666;
+    color:#FFFFFF !important;
+    transform:translateY(-2px);
+}
+
+
+/* =========================
+   CONTACT CTA
+========================= */
+
+.contact-cta{
+    padding:80px 20px;
+    text-align:center;
+    background:#D6DEDC;
+    color:#333;
+    border-top:1px solid #c1ccc9;
+    border-bottom:1px solid #c1ccc9;
+}
+
+.contact-cta h2{
+    font-size:35px;
+    color:#008080;
+    margin-bottom:12px;
+}
+
+.contact-cta p{
+    font-size:18px;
+    color:#666;
+    margin-bottom:25px;
+}
+
+.contact-cta .btn{
+    background:#008080;
+    color:#FFFFFF !important;
+    padding:12px 28px;
+}
+
+.contact-cta .btn:hover{
+    background:#006666;
+    color:#FFFFFF !important;
+    transform:translateY(-3px);
+}
+
+
+/* ==================================================
+   DARK MODE
+================================================== */
+
+
+/* =========================
+   DARK MODE SECTIONS
+========================= */
+
+html.dark-mode .about-preview,
+html.dark-mode .create-design,
+html.dark-mode .featured-projects,
+html.dark-mode .contact-cta{
+    background:#111827;
+}
+
+
+/* =========================
+   DARK MODE SECTION TITLES
+========================= */
+
+html.dark-mode .section-title h2,
+html.dark-mode .create-card h3,
+html.dark-mode .project-card h3,
+html.dark-mode .contact-cta h2{
+    color:#1E3A8A;
+}
+
+
+/* =========================
+   DARK MODE DESCRIPTION
+========================= */
+
+html.dark-mode .section-title p,
+html.dark-mode .create-card p,
+html.dark-mode .project-card p,
+html.dark-mode .contact-cta p,
+html.dark-mode .about-preview-content p{
+    color:#666;
+}
+
+
+/* =========================
+   DARK MODE CARDS
+========================= */
+
+html.dark-mode .create-card,
+html.dark-mode .project-card{
+    background:#FFFFFF;
+}
+
+
+/* =========================
+   DARK MODE SUBTITLE
+========================= */
+
+html.dark-mode .project-card h4{
+    color:#333;
+}
+
+
+/* ==================================================
+   DARK MODE - NORMAL BUTTONS
+================================================== */
+
+html.dark-mode .btn:not(.secondary),
+html.dark-mode .contact-cta .btn{
+
+    background:#1E3A8A;
+    color:#FFFFFF !important;
+    border:2px solid #1E3A8A;
+
+}
+
+html.dark-mode .btn:not(.secondary):hover,
+html.dark-mode .contact-cta .btn:hover{
+
+    background:#172554;
+    color:#FFFFFF !important;
+    border-color:#172554;
+
+}
+
+
+/* ==================================================
+   DARK MODE - VIEW PROJECT
+================================================== */
+
+html.dark-mode .project-btn{
+
+    background:#1E3A8A;
+    color:#FFFFFF !important;
+    border:2px solid #1E3A8A;
+
+}
+
+html.dark-mode .project-btn:hover{
+
+    background:#172554;
+    color:#FFFFFF !important;
+    border-color:#172554;
+
+}
+
+
+/* ==================================================
+   DARK MODE - DOWNLOAD RESUME
+   SAME STYLE AS LIGHT MODE
+================================================== */
+
+html.dark-mode .btn.secondary{
+
+    background:transparent;
+    color:#1E3A8A !important;
+    border:2px solid #1E3A8A;
+
+}
+
+html.dark-mode .btn.secondary:hover{
+
+    background:#1E3A8A;
+    color:#FFFFFF !important;
+    border-color:#1E3A8A;
+
+}
+
+
+/* =========================
+   DARK MODE FOOTER
+========================= */
+
+html.dark-mode footer{
+    background:#172554;
+    color:#D1D5DB;
+    border-top:4px solid #1E3A8A;
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media(max-width:900px){
+
+    .create-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .project-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+
+@media(max-width:768px){
+
+    .hero-buttons{
+        justify-content:center;
+        flex-direction:column;
+    }
+
+    .hero-buttons .btn{
+        text-align:center;
+    }
+
+    .create-grid{
+        grid-template-columns:1fr;
+    }
+
+    .project-grid{
+        grid-template-columns:1fr;
+    }
+
+    .section-title h2{
+        font-size:28px;
+    }
+
+    .project-card img{
+        width:100%;
+        height:auto;
+        aspect-ratio:4 / 5;
+        object-fit:contain;
+        object-position:center;
+        display:block;
+        background:#D6DEDC;
+    }
+
+    .project-card h3{
+        font-size:23px;
+    }
+
+    .contact-cta{
+        padding:65px 20px;
+    }
+
+    .contact-cta h2{
+        font-size:28px;
+    }
+
+    .contact-cta p{
+        font-size:16px;
+    }
+
+}
