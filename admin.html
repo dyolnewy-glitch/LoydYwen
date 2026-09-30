@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +35,9 @@
             <div class="visual-content">
 
 
-                <!-- LOGO -->
+                <!-- =========================
+                     LOGO
+                ========================= -->
 
                 <div class="visual-logo">
 
@@ -47,21 +48,27 @@
                 </div>
 
 
-                <!-- SMALL TITLE -->
+                <!-- =========================
+                     SMALL TITLE
+                ========================= -->
 
                 <p class="visual-small-title">
                     ADMIN PORTAL
                 </p>
 
 
-                <!-- TITLE -->
+                <!-- =========================
+                     TITLE
+                ========================= -->
 
                 <h1>
                     Welcome Back
                 </h1>
 
 
-                <!-- DESCRIPTION -->
+                <!-- =========================
+                     DESCRIPTION
+                ========================= -->
 
                 <p class="visual-description">
 
@@ -71,12 +78,16 @@
                 </p>
 
 
-                <!-- LINE -->
+                <!-- =========================
+                     LINE
+                ========================= -->
 
                 <div class="visual-line"></div>
 
 
-                <!-- FOOTER -->
+                <!-- =========================
+                     FOOTER
+                ========================= -->
 
                 <p class="visual-footer">
                     Loyd Ywen Masangcay
@@ -131,14 +142,14 @@
 
 
                     <!-- =========================
-                         USERNAME
+                         EMAIL
                     ========================= -->
 
                     <div class="form-group">
 
 
-                        <label for="adminUsername">
-                            Username
+                        <label for="adminEmail">
+                            Email
                         </label>
 
 
@@ -146,15 +157,15 @@
 
 
                             <span class="input-icon">
-                                👤
+                                ✉️
                             </span>
 
 
                             <input
-                                type="text"
-                                id="adminUsername"
-                                placeholder="Enter your username"
-                                value="admin"
+                                type="email"
+                                id="adminEmail"
+                                name="email"
+                                placeholder="Enter your email"
                                 autocomplete="username"
                                 required>
 
@@ -188,6 +199,7 @@
                             <input
                                 type="password"
                                 id="adminPassword"
+                                name="password"
                                 placeholder="Enter your password"
                                 autocomplete="current-password"
                                 required>
@@ -232,204 +244,7 @@
 
 
                 <!-- =========================
-                     CREATE ADMIN PASSWORD
-                ========================= -->
-
-                <div class="create-admin-password">
-
-
-                    <button
-                        type="button"
-                        class="create-admin-password-button"
-                        id="createAdminPasswordButton">
-
-                        Create Admin Password
-
-                    </button>
-
-
-                </div>
-
-
-                <!-- =========================
-                     CREATE PASSWORD OVERLAY
-                ========================= -->
-
-                <div
-                    class="create-password-overlay"
-                    id="createPasswordOverlay"
-                    hidden>
-
-
-                    <!-- =========================
-                         MODAL
-                    ========================= -->
-
-                    <div
-                        class="create-password-modal"
-                        role="dialog"
-                        aria-modal="true"
-                        aria-labelledby="createPasswordTitle">
-
-
-                        <!-- =========================
-                             CLOSE BUTTON
-                        ========================= -->
-
-                        <button
-                            type="button"
-                            class="create-password-close"
-                            id="closeCreatePassword"
-                            aria-label="Close">
-
-                            ×
-
-                        </button>
-
-
-                        <!-- =========================
-                             HEADING
-                        ========================= -->
-
-                        <div class="create-password-heading">
-
-
-                            <span class="create-password-icon">
-                                🔐
-                            </span>
-
-
-                            <h3 id="createPasswordTitle">
-                                Create Admin Password
-                            </h3>
-
-
-                            <p>
-                                Set the password for the admin account.
-                            </p>
-
-
-                        </div>
-
-
-                        <!-- =========================
-                             CREATE PASSWORD FORM
-                        ========================= -->
-
-                        <form id="createPasswordForm">
-
-
-                            <!-- =========================
-                                 NEW PASSWORD
-                            ========================= -->
-
-                            <div class="form-group">
-
-
-                                <label for="createAdminPassword">
-                                    New Password
-                                </label>
-
-
-                                <div class="input-wrapper">
-
-
-                                    <span class="input-icon">
-                                        🔒
-                                    </span>
-
-
-                                    <input
-                                        type="password"
-                                        id="createAdminPassword"
-                                        placeholder="Enter new password"
-                                        autocomplete="new-password"
-                                        required>
-
-
-                                </div>
-
-
-                            </div>
-
-
-                            <!-- =========================
-                                 CONFIRM PASSWORD
-                            ========================= -->
-
-                            <div class="form-group">
-
-
-                                <label for="confirmAdminPassword">
-                                    Confirm Password
-                                </label>
-
-
-                                <div class="input-wrapper">
-
-
-                                    <span class="input-icon">
-                                        🔒
-                                    </span>
-
-
-                                    <input
-                                        type="password"
-                                        id="confirmAdminPassword"
-                                        placeholder="Confirm your password"
-                                        autocomplete="new-password"
-                                        required>
-
-
-                                </div>
-
-
-                            </div>
-
-
-                            <!-- =========================
-                                 CREATE BUTTON
-                            ========================= -->
-
-                            <button
-                                type="submit"
-                                class="admin-submit"
-                                id="createPasswordButton">
-
-
-                                <span id="createPasswordButtonText">
-                                    Create Password
-                                </span>
-
-
-                            </button>
-
-
-                            <!-- =========================
-                                 CANCEL BUTTON
-                            ========================= -->
-
-                            <button
-                                type="button"
-                                class="cancel-create-password"
-                                id="cancelCreatePassword">
-
-                                Cancel
-
-                            </button>
-
-
-                        </form>
-
-
-                    </div>
-
-
-                </div>
-
-
-                <!-- =========================
-                     MESSAGE
+                     LOGIN MESSAGE
                 ========================= -->
 
                 <p
@@ -461,6 +276,13 @@
 
 
     <!-- =========================
+         SUPABASE
+    ========================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+    <!-- =========================
          ADMIN JAVASCRIPT
     ========================= -->
 
@@ -470,4 +292,3 @@
 </body>
 
 </html>
-
