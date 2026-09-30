@@ -1,24 +1,26 @@
 // =========================================================
 // ADMIN.JS
-// ADMIN LOGIN + CREATE ADMIN PASSWORD
-// LOCAL STORAGE AUTHENTICATION
+// ADMIN LOGIN
+// SUPABASE AUTHENTICATION
 // =========================================================
 
 
 // =========================================================
-// ADMIN SETTINGS
+// SUPABASE SETTINGS
 // =========================================================
 
-const ADMIN_USERNAME = "admin";
+const SUPABASE_URL =
+    "https://pgkrgwplunepdvrmixvj.supabase.co";
 
-const ADMIN_PASSWORD_KEY =
-    "adminPassword";
+const SUPABASE_KEY =
+    "sb_publishable_Nq1UrsN6b0YXQcKfWvKfwQ_OhJiS6yy";
 
-const ADMIN_LOGIN_KEY =
-    "adminLoggedIn";
 
-const ADMIN_LAST_LOGIN_KEY =
-    "adminLastLogin";
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
 
 
 // =========================================================
@@ -28,8 +30,8 @@ const ADMIN_LAST_LOGIN_KEY =
 const loginForm =
     document.getElementById("loginForm");
 
-const adminUsername =
-    document.getElementById("adminUsername");
+const adminEmail =
+    document.getElementById("adminEmail");
 
 const adminPassword =
     document.getElementById("adminPassword");
@@ -48,56 +50,6 @@ const loginMessage =
 
 
 // =========================================================
-// CREATE PASSWORD ELEMENTS
-// =========================================================
-
-const createAdminPasswordButton =
-    document.getElementById(
-        "createAdminPasswordButton"
-    );
-
-const createPasswordOverlay =
-    document.getElementById(
-        "createPasswordOverlay"
-    );
-
-const closeCreatePasswordButton =
-    document.getElementById(
-        "closeCreatePassword"
-    );
-
-const createPasswordForm =
-    document.getElementById(
-        "createPasswordForm"
-    );
-
-const createAdminPassword =
-    document.getElementById(
-        "createAdminPassword"
-    );
-
-const confirmAdminPassword =
-    document.getElementById(
-        "confirmAdminPassword"
-    );
-
-const createPasswordButton =
-    document.getElementById(
-        "createPasswordButton"
-    );
-
-const createPasswordButtonText =
-    document.getElementById(
-        "createPasswordButtonText"
-    );
-
-const cancelCreatePassword =
-    document.getElementById(
-        "cancelCreatePassword"
-    );
-
-
-// =========================================================
 // LOGIN MESSAGE
 // =========================================================
 
@@ -110,11 +62,14 @@ function showLoginMessage(
         return;
     }
 
+
     loginMessage.textContent =
         message;
 
+
     loginMessage.className =
         "login-message";
+
 
     if (type) {
 
@@ -133,476 +88,13 @@ function clearLoginMessage() {
         return;
     }
 
+
     loginMessage.textContent =
         "";
 
+
     loginMessage.className =
         "login-message";
-
-}
-
-
-// =========================================================
-// GET SAVED ADMIN PASSWORD
-// =========================================================
-
-function getAdminPassword() {
-
-    return localStorage.getItem(
-        ADMIN_PASSWORD_KEY
-    );
-
-}
-
-
-// =========================================================
-// CHECK IF ADMIN PASSWORD EXISTS
-// =========================================================
-
-function hasAdminPassword() {
-
-    const password =
-        getAdminPassword();
-
-    return (
-        password !== null &&
-        password !== ""
-    );
-
-}
-
-
-// =========================================================
-// OPEN CREATE PASSWORD MODAL
-// =========================================================
-
-function openCreatePassword() {
-
-    clearLoginMessage();
-
-    if (!createPasswordOverlay) {
-
-        console.error(
-            "Create Password Overlay not found."
-        );
-
-        return;
-
-    }
-
-
-    createPasswordOverlay.removeAttribute(
-        "hidden"
-    );
-
-
-    createPasswordOverlay.classList.add(
-        "active"
-    );
-
-
-    document.body.style.overflow =
-        "hidden";
-
-
-    if (createAdminPassword) {
-
-        setTimeout(
-            function () {
-
-                createAdminPassword.focus();
-
-            },
-            100
-        );
-
-    }
-
-}
-
-
-// =========================================================
-// CLOSE CREATE PASSWORD MODAL
-// =========================================================
-
-function closeCreatePasswordModal() {
-
-    if (!createPasswordOverlay) {
-        return;
-    }
-
-
-    createPasswordOverlay.classList.remove(
-        "active"
-    );
-
-
-    createPasswordOverlay.setAttribute(
-        "hidden",
-        ""
-    );
-
-
-    document.body.style.overflow =
-        "";
-
-
-    if (createPasswordForm) {
-
-        createPasswordForm.reset();
-
-    }
-
-
-    if (createPasswordButton) {
-
-        createPasswordButton.disabled =
-            false;
-
-    }
-
-
-    if (createPasswordButtonText) {
-
-        createPasswordButtonText.textContent =
-            "Create Password";
-
-    }
-
-}
-
-
-// =========================================================
-// OPEN CREATE PASSWORD BUTTON
-// =========================================================
-
-if (createAdminPasswordButton) {
-
-    createAdminPasswordButton.addEventListener(
-        "click",
-        function (event) {
-
-            event.preventDefault();
-
-            openCreatePassword();
-
-        }
-    );
-
-} else {
-
-    console.error(
-        "createAdminPasswordButton not found."
-    );
-
-}
-
-
-// =========================================================
-// CLOSE BUTTON
-// =========================================================
-
-if (closeCreatePasswordButton) {
-
-    closeCreatePasswordButton.addEventListener(
-        "click",
-        function (event) {
-
-            event.preventDefault();
-
-            closeCreatePasswordModal();
-
-        }
-    );
-
-}
-
-
-// =========================================================
-// CANCEL BUTTON
-// =========================================================
-
-if (cancelCreatePassword) {
-
-    cancelCreatePassword.addEventListener(
-        "click",
-        function (event) {
-
-            event.preventDefault();
-
-            closeCreatePasswordModal();
-
-        }
-    );
-
-}
-
-
-// =========================================================
-// CLICK OUTSIDE MODAL
-// =========================================================
-
-if (createPasswordOverlay) {
-
-    createPasswordOverlay.addEventListener(
-        "click",
-        function (event) {
-
-            if (
-                event.target ===
-                createPasswordOverlay
-            ) {
-
-                closeCreatePasswordModal();
-
-            }
-
-        }
-    );
-
-}
-
-
-// =========================================================
-// ESCAPE KEY
-// =========================================================
-
-document.addEventListener(
-    "keydown",
-    function (event) {
-
-        if (
-            event.key === "Escape" &&
-            createPasswordOverlay &&
-            !createPasswordOverlay.hasAttribute(
-                "hidden"
-            )
-        ) {
-
-            closeCreatePasswordModal();
-
-        }
-
-    }
-);
-
-
-// =========================================================
-// CREATE ADMIN PASSWORD FORM
-// =========================================================
-
-if (createPasswordForm) {
-
-    createPasswordForm.addEventListener(
-        "submit",
-        function (event) {
-
-            event.preventDefault();
-
-
-            const newPassword =
-                createAdminPassword
-                    ? createAdminPassword.value
-                    : "";
-
-
-            const confirmPassword =
-                confirmAdminPassword
-                    ? confirmAdminPassword.value
-                    : "";
-
-
-            clearLoginMessage();
-
-
-            // =================================================
-            // EMPTY PASSWORD
-            // =================================================
-
-            if (
-                newPassword === "" ||
-                confirmPassword === ""
-            ) {
-
-                showLoginMessage(
-                    "Please enter and confirm your new password.",
-                    "error"
-                );
-
-                return;
-
-            }
-
-
-            // =================================================
-            // PASSWORD LENGTH
-            // =================================================
-
-            if (
-                newPassword.length < 6
-            ) {
-
-                showLoginMessage(
-                    "Password must be at least 6 characters.",
-                    "error"
-                );
-
-
-                if (createAdminPassword) {
-
-                    createAdminPassword.focus();
-
-                }
-
-                return;
-
-            }
-
-
-            // =================================================
-            // PASSWORD MATCH
-            // =================================================
-
-            if (
-                newPassword !==
-                confirmPassword
-            ) {
-
-                showLoginMessage(
-                    "Passwords do not match.",
-                    "error"
-                );
-
-
-                if (confirmAdminPassword) {
-
-                    confirmAdminPassword.value =
-                        "";
-
-                    confirmAdminPassword.focus();
-
-                }
-
-                return;
-
-            }
-
-
-            // =================================================
-            // DISABLE CREATE BUTTON
-            // =================================================
-
-            if (createPasswordButton) {
-
-                createPasswordButton.disabled =
-                    true;
-
-            }
-
-
-            if (createPasswordButtonText) {
-
-                createPasswordButtonText.textContent =
-                    "Creating...";
-
-            }
-
-
-            // =================================================
-            // SAVE PASSWORD
-            // =================================================
-
-            try {
-
-                localStorage.setItem(
-                    ADMIN_PASSWORD_KEY,
-                    newPassword
-                );
-
-
-                localStorage.removeItem(
-                    ADMIN_LOGIN_KEY
-                );
-
-
-                localStorage.removeItem(
-                    ADMIN_LAST_LOGIN_KEY
-                );
-
-
-                // =================================================
-                // SUCCESS
-                // =================================================
-
-                showLoginMessage(
-                    "Admin password created successfully. You can now log in.",
-                    "success"
-                );
-
-
-                if (createPasswordButtonText) {
-
-                    createPasswordButtonText.textContent =
-                        "Created!";
-
-                }
-
-
-                setTimeout(
-                    function () {
-
-                        closeCreatePasswordModal();
-
-                        if (adminPassword) {
-
-                            adminPassword.focus();
-
-                        }
-
-                    },
-                    800
-                );
-
-
-            } catch (error) {
-
-                console.error(
-                    "Unable to save admin password:",
-                    error
-                );
-
-
-                showLoginMessage(
-                    "Unable to create admin password.",
-                    "error"
-                );
-
-
-                if (createPasswordButton) {
-
-                    createPasswordButton.disabled =
-                        false;
-
-                }
-
-
-                if (createPasswordButtonText) {
-
-                    createPasswordButtonText.textContent =
-                        "Create Password";
-
-                }
-
-            }
-
-        }
-    );
-
-} else {
-
-    console.error(
-        "createPasswordForm not found."
-    );
 
 }
 
@@ -675,7 +167,7 @@ if (loginForm) {
 
     loginForm.addEventListener(
         "submit",
-        function (event) {
+        async function (event) {
 
             event.preventDefault();
 
@@ -687,9 +179,9 @@ if (loginForm) {
             // GET LOGIN VALUES
             // =================================================
 
-            const username =
-                adminUsername
-                    ? adminUsername.value.trim()
+            const email =
+                adminEmail
+                    ? adminEmail.value.trim()
                     : "";
 
 
@@ -704,12 +196,12 @@ if (loginForm) {
             // =================================================
 
             if (
-                username === "" ||
+                email === "" ||
                 password === ""
             ) {
 
                 showLoginMessage(
-                    "Please enter your username and password.",
+                    "Please enter your email and password.",
                     "error"
                 );
 
@@ -719,105 +211,7 @@ if (loginForm) {
 
 
             // =================================================
-            // USERNAME CHECK
-            // =================================================
-
-            if (
-                username !==
-                ADMIN_USERNAME
-            ) {
-
-                showLoginMessage(
-                    "Incorrect username or password.",
-                    "error"
-                );
-
-
-                if (adminPassword) {
-
-                    adminPassword.value =
-                        "";
-
-                    adminPassword.focus();
-
-                }
-
-                return;
-
-            }
-
-
-            // =================================================
-            // GET SAVED PASSWORD
-            // =================================================
-
-            const savedPassword =
-                getAdminPassword();
-
-
-            // =================================================
-            // PASSWORD NOT CREATED
-            // =================================================
-
-            if (!savedPassword) {
-
-                showLoginMessage(
-                    "Please create an Admin Password first.",
-                    "error"
-                );
-
-                return;
-
-            }
-
-
-            // =================================================
-            // PASSWORD CHECK
-            // =================================================
-
-            if (
-                password !==
-                savedPassword
-            ) {
-
-                showLoginMessage(
-                    "Incorrect username or password.",
-                    "error"
-                );
-
-
-                if (adminPassword) {
-
-                    adminPassword.value =
-                        "";
-
-                    adminPassword.focus();
-
-                }
-
-                return;
-
-            }
-
-
-            // =================================================
-            // LOGIN SUCCESS
-            // =================================================
-
-            localStorage.setItem(
-                ADMIN_LOGIN_KEY,
-                "true"
-            );
-
-
-            localStorage.setItem(
-                ADMIN_LAST_LOGIN_KEY,
-                new Date().toISOString()
-            );
-
-
-            // =================================================
-            // LOGIN BUTTON LOADING
+            // DISABLE LOGIN BUTTON
             // =================================================
 
             if (loginButton) {
@@ -836,19 +230,179 @@ if (loginForm) {
             }
 
 
-            // =================================================
-            // REDIRECT TO DASHBOARD
-            // =================================================
+            try {
 
-            setTimeout(
-                function () {
+                // =================================================
+                // SUPABASE AUTH LOGIN
+                // =================================================
 
-                    window.location.href =
-                        "admin-dashboard.html";
+                const {
+                    data,
+                    error
+                } =
+                    await supabaseClient.auth.signInWithPassword({
 
-                },
-                300
-            );
+                        email: email,
+
+                        password: password
+
+                    });
+
+
+                // =================================================
+                // LOGIN ERROR
+                // =================================================
+
+                if (error) {
+
+                    console.error(
+                        "Supabase login error:",
+                        error
+                    );
+
+
+                    showLoginMessage(
+                        "Incorrect email or password.",
+                        "error"
+                    );
+
+
+                    if (adminPassword) {
+
+                        adminPassword.value =
+                            "";
+
+                        adminPassword.focus();
+
+                    }
+
+
+                    if (loginButton) {
+
+                        loginButton.disabled =
+                            false;
+
+                    }
+
+
+                    if (loginButtonText) {
+
+                        loginButtonText.textContent =
+                            "Login to Dashboard";
+
+                    }
+
+
+                    return;
+
+                }
+
+
+                // =================================================
+                // CHECK SESSION
+                // =================================================
+
+                if (
+                    !data ||
+                    !data.session ||
+                    !data.user
+                ) {
+
+                    showLoginMessage(
+                        "Login failed. Please try again.",
+                        "error"
+                    );
+
+
+                    if (loginButton) {
+
+                        loginButton.disabled =
+                            false;
+
+                    }
+
+
+                    if (loginButtonText) {
+
+                        loginButtonText.textContent =
+                            "Login to Dashboard";
+
+                    }
+
+
+                    return;
+
+                }
+
+
+                // =================================================
+                // LOGIN SUCCESS
+                // =================================================
+
+                console.log(
+                    "Admin login successful:",
+                    data.user.email
+                );
+
+
+                showLoginMessage(
+                    "Login successful. Redirecting...",
+                    "success"
+                );
+
+
+                if (loginButtonText) {
+
+                    loginButtonText.textContent =
+                        "Login successful!";
+
+                }
+
+
+                // =================================================
+                // REDIRECT TO DASHBOARD
+                // =================================================
+
+                setTimeout(
+                    function () {
+
+                        window.location.href =
+                            "admin-dashboard.html";
+
+                    },
+                    300
+                );
+
+            } catch (error) {
+
+                console.error(
+                    "Unexpected login error:",
+                    error
+                );
+
+
+                showLoginMessage(
+                    "Something went wrong. Please try again.",
+                    "error"
+                );
+
+
+                if (loginButton) {
+
+                    loginButton.disabled =
+                        false;
+
+                }
+
+
+                if (loginButtonText) {
+
+                    loginButtonText.textContent =
+                        "Login to Dashboard";
+
+                }
+
+            }
 
         }
     );
@@ -863,73 +417,98 @@ if (loginForm) {
 
 
 // =========================================================
-// DEFAULT USERNAME
+// CHECK EXISTING SUPABASE SESSION
 // =========================================================
 
-if (adminUsername) {
+async function checkAdminLoginStatus() {
 
-    adminUsername.value =
-        ADMIN_USERNAME;
+    try {
+
+        const {
+            data,
+            error
+        } =
+            await supabaseClient.auth.getSession();
+
+
+        if (error) {
+
+            console.error(
+                "Unable to get Supabase session:",
+                error
+            );
+
+            return;
+
+        }
+
+
+        // =================================================
+        // ALREADY LOGGED IN
+        // =================================================
+
+        if (
+            data &&
+            data.session &&
+            data.session.user
+        ) {
+
+            window.location.replace(
+                "admin-dashboard.html"
+            );
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Session check error:",
+            error
+        );
+
+    }
 
 }
 
 
 // =========================================================
-// INITIAL CREATE PASSWORD STATE
+// SUPABASE AUTH STATE LISTENER
 // =========================================================
 
-if (createPasswordOverlay) {
+supabaseClient.auth.onAuthStateChange(
+    function (event, session) {
 
-    createPasswordOverlay.setAttribute(
-        "hidden",
-        ""
-    );
-
-    createPasswordOverlay.classList.remove(
-        "active"
-    );
-
-}
+        console.log(
+            "Supabase Auth State:",
+            event
+        );
 
 
-// =========================================================
-// PREVENT SCROLLING IF MODAL IS OPEN
-// =========================================================
+        if (
+            event === "SIGNED_IN" &&
+            session
+        ) {
 
-window.addEventListener(
-    "beforeunload",
-    function () {
+            console.log(
+                "Admin signed in:",
+                session.user.email
+            );
 
-        document.body.style.overflow =
-            "";
+        }
+
+
+        if (
+            event === "SIGNED_OUT"
+        ) {
+
+            console.log(
+                "Admin signed out."
+            );
+
+        }
 
     }
 );
-
-
-// =========================================================
-// CHECK LOGIN STATUS
-// =========================================================
-
-function checkAdminLoginStatus() {
-
-    const loggedIn =
-        localStorage.getItem(
-            ADMIN_LOGIN_KEY
-        );
-
-
-    if (
-        loggedIn === "true"
-    ) {
-
-        window.location.replace(
-            "admin-dashboard.html"
-        );
-
-    }
-
-}
 
 
 // =========================================================
@@ -963,38 +542,15 @@ window.addEventListener(
 
 
 // =========================================================
-// STORAGE SYNC
+// PREVENT SCROLLING ISSUES
 // =========================================================
 
 window.addEventListener(
-    "storage",
-    function (event) {
+    "beforeunload",
+    function () {
 
-        if (
-            event.key ===
-            ADMIN_LOGIN_KEY
-        ) {
-
-            if (
-                event.newValue !==
-                "true"
-            ) {
-
-                if (
-                    !window.location.pathname.endsWith(
-                        "admin.html"
-                    )
-                ) {
-
-                    window.location.replace(
-                        "admin.html"
-                    );
-
-                }
-
-            }
-
-        }
+        document.body.style.overflow =
+            "";
 
     }
 );
@@ -1009,16 +565,5 @@ console.log(
 );
 
 console.log(
-    "Create Password Button:",
-    createAdminPasswordButton
-);
-
-console.log(
-    "Create Password Overlay:",
-    createPasswordOverlay
-);
-
-console.log(
-    "Create Password Form:",
-    createPasswordForm
+    "Supabase Auth is enabled."
 );
