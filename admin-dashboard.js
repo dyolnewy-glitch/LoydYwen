@@ -1,6 +1,13 @@
 
 /* ==================================================
    ADMIN DASHBOARD
+   SUPABASE AUTHENTICATION
+   SUPABASE LOGIN HISTORY
+================================================== */
+
+
+/* ==================================================
+   SUPABASE SETTINGS
 ================================================== */
 
 const SUPABASE_URL =
@@ -14,17 +21,6 @@ const supabaseClient =
         SUPABASE_URL,
         SUPABASE_KEY
     );
-
-
-/* ==================================================
-   LOGIN PROTECTION
-================================================== */
-
-if (
-    localStorage.getItem("adminLoggedIn") !== "true"
-) {
-    window.location.replace("admin.html");
-}
 
 
 /* ==================================================
@@ -61,24 +57,70 @@ const messageCount =
 ================================================== */
 
 const STORAGE_KEYS = {
-
     portfolio: "projects",
-
     gallery: "galleryItems",
-
     messages: "messages"
-
 };
 
 
 /* ==================================================
-   SAFE STORAGE ARRAY
+   LOGIN PROTECTION
+   VERIFY SUPABASE SESSION
+================================================== */
+
+let dashboardAuthorized = false;
+let redirectingToLogin = false;
+
+async function protectDashboard() {
+    try {
+        const {
+            data,
+            error
+        } = await supabaseClient.auth.getSession();
+
+        if (error) {
+            throw error;
+        }
+
+        if (
+            !data ||
+            !data.session ||
+            !data.session.user
+        ) {
+            dashboardAuthorized = false;
+            redirectingToLogin = true;
+
+            window.location.replace("admin.html");
+
+            return false;
+        }
+
+        dashboardAuthorized = true;
+
+        return true;
+
+    } catch (error) {
+        console.error(
+            "Dashboard session verification failed:",
+            error
+        );
+
+        dashboardAuthorized = false;
+        redirectingToLogin = true;
+
+        window.location.replace("admin.html");
+
+        return false;
+    }
+}
+
+
+/* ==================================================
+   SAFE LOCAL STORAGE ARRAY
 ================================================== */
 
 function getStorageArray(key) {
-
     try {
-
         const storedData =
             localStorage.getItem(key);
 
@@ -94,7 +136,6 @@ function getStorageArray(key) {
             : [];
 
     } catch (error) {
-
         console.error(
             "Unable to read localStorage:",
             key,
@@ -102,65 +143,93 @@ function getStorageArray(key) {
         );
 
         return [];
-
     }
-
 }
 
 
 /* ==================================================
-   LAST LOGIN
+   LAST LOGIN FROM SUPABASE
 ================================================== */
 
-function displayLastLogin() {
-
+async function displayLastLogin() {
     if (!dashboardDate) {
         return;
     }
 
-    const lastLogin =
-        localStorage.getItem(
-            "adminLastLogin"
+    dashboardDate.textContent = "Loading...";
+
+    try {
+        const {
+            data: userData,
+            error: userError
+        } = await supabaseClient.auth.getUser();
+
+        if (userError) {
+            throw userError;
+        }
+
+        if (!userData || !userData.user) {
+            dashboardDate.textContent = "Unavailable";
+            return;
+        }
+
+        const {
+            data,
+            error
+        } = await supabaseClient
+            .from("admin_login_history")
+            .select("logged_in_at")
+            .eq("user_id", userData.user.id)
+            .order("logged_in_at", {
+                ascending: false
+            })
+            .limit(1)
+            .maybeSingle();
+
+        if (error) {
+            console.error(
+                "Unable to load last login:",
+                error
+            );
+
+            dashboardDate.textContent = "Unable to load";
+            return;
+        }
+
+        if (!data || !data.logged_in_at) {
+            dashboardDate.textContent = "No login record";
+            return;
+        }
+
+        const loginDate =
+            new Date(data.logged_in_at);
+
+        if (Number.isNaN(loginDate.getTime())) {
+            dashboardDate.textContent = "Unknown";
+            return;
+        }
+
+        dashboardDate.textContent =
+            new Intl.DateTimeFormat(
+                "en-US",
+                {
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric",
+                    hour: "numeric",
+                    minute: "2-digit",
+                    hour12: true
+                }
+            ).format(loginDate);
+
+    } catch (error) {
+        console.error(
+            "Last login display error:",
+            error
         );
 
-    if (!lastLogin) {
-
-        dashboardDate.textContent =
-            "No login record";
-
-        return;
-
+        dashboardDate.textContent = "Unable to load";
     }
-
-    const loginDate =
-        new Date(lastLogin);
-
-    if (
-        Number.isNaN(
-            loginDate.getTime()
-        )
-    ) {
-
-        dashboardDate.textContent =
-            "Unknown";
-
-        return;
-
-    }
-
-    dashboardDate.textContent =
-        new Intl.DateTimeFormat(
-            "en-US",
-            {
-                month: "long",
-                day: "numeric",
-                year: "numeric",
-                hour: "numeric",
-                minute: "2-digit",
-                hour12: true
-            }
-        ).format(loginDate);
-
 }
 
 
@@ -169,13 +238,11 @@ function displayLastLogin() {
 ================================================== */
 
 async function getBlogCount() {
-
     if (!blogCount) {
         return;
     }
 
     try {
-
         const {
             count,
             error
@@ -190,34 +257,27 @@ async function getBlogCount() {
             );
 
         if (error) {
-
             console.error(
                 "Unable to get blog count:",
                 error
             );
 
-            blogCount.textContent =
-                "0";
+            blogCount.textContent = "0";
 
             return;
-
         }
 
         blogCount.textContent =
             count ?? 0;
 
     } catch (error) {
-
         console.error(
             "Blog count error:",
             error
         );
 
-        blogCount.textContent =
-            "0";
-
+        blogCount.textContent = "0";
     }
-
 }
 
 
@@ -226,7 +286,6 @@ async function getBlogCount() {
 ================================================== */
 
 async function updateDashboardCounts() {
-
     const portfolioData =
         getStorageArray(
             STORAGE_KEYS.portfolio
@@ -243,48 +302,33 @@ async function updateDashboardCounts() {
         );
 
 
-    /* ================================
-       PORTFOLIO
-    ================================= */
+    /* PORTFOLIO */
 
     if (portfolioCount) {
-
         portfolioCount.textContent =
             portfolioData.length;
-
     }
 
 
-    /* ================================
-       GALLERY
-    ================================= */
+    /* GALLERY */
 
     if (galleryCount) {
-
         galleryCount.textContent =
             galleryData.length;
-
     }
 
 
-    /* ================================
-       BLOG
-    ================================= */
+    /* BLOG */
 
     await getBlogCount();
 
 
-    /* ================================
-       MESSAGES
-    ================================= */
+    /* MESSAGES */
 
     if (messageCount) {
-
         messageCount.textContent =
             messageData.length;
-
     }
-
 }
 
 
@@ -293,19 +337,16 @@ async function updateDashboardCounts() {
 ================================================== */
 
 async function refreshDashboard() {
+    if (
+        !dashboardAuthorized ||
+        redirectingToLogin
+    ) {
+        return;
+    }
 
+    await displayLastLogin();
     await updateDashboardCounts();
-
-    displayLastLogin();
-
 }
-
-
-/* ==================================================
-   INITIAL LOAD
-================================================== */
-
-refreshDashboard();
 
 
 /* ==================================================
@@ -313,7 +354,6 @@ refreshDashboard();
 ================================================== */
 
 function applyTheme() {
-
     const savedTheme =
         localStorage.getItem("theme") || "light";
 
@@ -331,16 +371,11 @@ function applyTheme() {
     );
 
     if (themeIcon) {
-
         themeIcon.textContent =
-            isDark
-                ? "☀️"
-                : "🌙";
-
+            isDark ? "☀️" : "🌙";
     }
 
     if (themeToggle) {
-
         themeToggle.title =
             isDark
                 ? "Switch to Light Mode"
@@ -352,17 +387,8 @@ function applyTheme() {
                 ? "Switch to Light Mode"
                 : "Switch to Dark Mode"
         );
-
     }
-
 }
-
-
-/* ==================================================
-   INITIAL THEME
-================================================== */
-
-applyTheme();
 
 
 /* ==================================================
@@ -370,11 +396,9 @@ applyTheme();
 ================================================== */
 
 if (themeToggle) {
-
     themeToggle.addEventListener(
         "click",
         function () {
-
             const currentlyDark =
                 localStorage.getItem("theme") === "dark";
 
@@ -389,10 +413,8 @@ if (themeToggle) {
             );
 
             applyTheme();
-
         }
     );
-
 }
 
 
@@ -403,11 +425,8 @@ if (themeToggle) {
 window.addEventListener(
     "storage",
     function (event) {
-
         if (event.key === "theme") {
-
             applyTheme();
-
         }
 
         if (
@@ -416,127 +435,150 @@ window.addEventListener(
             event.key === "messages" ||
             event.key === "adminLastLogin"
         ) {
-
             refreshDashboard();
-
         }
-
-        if (event.key === "adminLoggedIn") {
-
-            if (
-                event.newValue !== "true"
-            ) {
-
-                window.location.replace(
-                    "admin.html"
-                );
-
-            }
-
-        }
-
     }
 );
 
 
 /* ==================================================
-   REFRESH WHEN RETURNING TO DASHBOARD
+   PAGE SHOW
+   RECHECK SESSION WHEN RETURNING
 ================================================== */
 
 window.addEventListener(
     "pageshow",
-    function () {
-
-        refreshDashboard();
-
-        if (
-            localStorage.getItem(
-                "adminLoggedIn"
-            ) !== "true"
-        ) {
-
-            window.location.replace(
-                "admin.html"
-            );
-
+    async function (event) {
+        if (!dashboardAuthorized) {
+            return;
         }
 
+        if (event.persisted) {
+            const authorized =
+                await protectDashboard();
+
+            if (authorized) {
+                await refreshDashboard();
+            }
+        }
     }
 );
 
 
 /* ==================================================
-   REFRESH WHEN TAB BECOMES ACTIVE
+   TAB VISIBILITY
 ================================================== */
 
 document.addEventListener(
     "visibilitychange",
-    function () {
-
+    async function () {
         if (
-            document.visibilityState === "visible"
+            document.visibilityState !== "visible" ||
+            !dashboardAuthorized
         ) {
-
-            refreshDashboard();
-
+            return;
         }
 
+        await refreshDashboard();
     }
 );
 
 
 /* ==================================================
    LOGOUT
+   SUPABASE SIGN OUT
 ================================================== */
 
 if (logoutButton) {
-
     logoutButton.addEventListener(
         "click",
-        function () {
-
-            const confirmLogout =
-                confirm(
+        async function () {
+            if (
+                !confirm(
                     "Are you sure you want to logout?"
-                );
-
-            if (!confirmLogout) {
+                )
+            ) {
                 return;
             }
 
-            localStorage.removeItem(
-                "adminLoggedIn"
-            );
+            logoutButton.disabled = true;
+            logoutButton.textContent = "Logging out...";
 
-            localStorage.removeItem(
-                "adminSession"
-            );
+            try {
+                const {
+                    error
+                } = await supabaseClient.auth.signOut();
 
-            window.location.replace(
-                "admin.html"
-            );
+                if (error) {
+                    throw error;
+                }
 
+                dashboardAuthorized = false;
+                redirectingToLogin = true;
+
+                // Remove legacy login flags, if present.
+                localStorage.removeItem("adminLoggedIn");
+                localStorage.removeItem("adminSession");
+
+                window.location.replace("admin.html");
+
+            } catch (error) {
+                console.error(
+                    "Logout failed:",
+                    error
+                );
+
+                alert(
+                    "Unable to logout. Please try again."
+                );
+
+                logoutButton.disabled = false;
+                logoutButton.textContent = "Logout";
+            }
         }
     );
-
 }
 
 
 /* ==================================================
-   PERIODIC UPDATE
+   SUPABASE AUTH STATE LISTENER
 ================================================== */
 
-setInterval(
-    function () {
-
+supabaseClient.auth.onAuthStateChange(
+    function (event) {
         if (
-            document.visibilityState === "visible"
+            event === "SIGNED_OUT" &&
+            !redirectingToLogin
         ) {
+            dashboardAuthorized = false;
+            redirectingToLogin = true;
 
-            refreshDashboard();
-
+            window.location.replace("admin.html");
         }
-
-    },
-    1000
+    }
 );
+
+
+/* ==================================================
+   INITIALIZATION
+   VERIFY SESSION BEFORE LOADING DASHBOARD
+================================================== */
+
+async function initializeDashboard() {
+    applyTheme();
+
+    const authorized =
+        await protectDashboard();
+
+    if (!authorized) {
+        return;
+    }
+
+    await refreshDashboard();
+
+    console.log(
+        "Admin dashboard loaded successfully."
+    );
+}
+
+initializeDashboard();
