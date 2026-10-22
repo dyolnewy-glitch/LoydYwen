@@ -1,1035 +1,811 @@
+
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore my creative works, graphic designs, posters, UI/UX projects, photo edits, and digital artwork.">
 
-<meta charset="UTF-8">
+    <title>Gallery | Loyd Ywen</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Gallery - Loyd Ywen Masangcay</title>
-
-<link rel="stylesheet" href="style.css">
-
-<link rel="stylesheet" href="gallery.css">
-
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gallery.css">
 </head>
-
 
 <body>
 
+    <!-- =========================
+         HEADER / NAVIGATION
+    ========================== -->
 
-<!-- =========================
-     HEADER
-========================= -->
+    <header>
+        <div class="container">
 
-<header>
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Loyd Ywen">
+            </a>
 
-<div class="container">
+            <button
+                class="menu-toggle"
+                type="button"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+                onclick="toggleMenu(this)">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="gallery.html" class="active">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- =========================
+         GALLERY SECTION
+    ========================== -->
+
+    <main>
+
+        <section class="gallery-section">
+
+            <div class="gallery-container">
+
+                <!-- GALLERY HEADER -->
+
+                <div class="gallery-sidebar">
+
+                    <h1>My Gallery</h1>
+
+                    <p>
+                        A collection of my creative works, designs,
+                        edits, and digital projects.
+                    </p>
+
+                </div>
+
+
+                <!-- CATEGORY DROPDOWN -->
+
+                <div class="category-dropdown">
+
+                    <button
+                        type="button"
+                        class="category-dropdown-btn"
+                        id="categoryDropdownBtn"
+                        aria-expanded="false">
+
+                        <span>
+                            Category:
+                            <span id="selectedCategory">All</span>
+                        </span>
 
+                        <span class="dropdown-arrow" aria-hidden="true">
+                            &#9662;
+                        </span>
 
-<!-- =========================
-     DARK / LIGHT MODE
-========================= -->
+                    </button>
 
-<div class="logo theme-toggle" id="themeToggle">
 
-<img
-id="themeLogo"
-src="logo.png"
-alt="Theme Toggle">
+                    <div
+                        class="category-dropdown-menu"
+                        id="categoryDropdownMenu">
 
-<span id="themeLabel">
-Light Mode
-</span>
+                        <button
+                            type="button"
+                            class="category-option active"
+                            data-category="all">
+                            All
+                        </button>
 
-</div>
+                        <button
+                            type="button"
+                            class="category-option"
+                            data-category="poster">
+                            Poster
+                        </button>
 
+                        <button
+                            type="button"
+                            class="category-option"
+                            data-category="uiux">
+                            UI/UX Design
+                        </button>
 
-<!-- =========================
-     MOBILE MENU
-========================= -->
+                        <button
+                            type="button"
+                            class="category-option"
+                            data-category="graphic">
+                            Graphic Design
+                        </button>
 
-<div
-class="menu-toggle"
-onclick="toggleMenu(this)">
+                        <button
+                            type="button"
+                            class="category-option"
+                            data-category="photo">
+                            Photo Editing
+                        </button>
 
-<span></span>
-<span></span>
-<span></span>
+                        <button
+                            type="button"
+                            class="category-option"
+                            data-category="video">
+                            Video Editing
+                        </button>
 
-</div>
+                        <button
+                            type="button"
+                            class="category-option"
+                            data-category="digital-art">
+                            Digital Art
+                        </button>
 
+                        <button
+                            type="button"
+                            class="category-option"
+                            data-category="drawing">
+                            Drawing
+                        </button>
 
-<!-- =========================
-     NAVIGATION
-========================= -->
+                        <button
+                            type="button"
+                            class="category-option"
+                            data-category="other">
+                            Other
+                        </button>
 
-<nav>
+                    </div>
 
-<ul>
+                </div>
 
-<li>
-<a href="index.html">
-Home
-</a>
-</li>
 
-<li>
-<a href="about.html">
-About Me
-</a>
-</li>
+                <!-- GALLERY IMAGES -->
 
-<li>
-<a href="skills.html">
-Skills
-</a>
-</li>
+                <div class="gallery-content">
 
-<li>
-<a href="portfolio.html">
-Portfolio
-</a>
-</li>
+                    <div
+                        class="gallery-grid"
+                        id="galleryGrid">
+                    </div>
 
-<li>
-<a href="gallery.html" class="active">
-Gallery
-</a>
-</li>
 
-<li>
-<a href="blog.html">
-Blog
-</a>
-</li>
+                    <!-- EMPTY / ERROR MESSAGE -->
 
-<li>
-<a href="contact.html">
-Contact
-</a>
-</li>
+                    <div
+                        id="galleryEmpty"
+                        class="gallery-empty"
+                        style="display:none;">
 
-</ul>
+                        <p>No images available in this category.</p>
 
-</nav>
+                    </div>
 
-</div>
+                </div>
 
-</header>
+            </div>
 
+        </section>
 
+    </main>
 
-<!-- =========================
-     GALLERY SECTION
-========================= -->
 
-<section class="gallery-section">
+    <!-- =========================
+         IMAGE PREVIEW
+    ========================== -->
 
-<div class="gallery-container">
+    <div
+        class="gallery-overlay"
+        id="galleryOverlay"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Gallery image preview">
 
+        <img
+            id="galleryPreview"
+            class="gallery-preview"
+            src=""
+            alt="Gallery image preview">
 
-<!-- =========================
-     SIDEBAR
-========================= -->
+    </div>
 
-<div class="gallery-sidebar">
 
-<h1>
-Gallery
-</h1>
+    <!-- =========================
+         FOOTER
+    ========================== -->
 
-<p>
-Explore my creative works and designs.
-</p>
+    <footer>
 
+        <div class="container">
 
-<!-- =========================
-     CATEGORY DROPDOWN
-========================= -->
+            <p>
+                &copy; <span id="currentYear"></span>
+                Loyd Ywen. All rights reserved.
+            </p>
 
-<div class="category-dropdown">
+            <div class="social-links">
 
-<button
-class="category-dropdown-btn"
-id="categoryDropdownBtn"
-type="button">
+                <a
+                    href="https://www.facebook.com/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Facebook
+                </a>
 
-<span id="selectedCategory">
-All Categories
-</span>
+                <a
+                    href="https://www.instagram.com/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Instagram
+                </a>
 
-<span class="dropdown-arrow">
-▾
-</span>
+                <a
+                    href="https://github.com/dyolnewy-glitch"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    GitHub
+                </a>
 
-</button>
+            </div>
 
+        </div>
 
-<div
-class="category-dropdown-menu"
-id="categoryDropdownMenu">
+    </footer>
 
 
-<button
-class="category-option active"
-data-category="all"
-type="button">
+    <!-- =========================
+         SUPABASE LIBRARY
+    ========================== -->
 
-All Categories
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-</button>
 
+    <script>
+        /* =========================================
+           SUPABASE CONFIGURATION
+        ========================================= */
 
-<button
-class="category-option"
-data-category="poster"
-type="button">
+        const SUPABASE_URL =
+            "https://pgkrgwplunepdvrmixvj.supabase.co";
 
-Poster
+        const SUPABASE_KEY =
+            "sb_publishable_Nq1UrsN6b0YXQcKfWvKfwQ_OhJiS6yy";
 
-</button>
+        const GALLERY_TABLE = "gallery_items";
 
+        const supabaseClient = window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY
+        );
 
-<button
-class="category-option"
-data-category="uiux"
-type="button">
 
-UI/UX Design
+        /* =========================================
+           ELEMENTS AND STATE
+        ========================================= */
 
-</button>
+        const galleryGrid =
+            document.getElementById("galleryGrid");
 
+        const galleryEmpty =
+            document.getElementById("galleryEmpty");
 
-<button
-class="category-option"
-data-category="graphic"
-type="button">
+        const dropdownButton =
+            document.getElementById("categoryDropdownBtn");
 
-Graphic Design
+        const dropdownMenu =
+            document.getElementById("categoryDropdownMenu");
 
-</button>
+        const selectedCategory =
+            document.getElementById("selectedCategory");
 
+        const categoryOptions =
+            document.querySelectorAll(".category-option");
 
-<button
-class="category-option"
-data-category="photo"
-type="button">
+        const galleryOverlay =
+            document.getElementById("galleryOverlay");
 
-Photo Editing
+        const galleryPreview =
+            document.getElementById("galleryPreview");
 
-</button>
+        let galleryData = [];
+        let currentCategory = "all";
+        let galleryChannel = null;
+        let isLoadingGallery = false;
+        let reloadRequested = false;
 
 
-<button
-class="category-option"
-data-category="video"
-type="button">
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
 
-Video Editing
 
-</button>
+        /* =========================================
+           LOAD GALLERY FROM SUPABASE
+        ========================================= */
 
+        async function loadGalleryData() {
 
-<button
-class="category-option"
-data-category="digital-art"
-type="button">
+            if (isLoadingGallery) {
+                reloadRequested = true;
+                return;
+            }
 
-Digital Art
+            isLoadingGallery = true;
 
-</button>
+            try {
 
+                const { data, error } = await supabaseClient
+                    .from(GALLERY_TABLE)
+                    .select("id, title, category, image, created_at")
+                    .order("created_at", { ascending: false });
 
-<button
-class="category-option"
-data-category="drawing"
-type="button">
+                if (error) {
+                    throw error;
+                }
 
-Drawing
+                galleryData = (data || []).map(function(item) {
 
-</button>
+                    return {
+                        id: item.id,
+                        title: item.title || "",
+                        category: item.category || "Other",
+                        image: item.image || "",
+                        created_at: item.created_at || ""
+                    };
 
+                });
 
-<button
-class="category-option"
-data-category="other"
-type="button">
+                renderGallery();
 
-Other
+                console.log(
+                    "Gallery loaded from Supabase:",
+                    galleryData.length,
+                    "items"
+                );
 
-</button>
+            } catch (error) {
 
+                console.error(
+                    "Unable to load public gallery:",
+                    error
+                );
 
-</div>
+                galleryEmpty.style.display = "block";
 
-</div>
+                const message =
+                    galleryEmpty.querySelector("p");
 
-</div>
+                if (message) {
+                    message.textContent =
+                        "Unable to load gallery. Please try again later.";
+                }
 
+            } finally {
 
+                isLoadingGallery = false;
 
-<!-- =========================
-     GALLERY CONTENT
-========================= -->
+                if (reloadRequested) {
+                    reloadRequested = false;
+                    loadGalleryData();
+                }
 
-<div class="gallery-content">
+            }
 
-<div
-class="gallery-grid"
-id="galleryGrid">
+        }
 
-</div>
 
+        /* =========================================
+           CATEGORY NORMALIZATION
+        ========================================= */
 
-<!-- =========================
-     EMPTY MESSAGE
-========================= -->
+        function normalizeCategory(category) {
 
-<div
-id="galleryEmpty"
-class="gallery-empty"
-style="display:none;">
+            const value = String(category || "other")
+                .trim()
+                .toLowerCase();
 
-<p>
-No images available in this category.
-</p>
+            const categoryMap = {
+                "all": "all",
+                "poster": "poster",
 
-</div>
+                "ui/ux design": "uiux",
+                "ui/ux": "uiux",
+                "uiux": "uiux",
+                "ui-ux": "uiux",
 
-</div>
+                "graphic design": "graphic",
+                "graphic": "graphic",
 
-</div>
+                "photo editing": "photo",
+                "photo": "photo",
 
-</section>
+                "video editing": "video",
+                "video": "video",
 
+                "digital art": "digital-art",
+                "digital-art": "digital-art",
 
+                "drawing": "drawing",
+                "other": "other"
+            };
 
-<!-- =========================
-     IMAGE PREVIEW
-========================= -->
+            return categoryMap[value] || value;
 
-<div
-class="gallery-overlay"
-id="galleryOverlay">
+        }
 
-<img
-class="gallery-preview"
-id="galleryPreview"
-src=""
-alt="Gallery Preview">
 
-</div>
+        /* =========================================
+           RENDER MASONRY GALLERY
+           Uses the existing gallery.css layout.
+        ========================================= */
 
+        function renderGallery() {
 
+            galleryGrid.innerHTML = "";
 
-<!-- =========================
-     FOOTER
-========================= -->
+            const filteredItems = galleryData.filter(function(item) {
 
-<footer>
+                if (currentCategory === "all") {
+                    return true;
+                }
 
-<div class="container footer-container">
+                return normalizeCategory(item.category) === currentCategory;
 
-<p>
-© 2026 Loyd Ywen Masangcay. All rights reserved.
-</p>
+            });
 
+            let visibleCount = 0;
 
-<div class="social-links">
+            filteredItems.forEach(function(item) {
 
-<a
-href="https://www.facebook.com/LoydieeWen"
-target="_blank"
-rel="noopener noreferrer">
+                if (!item.image) {
+                    return;
+                }
 
-Facebook
+                const galleryItem =
+                    document.createElement("div");
 
-</a>
+                galleryItem.className = "gallery-item";
 
+                galleryItem.dataset.category =
+                    normalizeCategory(item.category);
 
-<a
-href="https://www.instagram.com/ywen_masangcay"
-target="_blank"
-rel="noopener noreferrer">
 
-Instagram
+                const image = document.createElement("img");
 
-</a>
+                image.src = item.image;
 
+                image.alt = item.title || "Gallery image";
 
-<a
-href="https://www.tiktok.com/@wehn_26"
-target="_blank"
-rel="noopener noreferrer">
+                image.loading = "lazy";
 
-TikTok
+                image.decoding = "async";
 
-</a>
 
-</div>
+                image.addEventListener("error", function() {
 
-</div>
+                    console.error(
+                        "Gallery image failed to load:",
+                        item.image
+                    );
 
-</footer>
+                    galleryItem.remove();
 
+                    if (galleryGrid.children.length === 0) {
 
+                        galleryEmpty.style.display = "block";
 
-<!-- =========================
-     GALLERY JAVASCRIPT
-========================= -->
+                        const message =
+                            galleryEmpty.querySelector("p");
 
-<script>
+                        if (message) {
+                            message.textContent =
+                                "Some images could not be loaded.";
+                        }
 
+                    }
 
-/* =========================================================
-   GALLERY STORAGE
-========================================================= */
+                }, { once: true });
 
-const GALLERY_STORAGE_KEY = "galleryItems";
 
+                galleryItem.appendChild(image);
 
-let galleryData = [];
+                galleryGrid.appendChild(galleryItem);
 
-let currentCategory = "all";
+                visibleCount++;
 
+            });
 
-/* =========================================================
-   ELEMENTS
-========================================================= */
 
-const galleryGrid =
-document.getElementById("galleryGrid");
+            galleryEmpty.style.display =
+                visibleCount === 0 ? "block" : "none";
 
+            if (visibleCount === 0) {
 
-const galleryEmpty =
-document.getElementById("galleryEmpty");
+                const message =
+                    galleryEmpty.querySelector("p");
 
+                if (message) {
+                    message.textContent =
+                        "No images available in this category.";
+                }
 
-const dropdownButton =
-document.getElementById("categoryDropdownBtn");
+            }
 
+        }
 
-const dropdownMenu =
-document.getElementById("categoryDropdownMenu");
 
+        /* =========================================
+           REALTIME GALLERY UPDATES
+        ========================================= */
 
-const selectedCategory =
-document.getElementById("selectedCategory");
+        function subscribeToGalleryChanges() {
 
+            if (galleryChannel) {
+                return;
+            }
 
-const options =
-document.querySelectorAll(".category-option");
+            galleryChannel = supabaseClient
+                .channel("public-gallery-live-updates")
 
+                .on(
+                    "postgres_changes",
+                    {
+                        event: "*",
+                        schema: "public",
+                        table: GALLERY_TABLE
+                    },
+                    function(payload) {
 
-const galleryOverlay =
-document.getElementById("galleryOverlay");
+                        console.log(
+                            "Gallery updated:",
+                            payload.eventType
+                        );
 
+                        loadGalleryData();
 
-const galleryPreview =
-document.getElementById("galleryPreview");
+                    }
+                )
 
+                .subscribe(function(status) {
 
-/* =========================================================
-   LOAD GALLERY DATA
-========================================================= */
+                    console.log(
+                        "Gallery Realtime status:",
+                        status
+                    );
 
-function loadGalleryData() {
+                    if (status === "SUBSCRIBED") {
+                        loadGalleryData();
+                    }
 
-try {
+                });
 
-galleryData =
-JSON.parse(
-localStorage.getItem(
-GALLERY_STORAGE_KEY
-)
-) || [];
+        }
 
-}
 
-catch(error) {
+        /* =========================================
+           CATEGORY DROPDOWN
+        ========================================= */
 
-console.error(
-"Unable to load gallery data:",
-error
-);
+        dropdownButton.addEventListener("click", function(event) {
 
-galleryData = [];
+            event.stopPropagation();
 
-}
+            const isOpen =
+                dropdownMenu.classList.toggle("show");
 
-renderGallery();
+            dropdownButton.classList.toggle("open", isOpen);
 
-}
+            dropdownButton.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
 
+        });
 
-/* =========================================================
-   RENDER PUBLIC GALLERY
-========================================================= */
 
-function renderGallery() {
+        categoryOptions.forEach(function(option) {
 
-if (!galleryGrid) {
+            option.addEventListener("click", function(event) {
 
-return;
+                event.stopPropagation();
 
-}
+                currentCategory =
+                    this.dataset.category || "all";
 
+                categoryOptions.forEach(function(item) {
+                    item.classList.remove("active");
+                });
 
-galleryGrid.innerHTML = "";
+                this.classList.add("active");
 
+                selectedCategory.textContent =
+                    this.textContent.trim();
 
-let filteredItems = galleryData.filter(
-function(item) {
+                dropdownMenu.classList.remove("show");
 
-if (currentCategory === "all") {
+                dropdownButton.classList.remove("open");
 
-return true;
+                dropdownButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
 
-}
+                renderGallery();
 
-return normalizeCategory(
-item.category
-) === currentCategory;
+            });
 
-});
+        });
 
 
-/* =========================
-   EMPTY GALLERY
-========================= */
+        document.addEventListener("click", function(event) {
 
-if (filteredItems.length === 0) {
+            if (
+                !dropdownButton.contains(event.target) &&
+                !dropdownMenu.contains(event.target)
+            ) {
 
-if (galleryEmpty) {
+                dropdownMenu.classList.remove("show");
 
-galleryEmpty.style.display = "block";
+                dropdownButton.classList.remove("open");
 
-}
+                dropdownButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
 
-return;
+            }
 
-}
+        });
 
 
-if (galleryEmpty) {
+        /* =========================================
+           IMAGE PREVIEW
+        ========================================= */
 
-galleryEmpty.style.display = "none";
+        galleryGrid.addEventListener("click", function(event) {
 
-}
+            const image =
+                event.target.closest(".gallery-item img");
 
+            if (!image) {
+                return;
+            }
 
-/* =========================
-   CREATE IMAGE CARDS
-========================= */
+            galleryPreview.src = image.src;
 
-filteredItems.forEach(
-function(item) {
+            galleryPreview.alt = image.alt;
 
-const imageSource =
-item.image ||
-item.fileName ||
-"";
+            galleryOverlay.classList.add("show");
 
+        });
 
-if (!imageSource) {
 
-return;
+        function closeGalleryPreview() {
 
-}
+            galleryOverlay.classList.remove("show");
 
+            galleryPreview.src = "";
 
-const galleryItem =
-document.createElement("div");
+        }
 
-galleryItem.className =
-"gallery-item";
 
+        galleryOverlay.addEventListener("click", function(event) {
 
-galleryItem.setAttribute(
-"data-category",
-normalizeCategory(
-item.category
-)
-);
+            if (event.target === galleryOverlay) {
+                closeGalleryPreview();
+            }
 
+        });
 
-const image =
-document.createElement("img");
 
+        document.addEventListener("keydown", function(event) {
 
-image.src =
-imageSource;
+            if (event.key === "Escape") {
+                closeGalleryPreview();
+            }
 
+        });
 
-image.alt =
-"Gallery Image";
 
+        /* =========================================
+           MOBILE MENU
+        ========================================= */
 
-image.loading =
-"lazy";
+        function toggleMenu(button) {
 
+            const nav = document.querySelector("header nav");
 
-galleryItem.appendChild(
-image
-);
+            if (!nav) {
+                return;
+            }
 
+            const isOpen = nav.classList.toggle("show");
 
-galleryGrid.appendChild(
-galleryItem
-);
+            if (button) {
 
-});
+                button.classList.toggle("active", isOpen);
 
-}
+                button.setAttribute(
+                    "aria-expanded",
+                    String(isOpen)
+                );
 
+            }
 
-/* =========================================================
-   NORMALIZE CATEGORY
-========================================================= */
+        }
 
-function normalizeCategory(category) {
 
-if (!category) {
+        document.querySelectorAll("header nav a").forEach(function(link) {
 
-return "other";
+            link.addEventListener("click", function() {
 
-}
+                const nav =
+                    document.querySelector("header nav");
 
+                const menuButton =
+                    document.querySelector(".menu-toggle");
 
-const value =
-String(category)
-.trim()
-.toLowerCase();
+                if (nav) {
+                    nav.classList.remove("show");
+                }
 
+                if (menuButton) {
 
-const categoryMap = {
+                    menuButton.classList.remove("active");
 
-"all":
-"all",
+                    menuButton.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
 
-"poster":
-"poster",
+                }
 
-"ui/ux design":
-"uiux",
+            });
 
-"ui/ux":
-"uiux",
+        });
 
-"uiux":
-"uiux",
 
-"graphic design":
-"graphic",
+        /* =========================================
+           REFRESH ON RETURN TO PAGE
+        ========================================= */
 
-"graphic":
-"graphic",
+        document.addEventListener("visibilitychange", function() {
 
-"photo editing":
-"photo",
+            if (document.visibilityState === "visible") {
+                loadGalleryData();
+            }
 
-"photo":
-"photo",
+        });
 
-"video editing":
-"video",
 
-"video":
-"video",
+        window.addEventListener("pageshow", function() {
+            loadGalleryData();
+        });
 
-"digital art":
-"digital-art",
 
-"digital-art":
-"digital-art",
+        /* =========================================
+           INITIALIZE
+        ========================================= */
 
-"drawing":
-"drawing",
+        loadGalleryData();
 
-"other":
-"other"
+        subscribeToGalleryChanges();
 
-};
+    </script>
 
 
-return categoryMap[value] || value;
+    <!-- EXISTING DARK MODE SCRIPT -->
 
-}
-
-
-/* =========================================================
-   MOBILE MENU
-========================================================= */
-
-function toggleMenu(menu) {
-
-const nav =
-document.querySelector("header nav");
-
-
-if (nav) {
-
-nav.classList.toggle("show");
-
-}
-
-
-if (menu) {
-
-menu.classList.toggle("active");
-
-}
-
-}
-
-
-document
-.querySelectorAll("nav ul li a")
-.forEach(function(link) {
-
-link.addEventListener(
-"click",
-function() {
-
-const nav =
-document.querySelector(
-"header nav"
-);
-
-
-const menu =
-document.querySelector(
-".menu-toggle"
-);
-
-
-if (nav) {
-
-nav.classList.remove(
-"show"
-);
-
-}
-
-
-if (menu) {
-
-menu.classList.remove(
-"active"
-);
-
-}
-
-});
-
-});
-
-
-/* =========================================================
-   CATEGORY DROPDOWN
-========================================================= */
-
-if (
-dropdownButton &&
-dropdownMenu
-) {
-
-dropdownButton.addEventListener(
-"click",
-function(event) {
-
-event.stopPropagation();
-
-
-dropdownMenu.classList.toggle(
-"show"
-);
-
-
-dropdownButton.classList.toggle(
-"open"
-);
-
-});
-
-}
-
-
-/* =========================================================
-   CATEGORY FILTER
-========================================================= */
-
-options.forEach(function(option) {
-
-option.addEventListener(
-"click",
-function(event) {
-
-event.stopPropagation();
-
-
-currentCategory =
-this.getAttribute(
-"data-category"
-) || "all";
-
-
-options.forEach(
-function(item) {
-
-item.classList.remove(
-"active"
-);
-
-});
-
-
-this.classList.add(
-"active"
-);
-
-
-if (selectedCategory) {
-
-selectedCategory.textContent =
-this.textContent.trim();
-
-}
-
-
-if (dropdownMenu) {
-
-dropdownMenu.classList.remove(
-"show"
-);
-
-}
-
-
-if (dropdownButton) {
-
-dropdownButton.classList.remove(
-"open"
-);
-
-}
-
-
-renderGallery();
-
-});
-
-});
-
-
-/* =========================================================
-   CLOSE DROPDOWN
-========================================================= */
-
-document.addEventListener(
-"click",
-function(event) {
-
-if (
-dropdownButton &&
-dropdownMenu &&
-!dropdownButton.contains(
-event.target
-) &&
-!dropdownMenu.contains(
-event.target
-)
-) {
-
-dropdownMenu.classList.remove(
-"show"
-);
-
-dropdownButton.classList.remove(
-"open"
-);
-
-}
-
-});
-
-
-/* =========================================================
-   IMAGE PREVIEW
-========================================================= */
-
-if (
-galleryGrid &&
-galleryOverlay &&
-galleryPreview
-) {
-
-galleryGrid.addEventListener(
-"click",
-function(event) {
-
-const image =
-event.target.closest(
-".gallery-item img"
-);
-
-
-if (!image) {
-
-return;
-
-}
-
-
-galleryPreview.src =
-image.src;
-
-
-galleryPreview.alt =
-image.alt;
-
-
-galleryOverlay.classList.add(
-"show"
-);
-
-});
-
-
-
-/* =========================
-   CLOSE PREVIEW
-========================= */
-
-galleryPreview.addEventListener(
-"click",
-function() {
-
-galleryOverlay.classList.remove(
-"show"
-);
-
-
-galleryPreview.src = "";
-
-});
-
-
-galleryOverlay.addEventListener(
-"click",
-function(event) {
-
-if (
-event.target ===
-galleryOverlay
-) {
-
-galleryOverlay.classList.remove(
-"show"
-);
-
-
-galleryPreview.src = "";
-
-}
-
-});
-
-}
-
-
-/* =========================================================
-   ESCAPE KEY
-========================================================= */
-
-document.addEventListener(
-"keydown",
-function(event) {
-
-if (
-event.key === "Escape"
-) {
-
-if (galleryOverlay) {
-
-galleryOverlay.classList.remove(
-"show"
-);
-
-}
-
-
-if (galleryPreview) {
-
-galleryPreview.src = "";
-
-}
-
-}
-
-});
-
-
-/* =========================================================
-   UPDATE WHEN ADMIN ADDS / EDITS / DELETES
-========================================================= */
-
-window.addEventListener(
-"storage",
-function(event) {
-
-if (
-event.key ===
-GALLERY_STORAGE_KEY
-) {
-
-loadGalleryData();
-
-}
-
-});
-
-
-/* =========================================================
-   UPDATE WHEN RETURNING TO PAGE
-========================================================= */
-
-document.addEventListener(
-"visibilitychange",
-function() {
-
-if (
-document.visibilityState ===
-"visible"
-) {
-
-loadGalleryData();
-
-}
-
-});
-
-
-/* =========================================================
-   INITIAL LOAD
-========================================================= */
-
-loadGalleryData();
-
-</script>
-
-
-
-<!-- =========================
-     DARK MODE SCRIPT
-========================= -->
-
-<script src="darkmode.js"></script>
-
+    <script src="darkmode.js"></script>
 
 </body>
-
 </html>
